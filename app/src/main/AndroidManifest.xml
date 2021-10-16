@@ -10,7 +10,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CWASHPRO">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.VerifyPhoneActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.VehicleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UserDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.HistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.FirstActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ChangePasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CarWashServiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".staff.StaffMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
