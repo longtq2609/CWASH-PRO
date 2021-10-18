@@ -3,7 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/border_icon_service.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/border_image.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/ic_google_plus.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/ic_login_hero.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_car_wash_service.xml" value="0.16" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_change_password.xml" value="0.2269021739130435" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_first.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_history.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_main.xml" value="0.24682971014492755" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_notification.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_staff_detail_info.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_staff_main.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_user_detail.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_vehicle.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_verify_phone.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_account.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_cancelled_schedule.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_completed_schedule.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_more_function.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_pending_schedule.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_processing_schedule.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_staff_account.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_staff_detail_info_activity.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/fragment_staff_notification.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/menu/navigation.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.353125" />
       </map>
     </option>
