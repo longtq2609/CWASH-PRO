@@ -1,7 +1,7 @@
 # CWASH-PRO
-Đồ án tốt nghiệp: 
+Đồ án tốt nghiệp - 
  Tên dự án: Ứng dụng đặt lịch rửa xe CWASH-PRO - 
- Thành viên nhóm dự án
+  Thành viên nhóm dự án
 1. Trương Quang Long - PH09891
 2.
 3.
