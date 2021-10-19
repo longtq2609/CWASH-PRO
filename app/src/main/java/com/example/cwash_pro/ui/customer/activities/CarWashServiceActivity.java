@@ -1,4 +1,4 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,7 +26,7 @@ import com.example.cwash_pro.adapters.ChooseVehicleAdapter;
 import com.example.cwash_pro.adapters.ServiceAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ScheduleBody;
 import com.example.cwash_pro.models.ServerResponse;

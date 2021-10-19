@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".activities.UserDetailActivity">
+    tools:context=".ui.customer.activities.UserDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

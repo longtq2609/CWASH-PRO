@@ -1,4 +1,4 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,9 +12,9 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.fragments.AccountFragment;
-import com.example.cwash_pro.fragments.HomeFragment;
-import com.example.cwash_pro.fragments.MoreFunctionFragment;
+import com.example.cwash_pro.ui.customer.fragments.AccountFragment;
+import com.example.cwash_pro.ui.customer.fragments.HomeFragment;
+import com.example.cwash_pro.ui.customer.fragments.MoreFunctionFragment;
 import com.example.cwash_pro.services.RemindService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

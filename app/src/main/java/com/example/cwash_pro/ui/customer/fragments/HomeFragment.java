@@ -1,4 +1,4 @@
-package com.example.cwash_pro.fragments;
+package com.example.cwash_pro.ui.customer.fragments;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -20,14 +20,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.activities.CarWashServiceActivity;
-import com.example.cwash_pro.activities.HistoryActivity;
-import com.example.cwash_pro.activities.NotificationActivity;
-import com.example.cwash_pro.activities.VehicleActivity;
+import com.example.cwash_pro.ui.customer.activities.CarWashServiceActivity;
+import com.example.cwash_pro.ui.customer.activities.HistoryActivity;
+import com.example.cwash_pro.ui.customer.activities.NotificationActivity;
+import com.example.cwash_pro.ui.customer.activities.VehicleActivity;
 import com.example.cwash_pro.adapters.NewsAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.News;
 import com.example.cwash_pro.models.ServerResponse;
 

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.News;
 
 import java.util.List;

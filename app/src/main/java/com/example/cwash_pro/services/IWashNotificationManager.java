@@ -10,7 +10,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.activities.SplashActivity;
+import com.example.cwash_pro.ui.customer.activities.SplashActivity;
 import com.example.cwash_pro.utils.Constants;
 
 public class IWashNotificationManager {

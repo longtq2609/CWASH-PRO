@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".staff.fragments.CancelledScheduleFragment">
+    tools:context=".ui.staff.fragments.CancelledScheduleFragment">
 
 
     <androidx.appcompat.widget.Toolbar

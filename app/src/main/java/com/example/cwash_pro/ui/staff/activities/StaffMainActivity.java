@@ -1,4 +1,4 @@
-package com.example.cwash_pro.staff;
+package com.example.cwash_pro.ui.staff.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +11,12 @@ import android.os.Handler;
 import android.view.MenuItem;
 
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.fragments.AccountFragment;
+import com.example.cwash_pro.ui.customer.fragments.AccountFragment;
 import com.example.cwash_pro.models.Schedule;
-import com.example.cwash_pro.staff.fragments.CancelledScheduleFragment;
-import com.example.cwash_pro.staff.fragments.CompletedScheduleFragment;
-import com.example.cwash_pro.staff.fragments.PendingScheduleFragment;
-import com.example.cwash_pro.staff.fragments.ProcessingScheduleFragment;
+import com.example.cwash_pro.ui.staff.fragments.CancelledScheduleFragment;
+import com.example.cwash_pro.ui.staff.fragments.CompletedScheduleFragment;
+import com.example.cwash_pro.ui.staff.fragments.PendingScheduleFragment;
+import com.example.cwash_pro.ui.staff.fragments.ProcessingScheduleFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

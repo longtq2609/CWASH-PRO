@@ -1,4 +1,4 @@
-package com.example.cwash_pro.fragments;
+package com.example.cwash_pro.ui.customer.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;

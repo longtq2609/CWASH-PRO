@@ -1,4 +1,4 @@
-package com.example.cwash_pro.staff.fragments;
+package com.example.cwash_pro.ui.staff.fragments;
 
 import android.os.Bundle;
 

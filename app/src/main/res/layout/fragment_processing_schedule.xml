@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".staff.fragments.ProcessingScheduleFragment">
+    tools:context=".ui.staff.fragments.ProcessingScheduleFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

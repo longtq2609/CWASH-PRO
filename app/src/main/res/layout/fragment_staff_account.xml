@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FDFDFD"
     android:orientation="vertical"
-    tools:context=".staff.fragments.StaffAccountFragment">
+    tools:context=".ui.staff.fragments.StaffAccountFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

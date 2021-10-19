@@ -1,4 +1,11 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.staff.fragments;
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,12 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
@@ -38,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserDetailActivity extends AppCompatActivity {
+public class StaffDetailInfoActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText editFullName;
     private EditText editPhoneNumber;
@@ -54,7 +55,7 @@ public class UserDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_detail);
+        setContentView(R.layout.activity_staff_detail_info);
         initView();
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -64,10 +65,10 @@ public class UserDetailActivity extends AppCompatActivity {
         }
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
-        editPhoneNumber.setText(RetrofitClient.user.getPhoneNumber());
-        editFullName.setText(RetrofitClient.user.getFullName());
-        editAddress.setText(RetrofitClient.user.getAddress());
-        Glide.with(Objects.requireNonNull(getApplicationContext())).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
+        editPhoneNumber.setText(getIntent().getStringExtra("phone"));
+        editFullName.setText(getIntent().getStringExtra("fullName"));
+        editAddress.setText(getIntent().getStringExtra("address"));
+        Glide.with(Objects.requireNonNull(getApplicationContext())).load(getIntent().getStringExtra("avatar")).into(imgAvatar);
         checkPermission();
         icCamera.setOnClickListener(v -> capturePicture());
         icImage.setOnClickListener(v -> {
@@ -77,17 +78,15 @@ public class UserDetailActivity extends AppCompatActivity {
         });
         btnUpdate.setOnClickListener(v -> {
             updateInfor();
-            Log.d("onCreate: ", "hihi");
         });
     }
 
     public void updateInfor() {
         MultipartBody.Part filePart = null;
         if (uri != null) {
-            Log.d("updateInfor: ", "Co anh");
             File file = new File(Support.getPathFromUri(getApplicationContext(), uri));
             RequestBody requestBody = RequestBody.create(MediaType.parse(
-                    UserDetailActivity.this.getContentResolver().getType(uri)), file);
+                    StaffDetailInfoActivity.this.getContentResolver().getType(uri)), file);
             filePart = MultipartBody.Part.createFormData(
                     "avatar", file.getName(), requestBody);
         }

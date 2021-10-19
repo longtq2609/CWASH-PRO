@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.Time;
 import com.example.cwash_pro.models.User;
@@ -38,7 +38,6 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
         this.pendingList = pendingList;
         this.staffList = staffList;
     }
-
 
     @NonNull
     @Override
@@ -94,8 +93,6 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
 
             }
         }
-
-
     }
 
     @Override
@@ -125,8 +122,6 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
                     Toast.makeText(context, timeList.get(getAdapterPosition()).getTime(), Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }
-
-
             });
         }
     }

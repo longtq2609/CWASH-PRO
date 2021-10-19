@@ -1,4 +1,4 @@
-package com.example.cwash_pro.staff.fragments;
+package com.example.cwash_pro.ui.staff.fragments;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -23,7 +23,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.adapters.ScheduleAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
 

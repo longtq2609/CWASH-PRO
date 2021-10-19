@@ -1,4 +1,4 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

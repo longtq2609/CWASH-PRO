@@ -1,4 +1,4 @@
-package com.example.cwash_pro.callback;
+package com.example.cwash_pro.myinterface;
 
 import android.view.View;
 

@@ -1,4 +1,4 @@
-package com.example.cwash_pro.staff.fragments;
+package com.example.cwash_pro.ui.staff.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
-import com.example.cwash_pro.activities.LoginActivity;
+import com.example.cwash_pro.ui.customer.activities.LoginActivity;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;

@@ -1,4 +1,4 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +24,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.adapters.VehicleAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.models.Vehicle;
 

@@ -1,4 +1,4 @@
-package com.example.cwash_pro.activities;
+package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +18,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
-import com.example.cwash_pro.staff.StaffMainActivity;
-import com.google.firebase.FirebaseApp;
+import com.example.cwash_pro.ui.staff.activities.StaffMainActivity;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Call;
