@@ -91,7 +91,7 @@ public class UserDetailActivity extends AppCompatActivity {
             filePart = MultipartBody.Part.createFormData(
                     "avatar", file.getName(), requestBody);
         }
-        RetrofitClient.getInstance().create(ApiService.class).updateInfo(editFullName.getText().toString(), editAddress.getText().toString(),
+        RetrofitClient.getInstance().create(ApiService.class).updateInfo( editFullName.getText().toString(), editAddress.getText().toString(),
                 filePart).enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {

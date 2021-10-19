@@ -15,7 +15,7 @@
     </style>
     <style name="MyAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/navigationBarColor</item>                       <!--Màu chính (ví dụ nền AppBar)-->
-        <item name="colorPrimaryDark">@color/colorPrimary</item>               <!--Màu nền thanh trạng thái điện thoại-->
+        <item name="colorPrimaryDark">@color/black</item>               <!--Màu nền thanh trạng thái điện thoại-->
         <item name="android:navigationBarColor">@color/navigationBarColor</item>   <!--Màu nền điều hướng điện thoại-->
         <item name="colorAccent">@color/colorAccent</item>                         <!--Màu nhấn mạnh (kiểm trong checkbox, gạch chân TextBox ...)-->
         <!--Màu nền Activity-->
