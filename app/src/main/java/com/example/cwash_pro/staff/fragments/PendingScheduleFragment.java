@@ -1,66 +1,151 @@
 package com.example.cwash_pro.staff.fragments;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.adapters.ScheduleAdapter;
+import com.example.cwash_pro.apis.ApiService;
+import com.example.cwash_pro.apis.RetrofitClient;
+import com.example.cwash_pro.callback.ItemClick;
+import com.example.cwash_pro.models.Schedule;
+import com.example.cwash_pro.models.ServerResponse;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PendingScheduleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class PendingScheduleFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PendingScheduleFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PendingScheduleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PendingScheduleFragment newInstance(String param1, String param2) {
-        PendingScheduleFragment fragment = new PendingScheduleFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RecyclerView rvPendingSchedule;
+    private List<Schedule> scheduleList;
+    ScheduleAdapter scheduleAdapter;
+    Button btnConfirm, btnCancel;
+    FragmentManager fragmentManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pending_schedule, container, false);
+        View view = inflater.inflate(R.layout.fragment_pending_schedule, container, false);
+        initView(view);
+        scheduleList = new ArrayList<>();
+        fragmentManager = getActivity().getSupportFragmentManager();
+        RetrofitClient.getInstance().create(ApiService.class).getAllSchedule().enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                List<Schedule> schedules = response.body().schedules;
+                if (response.body().success) {
+                    for (int i = 0; i < schedules.size(); i++) {
+                        if (schedules.get(i).getStatus().equals("Pending")) {
+                            scheduleList.add(schedules.get(i));
+                        }
+                    }
+                    scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), new ItemClick() {
+                        @Override
+                        public void setOnItemClick(View v, int pos) {
+                            if (v.getId() == R.id.btnConfirm) {
+                                RetrofitClient.getInstance().create(ApiService.class).confirm(scheduleList.get(pos).getId(), "Confirmed").enqueue(new Callback<ServerResponse>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
+                                        if (response1.body().success) {
+                                            ProgressDialog dialog = new ProgressDialog(getContext());
+                                            dialog.setMessage("Đang xác nhận");
+                                            dialog.show();
+                                            new Handler().postDelayed(() -> {
+                                                scheduleList.remove(pos);
+                                                scheduleAdapter.notifyDataSetChanged();
+                                                dialog.dismiss();
+                                            }, 2000);
+                                            Toast.makeText(getActivity(), " Xác nhận thành công", Toast.LENGTH_SHORT).show();
+                                            //setCurrentFragment(new ProcessingScheduleFragment());
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                                        Log.d("onFailure: ", t.getMessage());
+                                    }
+                                });
+                            } else if (v.getId() == R.id.btnCancel) {
+                                AlertDialog builder = new AlertDialog.Builder(getContext()).create();
+                                View dialog = LayoutInflater.from(getContext()).inflate(R.layout.dialog_cancel_schedule, null);
+                                EditText edtNote = dialog.findViewById(R.id.edtNote);
+                                Button btnCancel = dialog.findViewById(R.id.btnOKCancel);
+                                Button btnNone = dialog.findViewById(R.id.btnNone);
+                                btnNone.setOnClickListener(view1 -> {
+                                    builder.dismiss();
+                                });
+                                btnCancel.setOnClickListener(v1 -> {
+                                    RetrofitClient.getInstance().create(ApiService.class).cancel(scheduleList.get(pos).getId(), edtNote.getText().toString(), "Canceled").enqueue(new Callback<ServerResponse>() {
+                                        @Override
+                                        public void onResponse(@NonNull Call<ServerResponse> call2, @NonNull Response<ServerResponse> response2) {
+                                            if (response2.body().success) {
+                                                ProgressDialog dialog = new ProgressDialog(getContext());
+                                                dialog.setMessage("Đang hủy");
+                                                dialog.show();
+                                                new Handler().postDelayed(() -> {
+                                                    scheduleList.remove(pos);
+                                                    scheduleAdapter.notifyDataSetChanged();
+                                                    dialog.dismiss();
+                                                }, 2000);
+                                                Toast.makeText(getActivity(), "Hủy thành công", Toast.LENGTH_SHORT).show();
+                                                setCurrentFragment(new CancelledScheduleFragment());
+                                                builder.dismiss();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(@NonNull Call<ServerResponse> call12, @NonNull Throwable t) {
+                                            Log.d("onFailure: ", t.getMessage());
+                                        }
+                                    });
+                                });
+                                builder.setView(dialog);
+                                builder.show();
+                            }
+                        }
+                    });
+                    rvPendingSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    rvPendingSchedule.setAdapter(scheduleAdapter);
+                } else {
+                    Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                Log.e("onFailureStaffMain: ", t.getMessage());
+            }
+        });
+        return view;
+    }
+
+    private void initView(View view) {
+        rvPendingSchedule = view.findViewById(R.id.rvPendingSchedule);
+        btnConfirm = view.findViewById(R.id.btnConfirm);
+        btnCancel = view.findViewById(R.id.btnCancel);
+    }
+
+    private void setCurrentFragment(Fragment fragment) {
+        fragmentManager.beginTransaction().replace(R.id.flFragment2, fragment).commit();
     }
 }

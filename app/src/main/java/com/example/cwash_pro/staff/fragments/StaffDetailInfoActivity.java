@@ -1,66 +1,181 @@
 package com.example.cwash_pro.staff.fragments;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.apis.ApiService;
+import com.example.cwash_pro.apis.RetrofitClient;
+import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.utils.Support;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StaffDetailInfoActivity#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class StaffDetailInfoActivity extends Fragment {
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class StaffDetailInfoActivity extends AppCompatActivity {
+    private Toolbar toolbar;
+    private EditText editFullName;
+    private EditText editPhoneNumber;
+    private EditText editAddress;
+    private ImageView imgAvatar, icImage, icCamera;
+    Button btnUpdate;
+    int REQUEST_CODE_IMAGE = 100;
+    int REQUEST_CODE_IMAGE_STORAGE = 200;
+    public static final int PERMISSION_READ = 0;
+    Bitmap bitmap;
+    Uri uri;
 
-    public StaffDetailInfoActivity() {
-        // Required empty public constructor
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_staff_detail_info);
+        initView();
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle("Back");
+        }
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+
+        editPhoneNumber.setText(getIntent().getStringExtra("phone"));
+        editFullName.setText(getIntent().getStringExtra("fullName"));
+        editAddress.setText(getIntent().getStringExtra("address"));
+        Glide.with(Objects.requireNonNull(getApplicationContext())).load(getIntent().getStringExtra("avatar")).into(imgAvatar);
+        checkPermission();
+        icCamera.setOnClickListener(v -> capturePicture());
+        icImage.setOnClickListener(v -> {
+            Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(pickPhoto, REQUEST_CODE_IMAGE_STORAGE);
+        });
+        btnUpdate.setOnClickListener(v -> {
+            updateInfor();
+        });
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StaffDetailInfoActivity.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static StaffDetailInfoActivity newInstance(String param1, String param2) {
-        StaffDetailInfoActivity fragment = new StaffDetailInfoActivity();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public void updateInfor() {
+        MultipartBody.Part filePart = null;
+        if (uri != null) {
+            File file = new File(Support.getPathFromUri(getApplicationContext(), uri));
+            RequestBody requestBody = RequestBody.create(MediaType.parse(
+                    StaffDetailInfoActivity.this.getContentResolver().getType(uri)), file);
+            filePart = MultipartBody.Part.createFormData(
+                    "avatar", file.getName(), requestBody);
+        }
+        RetrofitClient.getInstance().create(ApiService.class).updateInfo(editFullName.getText().toString(), editAddress.getText().toString(),
+                filePart).enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body().success) {
+                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                    RetrofitClient.user = response.body().user;
+                } else {
+                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                Log.d("onFailureUser: ", t.getMessage());
+            }
+        });
+    }
+
+    private void initView() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        editFullName = (EditText) findViewById(R.id.edit_full_name);
+        editPhoneNumber = (EditText) findViewById(R.id.edit_phone_number);
+        editAddress = (EditText) findViewById(R.id.edtAddress);
+        imgAvatar = (ImageView) findViewById(R.id.imgAvatar);
+        icImage = findViewById(R.id.icImage);
+        btnUpdate = findViewById(R.id.btnUpdate);
+        icCamera = findViewById(R.id.icCamera);
+    }
+
+    private void capturePicture() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, REQUEST_CODE_IMAGE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_IMAGE);
+        }
+
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_IMAGE && resultCode == RESULT_OK && data != null) {
+            //xử lí h.ả lúc chụp
+            try {
+                bitmap = (Bitmap) data.getExtras().get("data");
+                imgAvatar.setImageBitmap(bitmap);
+                uri = data.getData();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == REQUEST_CODE_IMAGE_STORAGE && resultCode == RESULT_OK && data != null) {
+            try {
+                //xử lý lấy ảnh chọn từ điện thoại:
+                uri = data.getData();
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                imgAvatar.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    public boolean checkPermission() {
+        int READ_EXTERNAL_PERMISSION = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        if ((READ_EXTERNAL_PERMISSION != PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_READ);
+            return false;
+        }
+        return true;
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_staff_detail_info, container, false);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_READ) {
+            if (grantResults.length > 0 && permissions[0].equals(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    Toast.makeText(getApplicationContext(), "Please allow storage permission", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 }

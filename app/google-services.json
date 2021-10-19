@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "563754045920",
+    "project_id": "cwash-pro",
+    "storage_bucket": "cwash-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563754045920:android:20e98dc39b4fd90a825b85",
+        "android_client_info": {
+          "package_name": "com.example.cwash_pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563754045920-169tt6avp71porea2idc51dm15fqtk9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cwash_pro",
+            "certificate_hash": "8632c70a0a5796c327223614d65355ae6417c973"
+          }
+        },
+        {
+          "client_id": "563754045920-4a99poch3lv24obo8poaem2drgmemq1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxQr861NfI-Sf1KnJLJ72ADiF302052VA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563754045920-4a99poch3lv24obo8poaem2drgmemq1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
