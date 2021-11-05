@@ -3,7 +3,7 @@
  Tên dự án: Ứng dụng đặt lịch rửa xe CWASH-PRO - 
   Thành viên nhóm dự án
 1. Trương Quang Long - PH09891
-2. Nguyễn HOài Sơn
+2. Nguyễn Hoài Sơn
 3. Trương Việt Hùng
 4. Nguyễn Đình Dũng
 5. Trần Ngọc Đức
