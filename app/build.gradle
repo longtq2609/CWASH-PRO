@@ -71,5 +71,7 @@ dependencies {
     implementation 'io.github.amrdeveloper:lottiedialog:1.0.0'
     //Circle Indicator
     implementation 'me.relex:circleindicator:2.1.6'
+    //Custom Button
+    implementation 'io.github.nikartm:fit-button:2.0.0'
 
 }

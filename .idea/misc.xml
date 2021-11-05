@@ -19,11 +19,12 @@
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/ic_baseline_model_training_24.xml" value="0.17083333333333334" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/ic_google_plus.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/ic_login_hero.xml" value="0.1" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/sdfe.xml" value="0.353125" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/shape_avatar.xml" value="0.3476923076923077" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/shape_bottombar.xml" value="0.18974358974358974" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/shape_btn_login.xml" value="0.21041666666666667" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/drawable/shape_email_pass.xml" value="0.19635416666666666" />
-        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_car_wash_service.xml" value="0.16" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_car_wash_service.xml" value="0.38232044198895027" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_change_password.xml" value="0.2269021739130435" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_first.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/activity_history.xml" value="0.1" />
@@ -73,6 +74,7 @@
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/shape_btn_login_white.xml" value="0.17291666666666666" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/menu/navigation.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.353125" />
+        <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.19635416666666666" />
       </map>
     </option>
   </component>

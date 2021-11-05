@@ -66,10 +66,10 @@
         <LinearLayout
             android:id="@+id/layoutUserInfo"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="15dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_alignParentTop="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/background_list_news"
             android:orientation="horizontal"
             android:padding="16dp">
@@ -90,140 +90,119 @@
 
                 <TextView
                     android:id="@+id/tvName"
-                    style="@style/TextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="24sp"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textColor="#344187"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvPhone"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:textColor="@color/black" />
+                    android:textColor="#344187"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
 
-
-            <LinearLayout
-                android:id="@+id/LayoutListService"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/LayoutListService"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/layoutUserInfo"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="16dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <com.github.nikartm.button.FitButton
+                android:id="@+id/btnOpenWashService"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_below="@+id/layoutUserInfo"
-                android:layout_marginTop="16dp"
-                android:baselineAligned="false"
-                android:layout_marginHorizontal="15dp"
-                android:orientation="horizontal">
+                android:enabled="true"
+                android:gravity="center"
+                app:fb_cornerRadius="2dp"
+                app:fb_shape="circle"
+                app:fb_divColor="#fff"
+                app:fb_icon="@drawable/ic_car_wash"
+                app:fb_divWidth="1dp"
+                app:fb_iconPosition="top"
+                app:fb_rippleColor="#FBE9E7"
+                app:fb_iconWidth="50dp"
+                app:fb_iconMarginBottom="5dp"
+                app:fb_iconHeight="50dp"
+                app:fb_iconColor="#344187"
+                app:fb_textColor="#344187"
+                app:fb_textStyle="bold"
+                app:fb_textSize="12sp"
+                app:fb_borderColor="@color/mainColor"
+                app:fb_borderWidth="2dp"
+                app:fb_text="Rửa xe"
+                app:fb_backgroundColor="@color/white"/>
+            <com.github.nikartm.button.FitButton
+                android:id="@+id/btnOpenVehicle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:enabled="true"
+                android:gravity="center"
+                app:fb_cornerRadius="2dp"
+                app:fb_shape="circle"
+                app:fb_divColor="#fff"
+                android:layout_marginHorizontal="38dp"
+                app:fb_icon="@drawable/ic_traffic_jam"
+                app:fb_divWidth="1dp"
+                app:fb_iconPosition="top"
+                app:fb_rippleColor="#FBE9E7"
+                app:fb_iconWidth="50dp"
+                app:fb_textStyle="bold"
+                app:fb_iconMarginBottom="5dp"
+                app:fb_iconHeight="50dp"
+                app:fb_iconColor="#344187"
+                app:fb_textColor="#344187"
+                app:fb_borderColor="@color/mainColor"
+                app:fb_borderWidth="2dp"
+                app:fb_textSize="12sp"
+                app:fb_text="Phương tiện"
+                app:fb_backgroundColor="@color/white"/>
+            <com.github.nikartm.button.FitButton
+                android:id="@+id/btnOpenHistory"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:enabled="true"
+                android:gravity="center"
+                app:fb_cornerRadius="2dp"
+                app:fb_shape="circle"
+                app:fb_divColor="#fff"
+                app:fb_icon="@drawable/ic_history_car"
+                app:fb_divWidth="1dp"
+                app:fb_iconPosition="top"
+                app:fb_rippleColor="#FBE9E7"
+                app:fb_iconWidth="50dp"
+                app:fb_iconMarginBottom="5dp"
+                app:fb_iconHeight="50dp"
+                app:fb_textSize="12sp"
+                app:fb_textStyle="bold"
+                app:fb_iconColor="#344187"
+                app:fb_textColor="#344187"
+                app:fb_borderColor="@color/mainColor"
+                app:fb_borderWidth="2dp"
+                app:fb_text="Lịch sử"
+                app:fb_backgroundColor="@color/white"/>
+        </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/layoutOpenWashService"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/custom_circle_button"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        tools:ignore="NestedWeights">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:srcCompat="@drawable/ic_car_wash" />
-                    </LinearLayout>
-
-                    <TextView
-                        style="@style/TextElement.small"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/wash_services"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutOpenVehicle"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/custom_circle_button"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="15dp"
-                        tools:ignore="NestedWeights">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:srcCompat="@drawable/ic_car" />
-                    </LinearLayout>
-
-                    <TextView
-                        style="@style/TextElement.small"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textSize="12sp"
-                        android:text="@string/your_vehicle"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutOpenHistory"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="32dp"
-                    android:background="@drawable/custom_circle_button"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        tools:ignore="NestedWeights">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:srcCompat="@drawable/ic_history_car" />
-                    </LinearLayout>
-
-                    <TextView
-                        style="@style/TextElement.small"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/history"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-            </LinearLayout>
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginHorizontal="15dp"
             android:layout_below="@+id/LayoutListService"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="5dp"
-            android:background="@color/mainColor" />
+            android:background="#344187" />
 
 
         <LinearLayout
@@ -231,20 +210,20 @@
             android:layout_height="250dp"
             android:layout_below="@+id/line"
             android:layout_alignParentBottom="true"
-            android:gravity="center"
             android:layout_marginTop="25dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_page_2"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="0dp"
+                android:layout_weight="1"
                 android:paddingStart="80dp"
                 android:paddingEnd="80dp" />
 
             <me.relex.circleindicator.CircleIndicator3
-                android:id="@+id/hu"
+                android:id="@+id/dotViewPage"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"

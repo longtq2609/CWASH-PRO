@@ -46,7 +46,6 @@ import retrofit2.Response;
 public class CarWashServiceActivity extends AppCompatActivity {
     List<Vehicle> vehicleList;
     List<Service> serviceList;
-    private Toolbar toolbar;
     private Spinner spnVehicleCar;
     private TextView tvDate;
     LinearLayout tvChooseDate;
@@ -66,7 +65,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_wash_service);
         initView();
-        setToolBar();
         vehicleList = new ArrayList<>();
         serviceList = new ArrayList<>();
         timeList = new ArrayList<>();
@@ -212,7 +210,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
 
 
     private void initView() {
-        toolbar = findViewById(R.id.toolbar);
         spnVehicleCar = findViewById(R.id.spnVehicleCar);
         tvChooseDate = findViewById(R.id.tvChooseDate);
         tvDate = findViewById(R.id.tvDate);
@@ -221,16 +218,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
         btnBook = findViewById(R.id.btnBook);
     }
 
-    private void setToolBar() {
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setTitle(R.string.schedule);
-        }
-        toolbar.setNavigationIcon(R.drawable.backicon);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-    }
+
 
     private void getServices() {
         RetrofitClient.getInstance().create(ApiService.class).getServices().enqueue(new Callback<ServerResponse>() {

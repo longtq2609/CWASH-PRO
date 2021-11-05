@@ -7,30 +7,76 @@
     android:orientation="vertical"
     tools:context=".ui.customer.activities.CarWashServiceActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/white" />
+        android:layout_height="90dp"
+        android:background="@drawable/header_top_bar"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/report"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            style="@style/TextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Đặt lịch"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="8dp"
-        android:layout_weight="1">
+        android:layout_marginTop="-18dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvChooseVehicle"
-                style="@style/TextElement"
+                android:gravity="center"
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:text="@string/choose_vehicles" />
+                android:text="Thông tin đặt lịch"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvChooseVehicle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="13dp"
+                android:text="@string/choose_vehicles"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:id="@+id/view1"
@@ -106,7 +152,9 @@
                 android:id="@+id/rvTime"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/tvChooseTime" />
+                android:layout_below="@+id/tvChooseTime"
+                android:background="@drawable/background_list_news"
+                android:padding="10dp" />
 
             <TextView
                 android:id="@+id/tvService"
@@ -122,7 +170,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvService"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_list_news"
+                android:padding="10dp" />
 
             <TextView
                 android:id="@+id/tvNote"
@@ -139,21 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNote" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv"-->
-            <!--                style="@style/TextElement"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@id/rvService"-->
-            <!--                android:layout_marginTop="8dp"-->
-            <!--                android:text="Ghi chú" />-->
-
-            <!--            <EditText-->
-            <!--                android:id="@+id/edtNote"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@id/tvNote" />-->
         </RelativeLayout>
+
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -163,10 +200,14 @@
 
         <Button
             android:id="@+id/btnBook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="@string/book"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/shape_btn_login"
+            android:text="Đặt lịch"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

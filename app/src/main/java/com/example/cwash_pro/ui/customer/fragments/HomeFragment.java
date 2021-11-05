@@ -37,6 +37,8 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.News;
 import com.example.cwash_pro.models.ServerResponse;
+import com.github.nikartm.button.FitButton;
+import com.github.siyamed.shapeimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +55,9 @@ public class HomeFragment extends Fragment {
     private ViewPager2 mViewPager2;
     private CircleIndicator3 mCircleIndicator3;
     private List<News> newsList = new ArrayList<>();
-    LinearLayout layoutOpenWashService, layoutOpenVehicle, layoutOpenHistory;
-    private Handler mHandler = new Handler(Looper.getMainLooper());
-    private Runnable mRunnable = new Runnable() {
+    private FitButton btnOpenWashService, btnOpenVehicle, btnOpenHistory;
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
+    private final Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
             int currentPosition = mViewPager2.getCurrentItem();
@@ -74,9 +76,9 @@ public class HomeFragment extends Fragment {
         initView(view);
         loadDataUserInfo();
         getNews();
-        layoutOpenWashService.setOnClickListener(v -> startActivity(new Intent(getContext(), CarWashServiceActivity.class)));
-        layoutOpenHistory.setOnClickListener(v -> startActivity(new Intent(getContext(), HistoryActivity.class)));
-        layoutOpenVehicle.setOnClickListener(v -> startActivity(new Intent(getContext(), VehicleActivity.class)));
+        btnOpenWashService.setOnClickListener(v -> startActivity(new Intent(getContext(), CarWashServiceActivity.class)));
+        btnOpenHistory.setOnClickListener(v -> startActivity(new Intent(getContext(), HistoryActivity.class)));
+        btnOpenVehicle.setOnClickListener(v -> startActivity(new Intent(getContext(), VehicleActivity.class)));
         imgNotification.setOnClickListener(v -> startActivity(new Intent(getContext(), NotificationActivity.class)));
         return view;
     }
@@ -91,12 +93,13 @@ public class HomeFragment extends Fragment {
                     mViewPager2.setAdapter(new NewsAdapter(getContext(), newsList, (view, pos) -> {
                         AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                         View v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_news_detail, null, false);
-                        ImageView imgNews = v.findViewById(R.id.imgNews);
+                        RoundedImageView imgNews = v.findViewById(R.id.imgNews);
                         TextView tvTitle = v.findViewById(R.id.tvTitle);
                         TextView tvDescription = v.findViewById(R.id.tvDescription);
                         Glide.with(getActivity()).load(RetrofitClient.link + newsList.get(pos).getImage()).into(imgNews);
                         tvTitle.setText(newsList.get(pos).getTitle());
                         tvDescription.setText(newsList.get(pos).getDescription());
+                        alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
                         alertDialog.setView(v);
                         alertDialog.show();
                     }));
@@ -126,11 +129,11 @@ public class HomeFragment extends Fragment {
         imgNotification = (ImageView) view.findViewById(R.id.imgNotification);
         tvName = (TextView) view.findViewById(R.id.tvName);
         tvPhone = (TextView) view.findViewById(R.id.tvPhone);
-        layoutOpenWashService = view.findViewById(R.id.layoutOpenWashService);
-        layoutOpenVehicle = view.findViewById(R.id.layoutOpenVehicle);
-        layoutOpenHistory = view.findViewById(R.id.layoutOpenHistory);
+        btnOpenWashService = view.findViewById(R.id.btnOpenWashService);
+        btnOpenVehicle = view.findViewById(R.id.btnOpenVehicle);
+        btnOpenHistory = view.findViewById(R.id.btnOpenHistory);
         mViewPager2 = view.findViewById(R.id.view_page_2);
-        mCircleIndicator3 = view.findViewById(R.id.hu);
+        mCircleIndicator3 = view.findViewById(R.id.dotViewPage);
         mViewPager2.setOffscreenPageLimit(3);
         mViewPager2.setClipToPadding(false);
         mViewPager2.setClipChildren(false);
