@@ -9,7 +9,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    //    public static final String link = "http://192.168.1.11:5000/";
     public static final String link = "https://cwash-pro.herokuapp.com/";
     public static Retrofit retrofit;
     public static String JWT = "";
