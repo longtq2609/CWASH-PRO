@@ -14,12 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="MyAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/navigationBarColor</item>                       <!--Màu chính (ví dụ nền AppBar)-->
-        <item name="colorPrimaryDark">@color/black</item>               <!--Màu nền thanh trạng thái điện thoại-->
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>   <!--Màu nền điều hướng điện thoại-->
-        <item name="colorAccent">@color/colorAccent</item>                         <!--Màu nhấn mạnh (kiểm trong checkbox, gạch chân TextBox ...)-->
+        <item name="colorPrimary">@color/mainColor</item>                       <!--Màu chính (ví dụ nền AppBar)-->
+        <item name="colorPrimaryDark">@color/mainColor</item>               <!--Màu nền thanh trạng thái điện thoại-->
+        <item name="android:navigationBarColor">@color/mainColor</item>   <!--Màu nền điều hướng điện thoại-->
+        <item name="colorAccent">@color/mainColor</item>                         <!--Màu nhấn mạnh (kiểm trong checkbox, gạch chân TextBox ...)-->
         <!--Màu nền Activity-->
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>       <!--Màu chữ trong các control như Button ... -->
+        <item name="android:textColorPrimary">@color/mainColor</item>       <!--Màu chữ trong các control như Button ... -->
         <item name="android:textColorSecondary">@color/textColorSecondary</item>   <!--Màu chữ ở trạng thái  ... -->
     </style>
 

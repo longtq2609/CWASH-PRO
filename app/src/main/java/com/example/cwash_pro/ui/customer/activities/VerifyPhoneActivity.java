@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cwash_pro.R;
@@ -33,6 +34,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     Button btnSignUp;
     String phoneNumber;
+    TextView tvNumberPhoneUser;
     ImageView imgBack;
 
     @Override
@@ -42,9 +44,11 @@ public class VerifyPhoneActivity extends AppCompatActivity {
         edtCode = findViewById(R.id.edtCode);
         imgBack = findViewById(R.id.imgBack);
         btnSignUp = findViewById(R.id.btnSignUp);
+        tvNumberPhoneUser = findViewById(R.id.tvNumberPhoneUser);
         imgBack.setOnClickListener(v -> onBackPressed());
         firebaseAuth = FirebaseAuth.getInstance();
         phoneNumber = getIntent().getStringExtra("phone_number");
+        tvNumberPhoneUser.setText(phoneNumber);
         sendVerificationCode(phoneNumber);
         btnSignUp.setOnClickListener(v -> {
             String code = edtCode.getText().toString().trim();

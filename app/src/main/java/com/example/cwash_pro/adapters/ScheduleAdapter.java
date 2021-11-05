@@ -70,7 +70,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof PendingHolder) {
             PendingHolder pendingHolder = (PendingHolder) holder;
             pendingHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
-            pendingHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+           // pendingHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -88,7 +88,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else if (holder instanceof CompletedHolder) {
             CompletedHolder completedHolder = (CompletedHolder) holder;
             completedHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
-            completedHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+//            completedHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -97,7 +97,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else {
             CancelHolder cancelHolder = (CancelHolder) holder;
             cancelHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
-            cancelHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+           // cancelHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());

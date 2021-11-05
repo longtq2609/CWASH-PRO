@@ -21,4 +21,6 @@
     <color name="textColorSecondary">#007FBF</color>
     <color name="bacgroudcolor">#007FBF</color>
     <color name="red">#ff3d00</color>
+    <color name="mainColor">#F5802A</color>
+
 </resources>

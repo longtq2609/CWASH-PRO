@@ -41,7 +41,7 @@ public class MoreFunctionFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         tvPolicyandprivacy.setOnClickListener(v -> {
-            Intent intentToLink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://iwashservice.blogspot.com/2021/03/chinh-sach-bao-mat-thong-tin-trong-qua.html"));
+            Intent intentToLink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cwash-pro.blogspot.com/2021/10/chinh-sach-bao-mat-thong-tin.html"));
             startActivity(intentToLink);
         });
         tvShare.setOnClickListener(new View.OnClickListener() {

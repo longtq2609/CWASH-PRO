@@ -1,33 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.customer.activities.SplashActivity"
-    android:gravity="center"
-    android:background="@color/colorPrimary">
-    <FrameLayout
-        android:layout_gravity="center"
-        android:layout_width="450dp"
-        android:layout_height="450dp"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/icon_splash" />
-        <TextView
-            android:id="@+id/tvSplash"
-            android:layout_marginHorizontal="50dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            android:layout_marginTop="300dp"
-            android:gravity="center"
-            android:text=""
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </FrameLayout>
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.customer.activities.SplashActivity">
 
-</LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="110dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/timeClock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/21/2021"
+        android:textColor="#F5802A"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeClock" />
+
+    <TextView
+        android:id="@+id/timeClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:text="12:01"
+        android:textColor="#F5802A"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imgView2"
+        android:layout_width="1578dp"
+        android:layout_height="1234dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/group_7921"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.676"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.268" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

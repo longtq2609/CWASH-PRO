@@ -11,42 +11,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@drawable/bg_top_bar"
+        android:background="@drawable/header_top_bar"
         android:gravity="center">
+
         <ImageView
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="15dp"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
-            android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back" />
+
         <TextView
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:text="@string/app_name"
+            android:text="Trang chủ"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_marginBottom="15dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imgNotification"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginEnd="8dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -56,54 +58,55 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-30dp">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/layoutUserInfo"
             android:layout_width="match_parent"
-            android:padding="16dp"
-            android:layout_marginTop="-30dp"
+            android:layout_marginHorizontal="15dp"
             android:layout_height="wrap_content"
-           >
+            android:layout_marginTop="15dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/background_list_news"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <com.github.siyamed.shapeimageview.RoundedImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:siBorderWidth="1dp"
+                app:siRadius="15dp"
+                app:siSquare="true" />
 
             <LinearLayout
-                android:id="@+id/layoutUserInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/background_list_news"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
 
-                <com.github.siyamed.shapeimageview.RoundedImageView
-                    android:id="@+id/imgAvatar"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    app:siBorderWidth="1dp"
-                    app:siRadius="15dp"
-                    app:siSquare="true" />
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="16dp">
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvName"
-                        style="@style/TextTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/black" />
             </LinearLayout>
+        </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/LayoutListService"
@@ -112,13 +115,15 @@
                 android:layout_below="@+id/layoutUserInfo"
                 android:layout_marginTop="16dp"
                 android:baselineAligned="false"
+                android:layout_marginHorizontal="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/layoutOpenWashService"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginEnd="32dp"
+                    android:background="@drawable/custom_circle_button"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -126,7 +131,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/background_list_news"
                         android:gravity="center"
                         android:padding="10dp"
                         tools:ignore="NestedWeights">
@@ -148,9 +152,10 @@
 
                 <LinearLayout
                     android:id="@+id/layoutOpenVehicle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/custom_circle_button"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -158,7 +163,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/background_list_news"
                         android:gravity="center"
                         android:padding="15dp"
                         tools:ignore="NestedWeights">
@@ -175,15 +179,17 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:textSize="12sp"
                         android:text="@string/your_vehicle"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layoutOpenHistory"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="32dp"
+                    android:background="@drawable/custom_circle_button"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -191,7 +197,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/background_list_news"
                         android:gravity="center"
                         android:padding="10dp"
                         tools:ignore="NestedWeights">
@@ -211,32 +216,41 @@
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_below="@+id/LayoutListService"
+            android:layout_marginTop="5dp"
+            android:background="@color/mainColor" />
 
-            <View
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/line"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_page_2"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="3dp"
-                android:layout_below="@+id/LayoutListService"
-                android:background="@color/black" />
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp" />
 
-            <TextView
-                android:id="@+id/tvNews"
-                style="@style/TextElement.medium"
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/hu"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LayoutListService"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="@string/textview_news" />
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:ci_drawable="@drawable/custom_background_indicator" />
+        </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNews"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/tvNews"
-                android:background="@drawable/background_list_news"
-                android:padding="10dp" />
-        </RelativeLayout>
+
+    </RelativeLayout>
 </LinearLayout>

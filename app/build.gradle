@@ -63,4 +63,13 @@ dependencies {
     implementation "androidx.fragment:fragment:$fragment_version"
 
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+
+   //Lottie animation
+    def lottie_version = "3.3.0"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+    //Lottie dialog
+    implementation 'io.github.amrdeveloper:lottiedialog:1.0.0'
+    //Circle Indicator
+    implementation 'me.relex:circleindicator:2.1.6'
+
 }

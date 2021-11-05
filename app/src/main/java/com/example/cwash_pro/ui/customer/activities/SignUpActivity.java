@@ -15,7 +15,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class SignUpActivity extends AppCompatActivity {
     TextInputEditText edtPhoneNumber, edtPassword, edtFullName, edtAddress;
     Button btnNext;
-    TextView tvLogin;
+    Button btnLogin;
     ImageView imgBack;
 
     @Override
@@ -25,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
         initView();
         imgBack.setOnClickListener(v -> onBackPressed());
         btnNext.setOnClickListener(v -> registerAccount());
-        tvLogin.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, LoginActivity.class)));
+        btnLogin.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, LoginActivity.class)));
     }
 
     private void initView() {
@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         edtFullName = findViewById(R.id.edtFullName);
         edtAddress = findViewById(R.id.edtAddress);
         btnNext = findViewById(R.id.btnNext);
-        tvLogin = findViewById(R.id.tvLogin);
+        btnLogin = findViewById(R.id.btnLogin);
         imgBack = findViewById(R.id.imgBack);
     }
 
