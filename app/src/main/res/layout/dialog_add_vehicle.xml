@@ -6,9 +6,11 @@
     android:padding="16dp"
     android:orientation="vertical">
     <TextView
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:textColor="@color/black"
+        android:gravity="center"
         style="@style/TextTitle"
+        android:textStyle="bold"
         android:text="@string/add_vehicles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -17,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boder_gridlayout_choosed_time"
         android:id="@+id/edtNameOfVehicle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Spinner
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boder_gridlayout_choosed_time"
         android:id="@+id/spnType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -34,6 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boder_gridlayout_choosed_time"
         android:id="@+id/edtColorOfVehicle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -42,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boder_gridlayout_choosed_time"
         android:id="@+id/edtLicense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -50,6 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boder_gridlayout_choosed_time"
         android:id="@+id/edtBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -59,10 +71,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginTop="16dp"
         android:weightSum="2">
 
         <Button
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/card"
             android:layout_marginHorizontal="8dp"
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
@@ -71,7 +84,7 @@
             android:text="@string/cancel" />
         <Button
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/card"
             android:layout_marginHorizontal="8dp"
             android:id="@+id/btnAddVehicle"
             android:layout_width="match_parent"

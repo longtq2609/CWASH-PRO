@@ -73,6 +73,28 @@
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/layout/shape_btn_login_white.xml" value="0.17291666666666666" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/menu/navigation.xml" value="0.1" />
         <entry key="..\:/Android/android-projects/graduation-project/CWASH-PRO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.353125" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/drawable/background_list_news.xml" value="0.26979166666666665" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/drawable/boder_gridlayout_choosed_time.xml" value="0.26979166666666665" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/drawable/border_button_orange.xml" value="0.26979166666666665" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_car_wash_service.xml" value="0.2" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_first.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_history.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_login.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_main.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_notification.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_sign_up.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_staff_detail_info.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_staff_main.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_user_detail.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/activity_verify_phone.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/custom_dialog_login.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/custom_progress_dialog.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_add_vehicle.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_cancel_detail.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_cancel_schedule.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_complete_detail.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_failed.xml" value="0.16983695652173914" />
+        <entry key="..\:/Dev'sHoan/CWASH-PRO/app/src/main/res/layout/dialog_news_detail.xml" value="0.234375" />
       </map>
     </option>
   </component>
