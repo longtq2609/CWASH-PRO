@@ -36,7 +36,6 @@
             android:text="Đặt lịch"
             android:textColor="@color/white"
             android:textStyle="bold"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,9 +88,11 @@
                 android:id="@+id/spnVehicleCar"
                 style="@style/TextElement"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
                 android:layout_below="@+id/view1"
                 android:layout_marginVertical="8dp"
+                android:background="@drawable/custom_shaper_spinner"
                 android:orientation="horizontal" />
 
             <View
@@ -123,10 +124,13 @@
                     android:background="@color/viewColor" />
 
                 <TextView
+                    android:gravity="center_vertical"
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/view3"
+                    android:layout_height="40dp"
+                    android:paddingStart="15dp"
+                    android:textSize="18sp"
+                    android:background="@drawable/custom_shaper_spinner"
                     android:text="Bấm vào đây để chọn ngày"
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -143,6 +147,7 @@
                 android:id="@+id/tvChooseTime"
                 style="@style/TextElement"
                 android:layout_width="match_parent"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view4"
                 android:layout_marginVertical="8dp"
@@ -160,10 +165,11 @@
                 android:id="@+id/tvService"
                 style="@style/TextElement"
                 android:layout_width="match_parent"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvTime"
                 android:layout_marginTop="8dp"
-                android:text="@string/service" />
+                android:text="Chọn dịch vụ" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvService"
@@ -177,6 +183,7 @@
             <TextView
                 android:id="@+id/tvNote"
                 style="@style/TextElement"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvService"
@@ -186,8 +193,10 @@
             <EditText
                 android:id="@+id/edtNote"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvNote" />
+                android:layout_height="70dp"
+                android:layout_below="@id/tvNote"
+                android:background="@drawable/custom_shaper_spinner"
+                android:paddingStart="15dp" />
 
         </RelativeLayout>
 

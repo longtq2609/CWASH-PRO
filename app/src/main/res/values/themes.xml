@@ -32,9 +32,6 @@
         <item name="android:textColorSecondary">@color/textColorSecondary</item>   <!--Màu chữ ở trạng thái  ... -->
     </style>
 
-    <style name="StyleOfText">
-        <item name="android:fontFamily">@font/changoregular</item>
-    </style>
     <style name="TextTitle">
         <item name="android:textSize">24sp</item>
         <item name="fontFamily">serif</item>
