@@ -20,7 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ChangePasswordActivity extends AppCompatActivity {
-    Toolbar toolbar;
     EditText edtCurPw, edtNewPw;
     Button btnChange;
 
@@ -29,14 +28,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         initViews();
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setTitle(R.string.textview_changepw);
-        }
-        toolbar.setNavigationIcon(R.drawable.backicon);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
         btnChange.setOnClickListener(v -> {
             RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
                 @Override
@@ -57,7 +48,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        toolbar = findViewById(R.id.toolbarChange);
         edtCurPw = findViewById(R.id.edtCurPw);
         edtNewPw = findViewById(R.id.edtNewPw);
         btnChange = findViewById(R.id.btnChange);

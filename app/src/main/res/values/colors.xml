@@ -22,5 +22,8 @@
     <color name="bacgroudcolor">#007FBF</color>
     <color name="red">#ff3d00</color>
     <color name="mainColor">#F5802A</color>
+    <color name="confirmed">#00FF29</color>
+    <color name="pending">#FF0000</color>
+
 
 </resources>

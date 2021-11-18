@@ -32,7 +32,7 @@ public class IWashNotificationManager {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(mCtx, Constants.CHANNEL_ID)
-                        .setSmallIcon(R.drawable.icon_splash)
+                       // .setSmallIcon(R.drawable.icon_splash)
                         .setContentTitle(title)
                         .setContentText(body);
 

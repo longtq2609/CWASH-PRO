@@ -18,20 +18,33 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.apis.RetrofitClient;
+import com.github.siyamed.shapeimageview.RoundedImageView;
 
 public class MoreFunctionFragment extends Fragment {
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    TextView tvPolicyandprivacy, tvShare, tvEvaluate, tvSupport;
+    private RoundedImageView imgAvatar;
+    private TextView tvName;
+    private TextView tvPhone;
+    LinearLayout tvPolicyandprivacy, tvShare, tvEvaluate, tvSupport;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more_function, container, false);
         preferences = getActivity().getSharedPreferences("Setting", Context.MODE_PRIVATE);
         editor = preferences.edit();
+        imgAvatar = view.findViewById(R.id.imgAvatar);
+        tvName =  view.findViewById(R.id.tvName);
+        tvPhone =  view.findViewById(R.id.tvPhone);
+        Glide.with(getActivity()).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
+        tvName.setText(RetrofitClient.user.getFullName());
+        tvPhone.setText(RetrofitClient.user.getPhoneNumber());
         tvPolicyandprivacy = view.findViewById(R.id.idPolicyandprivacy);
         tvShare = view.findViewById(R.id.idShare);
         tvEvaluate = view.findViewById(R.id.idEvaluate);

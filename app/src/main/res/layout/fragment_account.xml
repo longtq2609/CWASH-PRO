@@ -4,100 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDFDFD"
     android:orientation="vertical"
     tools:context=".ui.customer.fragments.AccountFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimary">
+        android:layout_height="90dp"
+        android:background="@drawable/header_top_bar"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="15dp"
+            android:contentDescription="@string/report"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
         <TextView
             style="@style/TextTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:text="@string/account"
+            android:text="Tài khoản"
             android:textColor="@color/white"
-            android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FBF9F9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp">
+        android:layout_marginTop="-30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
+                android:id="@+id/layoutUserInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/Theme.MaterialComponents.Light"
-                app:cardCornerRadius="10dp"
-                app:contentPadding="1dp">
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_list_news"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <com.github.siyamed.shapeimageview.RoundedImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:siBorderWidth="1dp"
+                    app:siRadius="15dp"
+                    app:siSquare="true" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp">
 
-                    <ImageView
-                        android:id="@+id/imgAvatar"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginHorizontal="8dp"
-                        android:layout_weight="1" />
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="15"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="8dp">
+                        android:fontFamily="@font/sf_pro_text_bold"
+                        android:textColor="#344187"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tvName"
-                            style="@style/TextTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp" />
-
-                        <TextView
-                            android:id="@+id/tvPhone"
-                            style="@style/TextElement"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/sf_pro_text_bold"
+                        android:textColor="#344187"
+                        android:textSize="18sp" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Tài khoản của bạn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
+                android:layout_marginHorizontal="15dp"
                 android:id="@+id/layoutInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_layout"
                 android:orientation="horizontal"
                 android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_error_24" />
 
                 <TextView
                     style="@style/TextElement"
@@ -106,7 +126,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="8dp"
-                    android:text="@string/accInfo" />
+                    android:text="@string/accInfo"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"
@@ -123,19 +145,15 @@
                 android:background="#FBF9F9" />
 
             <LinearLayout
+                android:layout_marginHorizontal="15dp"
                 android:id="@+id/layoutChangePw"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_layout"
                 android:orientation="horizontal"
                 android:padding="8dp">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_lock_24" />
 
                 <TextView
                     style="@style/TextElement"
@@ -144,7 +162,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="8dp"
-                    android:text="@string/textview_changepw" />
+                    android:text="@string/textview_changepw"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"
@@ -161,19 +181,16 @@
                 android:background="#FBF9F9" />
 
             <LinearLayout
+                android:layout_marginHorizontal="15dp"
                 android:id="@+id/layoutNoti"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_layout"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 tools:ignore="OnClick">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_notifications_24_1" />
 
                 <TextView
                     style="@style/TextElement"
@@ -182,7 +199,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="8dp"
-                    android:text="@string/notification" />
+                    android:text="@string/notification"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"
@@ -193,26 +212,20 @@
                     app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#FBF9F9" />
+
 
             <LinearLayout
+                android:layout_marginHorizontal="15dp"
                 android:id="@+id/layoutHistory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_layout"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 tools:ignore="OnClick">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_history_24" />
 
                 <TextView
                     style="@style/TextElement"
@@ -220,7 +233,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:paddingHorizontal="8dp"
-                    android:text="@string/history" />
+                    android:text="@string/history"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"
@@ -230,32 +245,18 @@
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#FBF9F9" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#FBF9F9" />
-
             <LinearLayout
+                android:layout_marginHorizontal="15dp"
                 android:id="@+id/layoutLogout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_layout"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 tools:ignore="OnClick">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_login_24" />
 
                 <TextView
                     style="@style/TextElement"
@@ -263,7 +264,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:paddingHorizontal="8dp"
-                    android:text="@string/logout" />
+                    android:text="@string/logout"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"

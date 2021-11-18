@@ -37,26 +37,17 @@ import retrofit2.Response;
 
 public class VehicleActivity extends AppCompatActivity {
     RecyclerView rvVehicle;
-    ImageView imgAddVehicle;
+    Button imgAddVehicle;
     VehicleAdapter adapter;
     List<Vehicle> vehicles = new ArrayList<>();
-    Toolbar toolbar;
     String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setTitle(R.string.schedule);
-        }
-        toolbar.setTitle("Phương tiện của bạn");
-        toolbar.setNavigationIcon(R.drawable.backicon);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+
+
         rvVehicle = findViewById(R.id.rvVehicle);
         imgAddVehicle = findViewById(R.id.imgAddVehicle);
         RetrofitClient.getInstance().create(ApiService.class).getVehicle().enqueue(new Callback<ServerResponse>() {

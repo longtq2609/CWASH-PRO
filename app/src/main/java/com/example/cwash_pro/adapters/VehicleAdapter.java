@@ -42,10 +42,10 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         Log.e("onBindViewHolder: ", vehicles.get(position).getType());
         if (vehicles.get(position).getType().equals("Car")) {
             Log.e("onBindViewHolder1: ", vehicles.get(position).getType());
-            holder.imgVehicle.setImageResource(R.drawable.carcar);
+           // holder.imgVehicle.setImageResource(R.drawable.carcar);
         } else if (vehicles.get(position).getType().equals("Motorcycle")) {
             Log.e("onBindViewHolder2: ", vehicles.get(position).getType());
-            holder.imgVehicle.setImageResource(R.drawable.scooter);
+           // holder.imgVehicle.setImageResource(R.drawable.scooter);
         }
     }
 

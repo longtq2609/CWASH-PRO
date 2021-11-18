@@ -33,7 +33,6 @@
         android:id="@+id/imgUpdate"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/pen"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imgDelete"
         app:layout_constraintTop_toTopOf="parent" />

@@ -68,7 +68,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgSchedule = itemView.findViewById(R.id.imgSchedule);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvVehicle = itemView.findViewById(R.id.tvVehicle);
             tvStatus = itemView.findViewById(R.id.tvStatus);

@@ -34,16 +34,12 @@ public class HistoryActivity extends AppCompatActivity {
     private RecyclerView rvHistory;
     private List<Schedule> scheduleList = new ArrayList<>();
     HistoryAdapter historyAdapter;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         initView();
-        toolbar.setTitle("Lịch sử");
-        toolbar.setNavigationIcon(R.drawable.backicon);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
         RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -108,13 +104,11 @@ public class HistoryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                Log.e("onFailureGetScheduleUser: ", t.getMessage());
             }
         });
     }
 
     private void initView() {
-        toolbar = findViewById(R.id.toolbar);
         rvHistory = (RecyclerView) findViewById(R.id.rvHistory);
     }
 }

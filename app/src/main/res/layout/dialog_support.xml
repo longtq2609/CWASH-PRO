@@ -44,7 +44,6 @@
             android:id="@+id/sendSupport"
             android:layout_marginLeft="8dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/icon_masse"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
         <ImageButton
@@ -52,7 +51,6 @@
             android:id="@+id/imvBtnCall"
             android:background="@drawable/button_call"
             android:scaleType="fitCenter"
-            android:src="@drawable/icon_call"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"/>

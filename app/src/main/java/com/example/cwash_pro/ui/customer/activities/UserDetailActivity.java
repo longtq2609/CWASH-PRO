@@ -39,7 +39,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserDetailActivity extends AppCompatActivity {
-    private Toolbar toolbar;
     private EditText editFullName;
     private EditText editPhoneNumber;
     private EditText editAddress;
@@ -56,13 +55,11 @@ public class UserDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail);
         initView();
-        setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setTitle("Back");
         }
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         editPhoneNumber.setText(RetrofitClient.user.getPhoneNumber());
         editFullName.setText(RetrofitClient.user.getFullName());
@@ -111,7 +108,6 @@ public class UserDetailActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         editFullName = (EditText) findViewById(R.id.edit_full_name);
         editPhoneNumber = (EditText) findViewById(R.id.edit_phone_number);
         editAddress = (EditText) findViewById(R.id.edtAddress);

@@ -45,9 +45,6 @@
             android:name=".ui.customer.activities.HistoryActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.customer.activities.FirstActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.customer.activities.ChangePasswordActivity"
             android:exported="true" />
         <activity

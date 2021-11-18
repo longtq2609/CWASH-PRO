@@ -6,24 +6,26 @@
     android:orientation="horizontal"
     android:padding="@dimen/vehicle_activity_padding">
 
-    <ImageView
-        android:id="@+id/imgSchedule"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:src="@drawable/schedule"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="history-animation.json"
+        app:lottie_loop="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/vehicle_activity_padding">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="@dimen/vehicle_activity_padding"
-        app:layout_constraintStart_toEndOf="@id/imgSchedule"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="@dimen/vehicle_activity_padding">
 
         <TextView
             android:id="@+id/tvTime"
@@ -79,4 +81,6 @@
             android:textSize="18sp"
             android:visibility="invisible" />
     </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

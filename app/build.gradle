@@ -30,9 +30,9 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -41,7 +41,7 @@ dependencies {
 
 
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'com.google.android.material:material:1.5.0-alpha04'
+    implementation 'com.google.android.material:material:1.5.0-beta01'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     //firebase
@@ -51,21 +51,19 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
-    implementation 'androidx.browser:browser:1.3.0'
+    implementation 'androidx.browser:browser:1.4.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-    implementation "com.airbnb.android:lottie:3.6.1"
 
-    def fragment_version = "1.3.6"
-    implementation "androidx.fragment:fragment:$fragment_version"
+    implementation "androidx.fragment:fragment:1.4.0"
 
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 
    //Lottie animation
-    def lottie_version = "3.3.0"
+    def lottie_version = "4.2.0"
     implementation "com.airbnb.android:lottie:$lottie_version"
     //Lottie dialog
     implementation 'io.github.amrdeveloper:lottiedialog:1.0.0'

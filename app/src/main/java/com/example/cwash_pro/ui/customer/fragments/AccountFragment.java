@@ -23,10 +23,11 @@ import com.example.cwash_pro.ui.customer.activities.NotificationActivity;
 import com.example.cwash_pro.ui.customer.activities.UserDetailActivity;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.User;
+import com.github.siyamed.shapeimageview.RoundedImageView;
 
 public class AccountFragment extends Fragment {
 
-    private ImageView imgAvatar;
+    private RoundedImageView imgAvatar;
     private TextView tvName;
     private TextView tvPhone;
     private LinearLayout layoutInfo, layoutNoti, layoutHistory, layoutLogout, layoutChangePw;
@@ -48,7 +49,7 @@ public class AccountFragment extends Fragment {
     }
 
     private void initView(View view) {
-        imgAvatar = (ImageView) view.findViewById(R.id.imgAvatar);
+        imgAvatar = view.findViewById(R.id.imgAvatar);
         tvName = (TextView) view.findViewById(R.id.tvName);
         tvPhone = (TextView) view.findViewById(R.id.tvPhone);
         layoutInfo = (LinearLayout) view.findViewById(R.id.layoutInfo);
