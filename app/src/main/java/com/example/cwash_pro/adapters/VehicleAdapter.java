@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Vehicle;
@@ -42,11 +43,13 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         Log.e("onBindViewHolder: ", vehicles.get(position).getType());
         if (vehicles.get(position).getType().equals("Car")) {
             Log.e("onBindViewHolder1: ", vehicles.get(position).getType());
+            holder.lottieAnimationView.setAnimation("car-animation.json");
+            holder.lottieAnimationView.playAnimation();
            // holder.imgVehicle.setImageResource(R.drawable.carcar);
         } else if (vehicles.get(position).getType().equals("Motorcycle")) {
             Log.e("onBindViewHolder2: ", vehicles.get(position).getType());
-           // holder.imgVehicle.setImageResource(R.drawable.scooter);
-        }
+            holder.lottieAnimationView.setAnimation("motorcycle-animation.json");
+            holder.lottieAnimationView.playAnimation();        }
     }
 
     @Override
@@ -55,12 +58,13 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     }
 
     public class VehicleHolder extends RecyclerView.ViewHolder {
-        ImageView imgVehicle, imgDelete, imgUpdate;
+        ImageView  imgDelete, imgUpdate;
         TextView tvNameOfVehicle, tvLicense;
+        LottieAnimationView lottieAnimationView;
 
         public VehicleHolder(@NonNull View itemView) {
             super(itemView);
-            imgVehicle = (ImageView) itemView.findViewById(R.id.imgVehicle);
+            lottieAnimationView = itemView.findViewById(R.id.imgVehicle);
             tvNameOfVehicle = (TextView) itemView.findViewById(R.id.tvNameOfVehicle);
             tvLicense = (TextView) itemView.findViewById(R.id.tvLicense);
             imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);

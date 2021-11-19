@@ -34,7 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:text="Đổi mật khẩu"
+            android:text="Quản lý xe"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,23 +46,24 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="-30dp"
         android:id="@+id/rvVehicle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/imgAddVehicle"
-        tools:listitem="@layout/item_vehicles"
         android:layout_below="@+id/layout_header"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_vehicles" />
 
     <Button
         android:id="@+id/imgAddVehicle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/shape_btn_login"
-        android:text="@string/change" />
+        android:text="Thêm xe" />
 </RelativeLayout>

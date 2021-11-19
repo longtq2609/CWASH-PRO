@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -15,9 +16,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +30,7 @@ import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.utils.Support;
+import com.github.nikartm.button.FitButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,15 +71,26 @@ public class UserDetailActivity extends AppCompatActivity {
         editAddress.setText(RetrofitClient.user.getAddress());
         Glide.with(Objects.requireNonNull(getApplicationContext())).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
         checkPermission();
-        icCamera.setOnClickListener(v -> capturePicture());
-        icImage.setOnClickListener(v -> {
-            Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(pickPhoto, REQUEST_CODE_IMAGE_STORAGE);
-        });
         btnUpdate.setOnClickListener(v -> {
             updateInfor();
             Log.d("onCreate: ", "hihi");
+        });
+        imgAvatar.setOnClickListener(view -> {
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.dialog_chose_avatar, null);
+            AlertDialog.Builder alert = new AlertDialog.Builder(UserDetailActivity.this);
+            FitButton icCamera = alertLayout.findViewById(R.id.icCamera);
+            FitButton icImage = alertLayout.findViewById(R.id.icImage);
+            icCamera.setOnClickListener(v -> capturePicture());
+            icImage.setOnClickListener(v -> {
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(pickPhoto, REQUEST_CODE_IMAGE_STORAGE);
+            });            alert.setView(alertLayout);
+            AlertDialog dialog = alert.create();
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+            alert.setCancelable(false);
+            dialog.show();
         });
     }
 

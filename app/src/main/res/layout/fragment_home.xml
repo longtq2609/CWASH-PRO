@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="@dimen/height_layout"
         android:background="@drawable/header_top_bar"
         android:gravity="center">
 
@@ -17,8 +17,8 @@
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="@dimen/layout_margin_start"
+            android:layout_marginBottom="@dimen/layout_margin_bottom"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +30,8 @@
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="@dimen/margin_start"
+            android:layout_marginBottom="@dimen/layout_margin_bottom"
             android:gravity="center"
             android:text="Trang chủ"
             android:textColor="@color/white"
@@ -46,8 +46,8 @@
             android:id="@+id/imgNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="@dimen/margin_start"
+            android:layout_marginBottom="@dimen/layout_margin_bottom"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,32 +60,33 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-30dp">
+        android:layout_marginTop="@dimen/layout_margin_top">
 
         <LinearLayout
             android:id="@+id/layoutUserInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="@dimen/layout_margin_bottom"
+            android:padding="@dimen/margin_start"
+            android:layout_marginTop="@dimen/layout_margin_bottom"
             android:background="@drawable/background_list_news"
             android:orientation="horizontal"
-            android:padding="16dp">
+           >
 
             <com.github.siyamed.shapeimageview.RoundedImageView
                 android:id="@+id/imgAvatar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:siBorderWidth="1dp"
-                app:siRadius="15dp"
+                android:layout_width="@dimen/layout_rounded_image_view"
+                android:layout_height="@dimen/layout_rounded_image_view"
+                app:siBorderWidth="@dimen/border_width"
+                app:siRadius="@dimen/layout_margin_bottom"
                 app:siSquare="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp">
+                android:paddingHorizontal="@dimen/margin_start">
 
                 <TextView
                     android:id="@+id/tvName"
@@ -93,17 +94,17 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_text_bold"
                     android:textColor="#344187"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/text_size_18"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/layout_margin_top_10"
                     android:fontFamily="@font/sf_pro_text_bold"
                     android:textColor="#344187"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/text_size_18" />
             </LinearLayout>
         </LinearLayout>
 
@@ -111,19 +112,19 @@
         <LinearLayout
             android:id="@+id/LayoutListService"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/height_layout_100"
             android:layout_below="@+id/layoutUserInfo"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_start"
             android:baselineAligned="false"
+            android:layout_marginHorizontal="@dimen/layout_margin_bottom"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <com.github.nikartm.button.FitButton
                 android:id="@+id/btnOpenWashService"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/height_layout_100"
+                android:layout_height="@dimen/height_layout_100"
                 android:enabled="true"
                 android:gravity="center"
                 app:fb_backgroundColor="@color/white"
@@ -147,8 +148,8 @@
 
             <com.github.nikartm.button.FitButton
                 android:id="@+id/btnOpenVehicle"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/height_layout_100"
+                android:layout_height="@dimen/height_layout_100"
                 android:layout_marginHorizontal="38dp"
                 android:enabled="true"
                 android:gravity="center"
@@ -173,8 +174,8 @@
 
             <com.github.nikartm.button.FitButton
                 android:id="@+id/btnOpenHistory"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/height_layout_100"
+                android:layout_height="@dimen/height_layout_100"
                 android:enabled="true"
                 android:gravity="center"
                 app:fb_backgroundColor="@color/white"
@@ -200,19 +201,19 @@
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/border_width"
             android:layout_below="@+id/LayoutListService"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="@dimen/layout_margin_bottom"
+            android:layout_marginTop="@dimen/layout_margin_top_5"
             android:background="#344187" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="@dimen/height_layout_250"
             android:layout_below="@+id/line"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/layout_margin_top_25"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -221,14 +222,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:paddingStart="80dp"
-                android:paddingEnd="80dp" />
+                android:paddingStart="@dimen/layout_rounded_image_view"
+                android:paddingEnd="@dimen/layout_rounded_image_view" />
 
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/dotViewPage"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="@dimen/height_layout_40"
+                android:layout_marginTop="@dimen/layout_margin_top_5"
                 app:ci_drawable="@drawable/custom_background_indicator" />
         </LinearLayout>
 

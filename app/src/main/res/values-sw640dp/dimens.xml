@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<dimen name="height_layout">116.99999dp</dimen>
+<dimen name="height_layout_100">130.0dp</dimen>
+<dimen name="height_layout_40">52.0dp</dimen>
+<dimen name="height_layout_250">325.0dp</dimen>
+
+<dimen name="layout_margin_start">10.4dp</dimen>
+<dimen name="layout_margin_bottom">19.5dp</dimen>
+<dimen name="margin_start">20.8dp</dimen>
+<dimen name="layout_margin_top_5">6.5dp</dimen>
+<dimen name="layout_margin_top_25">32.5dp</dimen>
+
+<dimen name="layout_margin_top">-39.0dp</dimen>
+<dimen name="layout_margin_top_10">13.0dp</dimen>
+<dimen name="layout_rounded_image_view">104.0dp</dimen>
+<dimen name="border_width">1.3dp</dimen>
+<dimen name="text_size_18">23.4sp</dimen>
+
+<dimen name="main_activity_padding">10.4dp</dimen>
+<dimen name="login_activity_padding">41.6dp</dimen>
+<dimen name="login_activity_margin">31.199999dp</dimen>
+<dimen name="vehicle_activity_padding">10.4dp</dimen>
+<dimen name="item_news_padding">10.4dp</dimen>
+<dimen name="fragment_padding">20.8dp</dimen>
+</resources>

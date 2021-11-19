@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="height_layout">90dp</dimen>
+    <dimen name="height_layout_100">100dp</dimen>
+    <dimen name="height_layout_40">40dp</dimen>
+    <dimen name="height_layout_250">250dp</dimen>
+
+    <dimen name="layout_margin_start">8dp</dimen>
+    <dimen name="layout_margin_bottom">15dp</dimen>
+    <dimen name="margin_start">16dp</dimen>
+    <dimen name="layout_margin_top_5">5dp</dimen>
+    <dimen name="layout_margin_top_25">25dp</dimen>
+
+    <dimen name="layout_margin_top">-30dp</dimen>
+    <dimen name="layout_margin_top_10">10dp</dimen>
+    <dimen name="layout_rounded_image_view">80dp</dimen>
+    <dimen name="border_width">1dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+
     <dimen name="main_activity_padding">8dp</dimen>
     <dimen name="login_activity_padding">32dp</dimen>
     <dimen name="login_activity_margin">24dp</dimen>

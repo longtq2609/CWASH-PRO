@@ -153,9 +153,9 @@ public class CarWashServiceActivity extends AppCompatActivity {
                             Button btnClose = dialog.findViewById(R.id.btnClose);
                             LinearLayout rootView = dialog.findViewById(R.id.rootView);
                             LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
-                            lottieAnimationView.setAnimation("success.json");
+                            lottieAnimationView.setAnimation("done-animation.json");
                             lottieAnimationView.playAnimation();
-                            lottieAnimationView.loop(false);
+                            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
                             btnClose.setOnClickListener(v -> {
                                 builder.dismiss();
                                 finish();
@@ -167,9 +167,9 @@ public class CarWashServiceActivity extends AppCompatActivity {
                             tvMessage.setText(response.body().message);
                             LinearLayout rootView = dialog.findViewById(R.id.rootView);
                             LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
-                            lottieAnimationView.setAnimation("failed.json");
+                            lottieAnimationView.setAnimation("fail-animation.json");
                             lottieAnimationView.playAnimation();
-                            lottieAnimationView.loop(false);
+                            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
                             btnClose.setOnClickListener(v -> {
                                 builder.dismiss();
                                 finish();
