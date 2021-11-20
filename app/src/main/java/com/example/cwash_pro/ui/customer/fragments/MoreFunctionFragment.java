@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -69,46 +70,33 @@ public class MoreFunctionFragment extends Fragment {
                 startActivity(Intent.createChooser(intent, "Share"));
             }
         });
-        tvSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builderSP = new AlertDialog.Builder(getContext());
-                View viewSP = LayoutInflater.from(getContext()).inflate(R.layout.dialog_support, null);
-                builderSP.setView(viewSP);
-                ImageButton imvBtnCall = viewSP.findViewById(R.id.imvBtnCall);
-                ImageView imageView = viewSP.findViewById(R.id.sendSupport);
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AlertDialog.Builder builderSendMessage = new AlertDialog.Builder(getContext());
-                        View viewMessage = LayoutInflater.from(getContext()).inflate(R.layout.dialog_send_message_sp, null);
-                        EditText edtSendSP = viewMessage.findViewById(R.id.edtSendSP);
-                        builderSendMessage.setView(viewMessage);
-                        builderSendMessage.create();
-                        builderSendMessage.setPositiveButton("Send", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+        tvSupport.setOnClickListener(v -> {
+            AlertDialog.Builder builderSP = new AlertDialog.Builder(getContext());
+            View viewSP = LayoutInflater.from(getContext()).inflate(R.layout.dialog_support, null);
+            builderSP.setView(viewSP);
+            Button imvBtnCall = viewSP.findViewById(R.id.imvBtnCall);
+            Button imageView = viewSP.findViewById(R.id.sendSupport);
+            imageView.setOnClickListener(v1 -> {
+                AlertDialog.Builder builderSendMessage = new AlertDialog.Builder(getContext());
+                View viewMessage = LayoutInflater.from(getContext()).inflate(R.layout.dialog_send_message_sp, null);
+                builderSendMessage.setView(viewMessage);
+                builderSendMessage.create();
 
-                            }
-                        });
-                        builderSendMessage.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                        builderSendMessage.show();
-                    }
+                builderSendMessage.setPositiveButton("Gửi", (dialog, which) -> {
+
                 });
-                imvBtnCall.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:0389793148"));
-                        startActivity(intent1);
-                    }
-                });
-                builderSP.show();
-            }
+                builderSendMessage.setNegativeButton("Quay lại", (dialog, which) -> dialog.dismiss());
+                AlertDialog dialog = builderSendMessage.create();
+                dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                dialog.show();
+            });
+            imvBtnCall.setOnClickListener(v12 -> {
+                Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:0389127389"));
+                startActivity(intent1);
+            });
+            AlertDialog dialog = builderSP.create();
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+            dialog.show();
         });
         tvEvaluate.setOnClickListener(v -> {
             try {

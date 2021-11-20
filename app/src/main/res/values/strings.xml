@@ -91,8 +91,6 @@
     <string name="NameOfVehicle">Tên phương tiện</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="car_wash">Car Wash</string>
-    <string name="textview_news">IWash tin tức</string>
     <string name="textview_changepw">Đổi mật khẩu</string>
     <string name="current_pw">Mật khẩu hiện tại</string>
     <string name="new_pw">Mật khẩu mới</string>

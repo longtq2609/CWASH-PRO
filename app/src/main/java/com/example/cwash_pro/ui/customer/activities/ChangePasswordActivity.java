@@ -20,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ChangePasswordActivity extends AppCompatActivity {
-    EditText edtCurPw, edtNewPw;
+    EditText edtCurPw, edtNewPw, edtNewPwRs;
     Button btnChange;
 
     @Override
@@ -29,27 +29,34 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
         initViews();
         btnChange.setOnClickListener(v -> {
-            RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
-                @Override
-                public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                    if (response.body().success) {
-                        Toast.makeText(ChangePasswordActivity.this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(ChangePasswordActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
-                    }
-                }
+            if (edtNewPwRs.getText().toString().equals(edtNewPw.getText().toString())) {
 
-                @Override
-                public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                    Log.d("onFailureChangePw: ", t.getMessage());
-                }
-            });
+                RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
+                    @Override
+                    public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                        if (response.body().success) {
+                            Toast.makeText(ChangePasswordActivity.this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ChangePasswordActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                        Log.d("onFailureChangePw: ", t.getMessage());
+                    }
+                });
+            } else {
+                Toast.makeText(ChangePasswordActivity.this, "Mật khẩu mới không đúng", Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 
     private void initViews() {
         edtCurPw = findViewById(R.id.edtCurPw);
         edtNewPw = findViewById(R.id.edtNewPw);
+        edtNewPwRs = findViewById(R.id.edtNewPwRs);
         btnChange = findViewById(R.id.btnChange);
     }
 

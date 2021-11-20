@@ -3,79 +3,129 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
+
     <TextView
-        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_btn_login"
+        android:gravity="center"
+        android:text="Thêm phương tiện"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên xe"
         android:textColor="@color/black"
-        style="@style/TextTitle"
-        android:text="@string/add_vehicles"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:text="@string/NameOfVehicle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/edtNameOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_email_pass"
+        android:inputType="text"
+        android:paddingStart="15dp" />
+
     <TextView
-        android:text="@string/vehicle_type"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Loại xe"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <Spinner
         android:id="@+id/spnType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
-        android:text="@string/color"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Màu xe"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/edtColorOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_email_pass"
+        android:inputType="text"
+        android:paddingStart="15dp" />
+
     <TextView
-        android:text="@string/vehicle_license"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Biển số xe"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/edtLicense"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_email_pass"
+        android:inputType="text"
+        android:paddingStart="15dp" />
+
     <TextView
-        android:text="@string/vehicle_brand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Hãng xe"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/edtBrand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_email_pass"
+        android:inputType="text"
+        android:paddingStart="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:weightSum="2">
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+      >
 
         <Button
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_marginHorizontal="8dp"
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp"
+            android:textSize="13sp"
             android:layout_weight="1"
-            android:text="@string/cancel" />
+            android:background="@drawable/shape_btn_login"
+            android:text="Huỷ" />
+
         <Button
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_marginHorizontal="8dp"
             android:id="@+id/btnAddVehicle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_your_vehicle" />
+            android:layout_height="40dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:background="@drawable/shape_btn_login"
+            android:text="Thêm phương tiện" />
     </LinearLayout>
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.example.cwash_pro.adapters;
 
+import static com.example.cwash_pro.R.color.mainColor;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -49,9 +51,9 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvChoosedTime.setText(timeList.get(position).getTime());
-        holder.tvChoosedTime.setBackgroundColor(Color.YELLOW);
+        holder.tvChoosedTime.setBackgroundResource(mainColor);
         if (position == itemSelected) {
-            holder.tvChoosedTime.setBackgroundColor(Color.YELLOW);
+            holder.tvChoosedTime.setBackgroundResource(mainColor);
         } else {
             holder.tvChoosedTime.setBackgroundColor(Color.WHITE);
         }
@@ -89,7 +91,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
             }
             if (!timeList.get(position).isTimeOut()) {
                 holder.tvChoosedTime.setEnabled(false);
-                holder.container.setStrokeColor(Color.GRAY);
+                holder.tvChoosedTime.setBackgroundResource(mainColor);
 
             }
         }
@@ -118,7 +120,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
                 } else {
                     itemClick.setOnItemClick(v, getAdapterPosition());
                     itemSelected = getAdapterPosition();
-                    tvChoosedTime.setBackgroundColor(Color.YELLOW);
+                    tvChoosedTime.setBackgroundColor(Color.LTGRAY);
                     Toast.makeText(context, timeList.get(getAdapterPosition()).getTime(), Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }

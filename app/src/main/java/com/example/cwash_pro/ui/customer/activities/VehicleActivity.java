@@ -60,8 +60,8 @@ public class VehicleActivity extends AppCompatActivity {
                         public void setOnItemClick(View v, int pos) {
                             if (v.getId() == R.id.imgDelete) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(VehicleActivity.this);
-                                builder.setTitle("Xóa");
-                                builder.setPositiveButton("Ok", (dialog, which) -> {
+                                builder.setTitle("Bạn có chắc chắn muốn xoá phương tiên này không? ");
+                                builder.setPositiveButton("Xoá", (dialog, which) -> {
                                     RetrofitClient.getInstance().create(ApiService.class).deleteVehicle(vehicles.get(pos).getId()).enqueue(new Callback<ServerResponse>() {
                                         @Override
                                         public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -78,14 +78,15 @@ public class VehicleActivity extends AppCompatActivity {
 
                                         @Override
                                         public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                                            Log.e("onFailureDeleteVehicle: ", t.getMessage());
                                         }
                                     });
                                 });
-                                builder.setNegativeButton("Cancel", (dialog, which) -> {
+                                builder.setNegativeButton("Không", (dialog, which) -> {
                                     dialog.dismiss();
                                 });
-                                builder.show();
+                                AlertDialog dialog = builder.create();
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                                dialog.show();
                             } else if (v.getId() == R.id.imgUpdate) {
                                 AlertDialog builder = new AlertDialog.Builder(VehicleActivity.this).create();
                                 View dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_update_vehicle, null);
@@ -140,10 +141,11 @@ public class VehicleActivity extends AppCompatActivity {
 
                                             @Override
                                             public void onFailure(@NonNull Call<ServerResponse> call1, @NonNull Throwable t) {
-                                                Log.e("onFailureUpdateVehicle: ", t.getMessage());
                                             }
                                         }));
+
                                 builder.setView(dialog);
+                                builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
                                 builder.show();
                             }
                         }
@@ -227,6 +229,7 @@ public class VehicleActivity extends AppCompatActivity {
                 builder.dismiss();
             });
             builder.setView(dialog);
+            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
             builder.show();
         });
     }

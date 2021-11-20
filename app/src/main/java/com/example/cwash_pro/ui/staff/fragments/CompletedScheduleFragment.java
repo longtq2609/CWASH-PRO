@@ -73,6 +73,7 @@ public class CompletedScheduleFragment extends Fragment {
                                 builder.dismiss();
                             });
                             builder.setView(dialog);
+                            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
                             builder.show();
                             scheduleAdapter.notifyDataSetChanged();
                         }

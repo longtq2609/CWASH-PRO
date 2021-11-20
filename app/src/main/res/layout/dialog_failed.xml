@@ -9,35 +9,34 @@
     android:padding="@dimen/vehicle_activity_padding">
 
 
-
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_marginVertical="15dp"
         android:id="@+id/lottieAnimation"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginVertical="15dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="fail-animation.json"
         app:lottie_loop="true" />
+
     <TextView
-        android:gravity="center_horizontal"
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/failed"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="15dp"
-        android:textSize="24sp" />
+        android:layout_marginTop="21dp"
+        android:text="Thất bại"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/btnClose"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="21dp"
         android:background="@drawable/shape_btn_login"
-        android:text="Đặt lịch"
+        android:text="Quay lại"
         android:textAllCaps="false"
         android:textSize="16sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textStyle="bold" />
 </LinearLayout>

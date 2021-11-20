@@ -57,13 +57,13 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Thông tin đặt lịch"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_marginTop="13dp"
                 android:text="@string/choose_vehicles"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <View
@@ -86,14 +86,16 @@
 
             <Spinner
                 android:id="@+id/spnVehicleCar"
-                style="@style/TextElement"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:paddingStart="15dp"
                 android:layout_below="@+id/view1"
                 android:layout_marginVertical="8dp"
                 android:background="@drawable/custom_shaper_spinner"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:listitem="ite" />
 
             <View
                 android:id="@+id/view2"
@@ -111,7 +113,9 @@
 
                 <TextView
                     android:id="@+id/tvChooseDate1"
-                    style="@style/TextElement"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/choose_date" />
@@ -130,9 +134,10 @@
                     android:layout_height="40dp"
                     android:paddingStart="15dp"
                     android:textSize="18sp"
+                    android:textColor="@color/black"
                     android:background="@drawable/custom_shaper_spinner"
                     android:text="Bấm vào đây để chọn ngày"
-                    android:textColor="@color/black" />
+                    />
             </LinearLayout>
 
 
@@ -145,32 +150,34 @@
 
             <TextView
                 android:id="@+id/tvChooseTime"
-                style="@style/TextElement"
+                android:textSize="22sp"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view4"
                 android:layout_marginVertical="8dp"
-                android:text="@string/choose_time" />
+                android:text="@string/choose_time"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTime"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/item_choose_time"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tvChooseTime"
                 android:background="@drawable/background_list_news"
-                android:padding="10dp" />
+                android:padding="10dp"
+                tools:listitem="@layout/item_choose_time" />
 
             <TextView
                 android:id="@+id/tvService"
-                style="@style/TextElement"
+                android:textSize="22sp"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvTime"
                 android:layout_marginTop="8dp"
-                android:text="Chọn dịch vụ" />
+                android:text="Chọn dịch vụ"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvService"
