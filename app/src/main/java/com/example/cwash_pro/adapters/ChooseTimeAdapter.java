@@ -2,6 +2,7 @@ package com.example.cwash_pro.adapters;
 
 import static com.example.cwash_pro.R.color.mainColor;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -24,13 +25,13 @@ import java.util.Calendar;
 import java.util.List;
 
 public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.ViewHolder> {
-    private Context context;
-    private List<Time> timeList;
-    private List<User> staffList;
-    private ItemClick itemClick;
+    private final Context context;
+    private final List<Time> timeList;
+    private final List<User> staffList;
+    private final ItemClick itemClick;
     private int itemSelected = -1;
-    private String dateBook;
-    private List<Schedule> pendingList;
+    private final String dateBook;
+    private final List<Schedule> pendingList;
 
     public ChooseTimeAdapter(Context context, List<Time> timeList, String dateBook, List<User> staffList, List<Schedule> pendingList, ItemClick itemClick) {
         this.context = context;
@@ -65,11 +66,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
                         count++;
                     }
                 }
-                if (count >= staffList.size()) {
-                    timeList.get(position).setStatus(true);
-                } else {
-                    timeList.get(position).setStatus(false);
-                }
+                timeList.get(position).setStatus(count >= staffList.size());
             }
         }
         if (timeList.get(position).isStatus()) {
@@ -106,6 +103,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
         TextView tvChoosedTime;
         MaterialCardView container;
 
+        @SuppressLint("NotifyDataSetChanged")
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChoosedTime = itemView.findViewById(R.id.tvChoosedTime);

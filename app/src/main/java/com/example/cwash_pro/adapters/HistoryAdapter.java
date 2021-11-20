@@ -1,5 +1,6 @@
 package com.example.cwash_pro.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -38,11 +39,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String time = schedules.get(position).getTimeBook();
         String hour = time.substring(0, 6);
-        String date = time.substring(7, time.length());
+        String date = time.substring(7);
         holder.tvTime.setText( hour + " - " + date);
         String service = "";
         for (int i = 0; i < schedules.get(position).getServices().size(); i++) {

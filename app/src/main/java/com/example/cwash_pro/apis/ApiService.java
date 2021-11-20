@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 public interface ApiService {
     @POST("api/register")
     @FormUrlEncoded
-    Call<ServerResponse> resgisterUser(@Field("fullName") String fullName,
+    Call<ServerResponse> registersUser(@Field("fullName") String fullName,
                                        @Field("phoneNumber") String phoneNumber,
                                        @Field("address") String address,
                                        @Field("passWord") String password);

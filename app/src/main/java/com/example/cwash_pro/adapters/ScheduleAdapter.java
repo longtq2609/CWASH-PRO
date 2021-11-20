@@ -23,8 +23,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int VIEW_TYPE_COMPLETED = 3;
     private static final int VIEW_TYPE_CANCELED = 4;
 
-    private List<Schedule> scheduleList;
-    private Context context;
+    private final List<Schedule> scheduleList;
+    private final Context context;
     static ItemClick itemClick;
 
     public ScheduleAdapter(List<Schedule> scheduleList, Context context, ItemClick itemClick) {

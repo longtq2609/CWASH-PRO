@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cwash_pro">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,6 +11,7 @@
     <uses-permission android:name="android.permission.ACTION_IMAGE_CAPTURE_SECURE" />
 
     <application
+        tools:node="merge"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -55,12 +57,11 @@
             android:exported="true" />
         <activity
             android:name=".ui.customer.activities.NotificationActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ui.customer.activities.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
+
         <service
             android:name=".services.MyFirebaseMessagingService"
             android:exported="false">

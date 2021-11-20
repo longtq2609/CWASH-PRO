@@ -15,8 +15,8 @@ import com.example.cwash_pro.models.Notification;
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationHolder> {
-    private Context context;
-    private List<Notification> notifications;
+    private final Context context;
+    private final List<Notification> notifications;
 
     public NotificationAdapter(Context context, List<Notification> notifications) {
         this.context = context;
@@ -40,7 +40,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return notifications.size();
     }
 
-    public class NotificationHolder extends RecyclerView.ViewHolder {
+    public static class NotificationHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
 
         public NotificationHolder(@NonNull View itemView) {

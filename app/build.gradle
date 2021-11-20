@@ -31,7 +31,7 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.5.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
@@ -46,9 +46,9 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     //firebase
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
-    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-analytics:20.0.0'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-messaging'
+    implementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     implementation 'androidx.browser:browser:1.4.0'
@@ -63,8 +63,7 @@ dependencies {
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 
    //Lottie animation
-    def lottie_version = "4.2.0"
-    implementation "com.airbnb.android:lottie:$lottie_version"
+    implementation "com.airbnb.android:lottie:4.2.1"
     //Lottie dialog
     implementation 'io.github.amrdeveloper:lottiedialog:1.0.0'
     //Circle Indicator

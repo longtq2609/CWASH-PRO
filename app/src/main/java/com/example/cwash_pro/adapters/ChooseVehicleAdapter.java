@@ -1,5 +1,6 @@
 package com.example.cwash_pro.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.view.LayoutInflater;
@@ -28,8 +29,8 @@ public class ChooseVehicleAdapter implements SpinnerAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.item_choose_vehicles, parent, false);
         TextView tvName;
         TextView tvLicense;
-        tvName = (TextView) convertView.findViewById(R.id.tvName);
-        tvLicense = (TextView) convertView.findViewById(R.id.tvLicense);
+        tvName = convertView.findViewById(R.id.tvName);
+        tvLicense = convertView.findViewById(R.id.tvLicense);
         tvName.setText(vehicleList.get(position).getName());
         tvLicense.setText(vehicleList.get(position).getLicense());
         return convertView;
@@ -67,13 +68,14 @@ public class ChooseVehicleAdapter implements SpinnerAdapter {
     }
 
 
+    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(R.layout.item_choose_vehicles, parent, false);
         TextView tvName;
         TextView tvLicense;
-        tvName = (TextView) convertView.findViewById(R.id.tvName);
-        tvLicense = (TextView) convertView.findViewById(R.id.tvLicense);
+        tvName = convertView.findViewById(R.id.tvName);
+        tvLicense = convertView.findViewById(R.id.tvLicense);
         tvName.setText(vehicleList.get(position).getName());
         tvLicense.setText(vehicleList.get(position).getLicense());
         return convertView;

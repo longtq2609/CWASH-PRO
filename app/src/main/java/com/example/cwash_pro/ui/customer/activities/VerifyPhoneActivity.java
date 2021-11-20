@@ -83,7 +83,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("name");
                 String address = getIntent().getStringExtra("address");
                 String passWord = getIntent().getStringExtra("password");
-                RetrofitClient.getInstance().create(ApiService.class).resgisterUser(name, phoneNumber, address, passWord).enqueue(new Callback<ServerResponse>() {
+                RetrofitClient.getInstance().create(ApiService.class).registersUser(name, phoneNumber, address, passWord).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
                         if (response.code() == 200) {
