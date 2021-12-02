@@ -57,9 +57,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             imgNews = itemView.findViewById(R.id.imgNews);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-            itemView.setOnClickListener(v -> {
-                itemClick.setOnItemClick(v, getAdapterPosition());
-            });
+            itemView.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
         }
     }
 }

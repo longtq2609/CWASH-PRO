@@ -4,17 +4,17 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="@dimen/padding_size_15dp">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="15dp"
+        android:layout_height="@dimen/size_50dp"
+        android:layout_marginBottom="@dimen/margin_size_15dp"
         android:background="@drawable/shape_btn_login"
         android:gravity="center"
         android:text="Thêm phương tiện"
         android:textColor="@color/white"
-        android:textSize="22dp"
+        android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold" />
 
     <TextView
@@ -22,24 +22,24 @@
         android:layout_height="wrap_content"
         android:text="Tên xe"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edtNameOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:inputType="text"
-        android:paddingStart="15dp" />
+        android:paddingStart="@dimen/padding_size_15dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Loại xe"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <Spinner
@@ -52,67 +52,67 @@
         android:layout_height="wrap_content"
         android:text="Màu xe"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edtColorOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:inputType="text"
-        android:paddingStart="15dp" />
+        android:paddingStart="@dimen/padding_size_15dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Biển số xe"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edtLicense"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:inputType="text"
-        android:paddingStart="15dp" />
+        android:paddingStart="@dimen/padding_size_15dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hãng xe"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edtBrand"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:inputType="text"
-        android:paddingStart="15dp" />
+        android:paddingStart="@dimen/padding_size_15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_size_15dp"
         android:orientation="horizontal"
       >
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/size_40dp"
             android:textColor="@color/white"
-            android:layout_marginStart="8dp"
-            android:textSize="13sp"
+            android:layout_marginStart="@dimen/margin_size_8dp"
+            android:textSize="@dimen/text_size_13sp"
             android:layout_weight="1"
             android:background="@drawable/shape_btn_login"
             android:text="Huỷ" />
@@ -120,11 +120,11 @@
         <Button
             android:id="@+id/btnAddVehicle"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/size_40dp"
             android:textColor="@color/white"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_weight="1"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_size_13sp"
             android:background="@drawable/shape_btn_login"
             android:text="Thêm phương tiện" />
     </LinearLayout>

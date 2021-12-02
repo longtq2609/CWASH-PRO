@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="@dimen/size_90dp"
         android:background="@drawable/header_top_bar"
         android:gravity="center">
 
@@ -18,8 +18,8 @@
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="@dimen/margin_size_8dp"
+            android:layout_marginBottom="@dimen/margin_size_15dp"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,8 +31,8 @@
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginStart="@dimen/margin_size_16dp"
+            android:layout_marginBottom="@dimen/margin_size_18dp"
             android:gravity="center"
             android:text="Đăng nhập"
             android:textColor="@color/white"
@@ -53,8 +53,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="@dimen/margin_size_15dp"
+        android:layout_marginTop="@dimen/margin_size_48dp"
         android:text="Số điện thoại"
         android:textColor="@color/black" />
 
@@ -62,7 +62,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
+        android:layout_marginHorizontal="@dimen/margin_size_15dp"
         app:endIconMode="clear_text"
         app:prefixText="@string/prefix"
         app:startIconDrawable="@drawable/ic_baseline_local_phone_24">
@@ -77,8 +77,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginHorizontal="@dimen/margin_size_15dp"
+        android:layout_marginTop="@dimen/margin_size_21dp"
         android:text="Mật khẩu"
         android:textColor="@color/black" />
 
@@ -93,7 +93,7 @@
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
             android:background="@drawable/shape_email_pass" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,25 +101,25 @@
         android:id="@+id/cbSavePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/margin_size_15dp"
+        android:layout_marginTop="@dimen/margin_size_10dp"
         android:text="@string/check_box" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="15dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:background="@drawable/shape_btn_login"
         android:text="@string/login"
         android:textAllCaps="false"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="@dimen/margin_size_21dp"
         android:orientation="horizontal">
 
         <TextView
@@ -130,18 +130,18 @@
             android:gravity="end"
             android:text="Bạn chưa có tài khoản?"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <TextView
             android:id="@+id/tvCreateAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="@dimen/margin_size_15dp"
             android:layout_weight="1"
             android:gravity="start"
             android:text="Đăng ký ngay"
             android:textColor="#F5802A"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_size_16sp" />
 
     </LinearLayout>
 
@@ -151,6 +151,6 @@
         android:gravity="bottom|center_horizontal"
         android:text="Chào mừng bạn đến với CWASH-PRO"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="@dimen/text_size_16sp" />
 
 </LinearLayout>

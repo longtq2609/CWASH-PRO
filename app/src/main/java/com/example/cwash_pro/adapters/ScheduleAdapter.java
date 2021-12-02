@@ -30,7 +30,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public ScheduleAdapter(List<Schedule> scheduleList, Context context, ItemClick itemClick) {
         this.scheduleList = scheduleList;
         this.context = context;
-        this.itemClick = itemClick;
+        ScheduleAdapter.itemClick = itemClick;
 
     }
 

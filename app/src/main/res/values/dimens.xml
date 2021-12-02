@@ -1,26 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="height_layout">90dp</dimen>
-    <dimen name="height_layout_100">100dp</dimen>
-    <dimen name="height_layout_40">40dp</dimen>
-    <dimen name="height_layout_250">250dp</dimen>
+    <!--layout size-->
+    <dimen name="size_0dp">0dp</dimen>
+    <dimen name="size_1dp">1dp</dimen>
+    <dimen name="size_20dp">20dp</dimen>
+    <dimen name="size_24dp">24dp</dimen>
+    <dimen name="size_30dp">30dp</dimen>
+    <dimen name="size_40dp">40dp</dimen>
+    <dimen name="size_50dp">50dp</dimen>
+    <dimen name="size_51dp">51dp</dimen>
+    <dimen name="size_60dp">60dp</dimen>
+    <dimen name="size_70dp">70dp</dimen>
+    <dimen name="size_75dp">75dp</dimen>
+    <dimen name="size_80dp">80dp</dimen>
+    <dimen name="size_90dp">90dp</dimen>
+    <dimen name="size_100dp">100dp</dimen>
+    <dimen name="size_120dp">120dp</dimen>
+    <dimen name="size_150dp">150dp</dimen>
+    <dimen name="size_200dp">200dp</dimen>
+    <dimen name="size_250dp">250dp</dimen>
+    <dimen name="size_1234dp">1234dp</dimen>
+    <dimen name="size_1578dp">1578dp</dimen>
 
-    <dimen name="layout_margin_start">8dp</dimen>
-    <dimen name="layout_margin_bottom">15dp</dimen>
-    <dimen name="margin_start">16dp</dimen>
-    <dimen name="layout_margin_top_5">5dp</dimen>
-    <dimen name="layout_margin_top_25">25dp</dimen>
 
-    <dimen name="layout_margin_top">-30dp</dimen>
-    <dimen name="layout_margin_top_10">10dp</dimen>
-    <dimen name="layout_rounded_image_view">80dp</dimen>
-    <dimen name="border_width">1dp</dimen>
-    <dimen name="text_size_18">18sp</dimen>
+    <!--margin size-->
+    <dimen name="margin_size__30dp">-30dp</dimen>
+    <dimen name="margin_size__18dp">-18dp</dimen>
+    <dimen name="margin_size__3dp">-3dp</dimen>
+    <dimen name="margin_size_5dp">5dp</dimen>
+    <dimen name="margin_size_8dp">8dp</dimen>
+    <dimen name="margin_size_10dp">10dp</dimen>
+    <dimen name="margin_size_13dp">13dp</dimen>
+    <dimen name="margin_size_15dp">15dp</dimen>
+    <dimen name="margin_size_16dp">16dp</dimen>
+    <dimen name="margin_size_18dp">18dp</dimen>
+    <dimen name="margin_size_20dp">20dp</dimen>
+    <dimen name="margin_size_21dp">21dp</dimen>
+    <dimen name="margin_size_22dp">22dp</dimen>
+    <dimen name="margin_size_25dp">25dp</dimen>
+    <dimen name="margin_size_38dp">38dp</dimen>
+    <dimen name="margin_size_48dp">48dp</dimen>
+    <dimen name="margin_size_73dp">73dp</dimen>
+    <dimen name="margin_size_75dp">75dp</dimen>
+    <dimen name="margin_size_110dp">110dp</dimen>
 
-    <dimen name="main_activity_padding">8dp</dimen>
-    <dimen name="login_activity_padding">32dp</dimen>
-    <dimen name="login_activity_margin">24dp</dimen>
-    <dimen name="vehicle_activity_padding">8dp</dimen>
-    <dimen name="item_news_padding">8dp</dimen>
-    <dimen name="fragment_padding">16dp</dimen>
+
+    <!--padding size-->
+    <dimen name="padding_size_1dp">1dp</dimen>
+    <dimen name="padding_size_8dp">8dp</dimen>
+    <dimen name="padding_size_10dp">10dp</dimen>
+    <dimen name="padding_size_15dp">15dp</dimen>
+    <dimen name="padding_size_16dp">16dp</dimen>
+    <dimen name="padding_size_18dp">18dp</dimen>
+    <dimen name="padding_size_20dp">20dp</dimen>
+    <dimen name="padding_size_30dp">30dp</dimen>
+    <dimen name="padding_size_100dp">100dp</dimen>
+
+
+    <!--text size-->
+    <dimen name="text_size_10sp">10sp</dimen>
+    <dimen name="text_size_11sp">11sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_13sp">13sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_15sp">15sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_50sp">50sp</dimen>
+
+    <!--radius size-->
+    <dimen name="stroke_size_1dp">1dp</dimen>
+    <dimen name="border_size_1dp">1dp</dimen>
+    <dimen name="border_size_2dp">2dp</dimen>
+    <dimen name="radius_size_2dp">2dp</dimen>
+    <dimen name="radius_size_10dp">1dp</dimen>
+    <dimen name="radius_size_15dp">15dp</dimen>
+    <dimen name="radius_size_20dp">20dp</dimen>
+
 </resources>

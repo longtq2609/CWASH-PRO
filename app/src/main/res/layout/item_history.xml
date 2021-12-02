@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
+    android:layout_margin="@dimen/margin_size_15dp"
     android:background="@drawable/shape_item_view"
     android:gravity="center_vertical"
-    android:padding="@dimen/vehicle_activity_padding">
+    android:padding="@dimen/padding_size_8dp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/img"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="8dp"
+        android:layout_width="@dimen/size_80dp"
+        android:layout_height="@dimen/size_80dp"
+        android:padding="@dimen/padding_size_8dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/size_80dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -36,16 +36,16 @@
 
                 <TextView
                     android:id="@+id/tvTitileTime"
-                    android:layout_width="70dp"
+                    android:layout_width="@dimen/size_70dp"
                     android:layout_height="wrap_content"
                     android:text="Thời gian: "
-                    android:textSize="11sp" />
+                    android:textSize="@dimen/text_size_11sp" />
 
                 <TextView
                     android:id="@+id/tvTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -57,15 +57,15 @@
 
                 <TextView
                     android:id="@+id/tvTitileVehicle"
-                    android:layout_width="70dp"
+                    android:layout_width="@dimen/size_70dp"
                     android:layout_height="wrap_content"
                     android:text="Xe: "
-                    android:textSize="11sp"/>
+                    android:textSize="@dimen/text_size_11sp"/>
                 <TextView
                     android:id="@+id/tvVehicle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -77,15 +77,15 @@
 
                 <TextView
                     android:id="@+id/tvTitleService"
-                    android:layout_width="70dp"
+                    android:layout_width="@dimen/size_70dp"
                     android:layout_height="wrap_content"
                     android:text="Dịch vụ: "
-                    android:textSize="11sp"/>
+                    android:textSize="@dimen/text_size_11sp"/>
                 <TextView
                     android:id="@+id/tvService"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -97,16 +97,16 @@
 
                 <TextView
                     android:id="@+id/tvTitileStatus"
-                    android:layout_width="70dp"
+                    android:layout_width="@dimen/size_70dp"
                     android:layout_height="wrap_content"
                     android:text="Tình trạng: "
-                    android:textSize="11sp"/>
+                    android:textSize="@dimen/text_size_11sp"/>
                 <TextView
                     android:id="@+id/tvStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -122,52 +122,52 @@
 
             <com.github.nikartm.button.FitButton
                 android:id="@+id/btnConfirmVehicle"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/size_50dp"
+                android:layout_height="@dimen/size_50dp"
                 android:enabled="true"
                 android:gravity="center"
                 android:visibility="gone"
                 app:fb_backgroundColor="@color/white"
                 app:fb_borderColor="@color/mainColor"
-                app:fb_borderWidth="2dp"
-                app:fb_cornerRadius="2dp"
+                app:fb_borderWidth="@dimen/border_size_2dp"
+                app:fb_cornerRadius="@dimen/radius_size_2dp"
                 app:fb_divColor="#fff"
-                app:fb_divWidth="1dp"
+                app:fb_divWidth="@dimen/size_1dp"
                 app:fb_iconColor="#344187"
-                app:fb_iconHeight="50dp"
-                app:fb_iconMarginBottom="5dp"
+                app:fb_iconHeight="@dimen/size_50dp"
+                app:fb_iconMarginBottom="@dimen/margin_size_5dp"
                 app:fb_iconPosition="top"
-                app:fb_iconWidth="50dp"
+                app:fb_iconWidth="@dimen/size_50dp"
                 app:fb_rippleColor="#FBE9E7"
                 app:fb_shape="circle"
                 app:fb_text="Lấy xe"
                 app:fb_textColor="#344187"
-                app:fb_textSize="12sp"
+                app:fb_textSize="@dimen/text_size_12sp"
                 app:fb_textStyle="bold" />
 
             <com.github.nikartm.button.FitButton
                 android:id="@+id/btnCancelSchedule"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/size_50dp"
+                android:layout_height="@dimen/size_50dp"
                 android:enabled="true"
                 android:gravity="center"
                 android:visibility="gone"
                 app:fb_backgroundColor="@color/white"
                 app:fb_borderColor="@color/mainColor"
-                app:fb_borderWidth="2dp"
-                app:fb_cornerRadius="2dp"
+                app:fb_borderWidth="@dimen/border_size_2dp"
+                app:fb_cornerRadius="@dimen/radius_size_2dp"
                 app:fb_divColor="#fff"
-                app:fb_divWidth="1dp"
+                app:fb_divWidth="@dimen/size_1dp"
                 app:fb_iconColor="#344187"
-                app:fb_iconHeight="50dp"
-                app:fb_iconMarginBottom="5dp"
+                app:fb_iconHeight="@dimen/size_50dp"
+                app:fb_iconMarginBottom="@dimen/margin_size_5dp"
                 app:fb_iconPosition="top"
-                app:fb_iconWidth="50dp"
+                app:fb_iconWidth="@dimen/size_50dp"
                 app:fb_rippleColor="#FBE9E7"
                 app:fb_shape="circle"
                 app:fb_text="Huỷ lịch"
                 app:fb_textColor="#344187"
-                app:fb_textSize="12sp"
+                app:fb_textSize="@dimen/text_size_12sp"
                 app:fb_textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

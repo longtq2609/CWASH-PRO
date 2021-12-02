@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="@dimen/margin_size_110dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/timeClock"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="10/21/2021"
         android:textColor="#F5802A"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_size_14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeClock" />
@@ -34,7 +34,7 @@
         android:id="@+id/timeClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="@dimen/margin_size_75dp"
         android:text="12:01"
         android:textColor="#F5802A"
         android:textSize="50sp"
@@ -47,8 +47,8 @@
 
     <ImageView
         android:id="@+id/imgView2"
-        android:layout_width="1578dp"
-        android:layout_height="1234dp"
+        android:layout_width="@dimen/size_1578dp"
+        android:layout_height="@dimen/size_1234dp"
         android:scaleType="centerCrop"
         android:src="@drawable/group_7921"
         app:layout_constraintBottom_toBottomOf="parent"

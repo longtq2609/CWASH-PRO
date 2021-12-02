@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="@dimen/size_90dp"
         android:background="@drawable/header_top_bar"
         android:gravity="center">
 
@@ -17,8 +17,8 @@
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="@dimen/margin_size_8dp"
+            android:layout_marginBottom="@dimen/margin_size_15dp"
             android:contentDescription="@string/report"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +30,8 @@
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="@dimen/margin_size_16dp"
+            android:layout_marginBottom="@dimen/margin_size_15dp"
             android:gravity="center"
             android:text="Đặt lịch"
             android:textColor="@color/white"
@@ -47,8 +47,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="-18dp"
+        android:layout_marginHorizontal="@dimen/margin_size_8dp"
+        android:layout_marginTop="@dimen/margin_size__18dp"
         android:layout_weight="1"
         android:scrollbars="none">
 
@@ -63,7 +63,7 @@
                 android:gravity="center"
                 android:text="Thông tin đặt lịch"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="@dimen/text_size_22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -71,10 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="@dimen/margin_size_13dp"
                 android:text="@string/choose_vehicles"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="@dimen/text_size_22sp"
                 android:textStyle="bold" />
 
             <View
@@ -87,14 +87,14 @@
             <Spinner
                 android:id="@+id/spnVehicleCar"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/size_40dp"
                 android:layout_below="@+id/view1"
                 android:layout_marginVertical="8dp"
                 android:background="@drawable/custom_shaper_spinner"
                 android:orientation="horizontal"
-                android:paddingStart="15dp"
+                android:paddingStart="@dimen/padding_size_15dp"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_18sp"
                 tools:listitem="ite" />
 
             <View
@@ -114,7 +114,7 @@
                 <TextView
                     android:id="@+id/tvChooseDate1"
                     android:textStyle="bold"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/text_size_22sp"
                     android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,9 +131,9 @@
                     android:gravity="center_vertical"
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:paddingStart="15dp"
-                    android:textSize="18sp"
+                    android:layout_height="@dimen/size_40dp"
+                    android:paddingStart="@dimen/padding_size_15dp"
+                    android:textSize="@dimen/text_size_18sp"
                     android:textColor="@color/black"
                     android:background="@drawable/custom_shaper_spinner"
                     android:text="Bấm vào đây để chọn ngày"
@@ -150,12 +150,12 @@
 
             <TextView
                 android:id="@+id/tvChooseTime"
-                android:textSize="22sp"
+                android:textSize="@dimen/text_size_22sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view4"
-                android:layout_marginVertical="8dp"
+                android:layout_marginVertical="@dimen/margin_size_8dp"
                 android:text="@string/choose_time"
                 android:textStyle="bold" />
 
@@ -165,17 +165,17 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tvChooseTime"
                 android:background="@drawable/background_list_news"
-                android:padding="10dp"
+                android:padding="@dimen/padding_size_10dp"
                 tools:listitem="@layout/item_choose_time" />
 
             <TextView
                 android:id="@+id/tvService"
-                android:textSize="22sp"
+                android:textSize="@dimen/text_size_22sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvTime"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_size_8dp"
                 android:text="Chọn dịch vụ"
                 android:textStyle="bold" />
 
@@ -184,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvService"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_size_8dp"
                 android:background="@drawable/background_list_news"
                 android:padding="10dp" />
 
@@ -195,16 +195,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rvService"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_size_8dp"
                 android:text="Ghi chú" />
 
             <EditText
                 android:id="@+id/edtNote"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="@dimen/size_70dp"
                 android:layout_below="@id/tvNote"
                 android:background="@drawable/custom_shaper_spinner"
-                android:paddingStart="15dp" />
+                android:paddingStart="@dimen/padding_size_15dp" />
 
         </RelativeLayout>
 
@@ -213,13 +213,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/vehicle_activity_padding">
+        android:padding="@dimen/padding_size_8dp">
 
         <Button
             android:id="@+id/btnBook"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="15dp"
+            android:layout_height="@dimen/size_40dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
             android:background="@drawable/shape_btn_login"
             android:text="Đặt lịch"
             android:textAllCaps="false"

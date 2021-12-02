@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
+    android:layout_margin="@dimen/margin_size_15dp"
     android:background="@drawable/shape_item_view"
     android:gravity="center"
-    android:padding="8dp">
+    android:padding="@dimen/padding_size_8dp">
 
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/size_100dp"
+        android:layout_height="@dimen/size_100dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="pending-animation.json"
         app:lottie_loop="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="@dimen/size_100dp"
+        android:layout_marginStart="@dimen/margin_size_8dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,15 +34,14 @@
                 android:layout_height="wrap_content"
                 android:text="Khách hàng: "
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vũ Quyên"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="@dimen/text_size_10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -57,14 +56,14 @@
                 android:layout_height="wrap_content"
                 android:text="Dịch vụ: "
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
 
             <TextView
                 android:id="@+id/tvService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="@dimen/text_size_10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -79,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="Loại xe: "
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
 
             <TextView
                 android:id="@+id/tvVehicle"
@@ -87,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:text="Wave Alpha"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="@dimen/text_size_10sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTime" />
@@ -104,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thời gian: "
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
 
             <TextView
                 android:id="@+id/tvTime"
@@ -112,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="8:00 Ngày 31 tháng 3"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="@dimen/text_size_10sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -125,26 +124,26 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginStart="8dp"
                 android:id="@+id/btnConfirm"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/margin_size_8dp"
                 android:text="XÁC NHẬN"
                 android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
 
             <Button
-                android:layout_marginEnd="8dp"
                 android:id="@+id/btnCancel"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/size_100dp"
+                android:layout_height="@dimen/size_40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginEnd="@dimen/margin_size_8dp"
                 android:text="HỦY"
                 android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:textSize="@dimen/text_size_10sp" />
         </RelativeLayout>
 
     </LinearLayout>

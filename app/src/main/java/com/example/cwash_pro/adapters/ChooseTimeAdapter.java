@@ -51,12 +51,12 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvChoosedTime.setText(timeList.get(position).getTime());
-        holder.tvChoosedTime.setBackgroundResource(mainColor);
+        holder.tvChosenTime.setText(timeList.get(position).getTime());
+        holder.tvChosenTime.setBackgroundResource(mainColor);
         if (position == itemSelected) {
-            holder.tvChoosedTime.setBackgroundResource(mainColor);
+            holder.tvChosenTime.setBackgroundResource(mainColor);
         } else {
-            holder.tvChoosedTime.setBackgroundColor(Color.WHITE);
+            holder.tvChosenTime.setBackgroundColor(Color.WHITE);
         }
         if (pendingList != null) {
             int count = 0;
@@ -70,7 +70,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
             }
         }
         if (timeList.get(position).isStatus()) {
-            holder.tvChoosedTime.setBackgroundColor(Color.RED);
+            holder.tvChosenTime.setBackgroundColor(Color.RED);
         }
         if (!dateBook.equals("")) {
             for (int i = 0; i < timeList.size(); i++) {
@@ -87,8 +87,8 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
                 }
             }
             if (!timeList.get(position).isTimeOut()) {
-                holder.tvChoosedTime.setEnabled(false);
-                holder.tvChoosedTime.setBackgroundResource(mainColor);
+                holder.tvChosenTime.setEnabled(false);
+                holder.tvChosenTime.setBackgroundResource(mainColor);
 
             }
         }
@@ -100,13 +100,13 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvChoosedTime;
+        TextView tvChosenTime;
         MaterialCardView container;
 
         @SuppressLint("NotifyDataSetChanged")
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvChoosedTime = itemView.findViewById(R.id.tvChoosedTime);
+            tvChosenTime = itemView.findViewById(R.id.tvChoosedTime);
             container = itemView.findViewById(R.id.layoutContainer);
             itemView.setOnClickListener(v -> {
                 if (timeList.get(getAdapterPosition()).isStatus()) {
@@ -118,7 +118,7 @@ public class ChooseTimeAdapter extends RecyclerView.Adapter<ChooseTimeAdapter.Vi
                 } else {
                     itemClick.setOnItemClick(v, getAdapterPosition());
                     itemSelected = getAdapterPosition();
-                    tvChoosedTime.setBackgroundColor(Color.LTGRAY);
+                    tvChosenTime.setBackgroundColor(Color.LTGRAY);
                     Toast.makeText(context, timeList.get(getAdapterPosition()).getTime(), Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }

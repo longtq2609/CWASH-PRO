@@ -17,21 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottomNavigationView2"-->
-<!--        android:background="@color/white"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="75dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:menu="@menu/navigation2"/>-->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
-        android:layout_height="41.63dp"
-        android:layout_marginHorizontal="73dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginHorizontal="@dimen/margin_size_73dp"
         android:background="@drawable/shape_bottombar"
         app:itemIconTint="@color/custom_color_bottom_nav"
         app:itemTextColor="@color/custom_color_bottom_nav"

@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="@dimen/size_90dp"
             android:background="@drawable/header_top_bar"
             android:gravity="center">
 
@@ -22,8 +22,8 @@
                 android:id="@+id/imgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginStart="@dimen/margin_size_8dp"
+                android:layout_marginBottom="@dimen/margin_size_15dp"
                 android:contentDescription="@string/report"
                 android:foregroundGravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +35,8 @@
                 style="@style/TextTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginStart="@dimen/margin_size_16dp"
+                android:layout_marginBottom="@dimen/margin_size_18dp"
                 android:gravity="center"
                 android:text="Xác thực số điện thoại"
                 android:textColor="@color/white"
@@ -57,39 +57,39 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:layout_marginTop="@dimen/margin_size_48dp"
             android:text="Mã xác thực đã được gửi đến thuê bao: "
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <TextView
             android:id="@+id/tvNumberPhoneUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="-3dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:layout_marginTop="@dimen/margin_size__3dp"
             android:text="0389127389"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_16sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:layout_marginTop="@dimen/margin_size_8dp"
             android:text="Vui lòng để ý tin nhắn để nhận được mã xác thực"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCode"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:layout_marginTop="@dimen/margin_size_20dp"
             app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -105,13 +105,13 @@
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="21dp"
+            android:layout_height="@dimen/size_40dp"
+            android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:layout_marginTop="@dimen/margin_size_21dp"
             android:background="@drawable/shape_btn_login"
             android:text="Xác nhận"
             android:textAllCaps="false"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_16sp"
             android:textStyle="bold" />
     </LinearLayout>
 
