@@ -1,26 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xmlversion="1.0"encoding="utf-8"?>
 <resources>
-<dimen name="height_layout">116.99999dp</dimen>
-<dimen name="height_layout_100">130.0dp</dimen>
-<dimen name="height_layout_40">52.0dp</dimen>
-<dimen name="height_layout_250">325.0dp</dimen>
+    <!--layout size-->
+    <dimen name="size_0dp">0.0dp</dimen>
+    <dimen name="size_1dp">1.3dp</dimen>
+    <dimen name="size_20dp">26.0dp</dimen>
+    <dimen name="size_24dp">31.199999dp</dimen>
+    <dimen name="size_30dp">39.0dp</dimen>
+    <dimen name="size_40dp">52.0dp</dimen>
+    <dimen name="size_50dp">65.0dp</dimen>
+    <dimen name="size_51dp">66.299995dp</dimen>
+    <dimen name="size_60dp">78.0dp</dimen>
+    <dimen name="size_70dp">91.0dp</dimen>
+    <dimen name="size_75dp">97.5dp</dimen>
+    <dimen name="size_80dp">104.0dp</dimen>
+    <dimen name="size_90dp">116.99999dp</dimen>
+    <dimen name="size_100dp">130.0dp</dimen>
+    <dimen name="size_120dp">156.0dp</dimen>
+    <dimen name="size_150dp">195.0dp</dimen>
+    <dimen name="size_200dp">260.0dp</dimen>
+    <dimen name="size_250dp">325.0dp</dimen>
+    <dimen name="size_1234dp">1604.2dp</dimen>
+    <dimen name="size_1578dp">2051.4dp</dimen>
 
-<dimen name="layout_margin_start">10.4dp</dimen>
-<dimen name="layout_margin_bottom">19.5dp</dimen>
-<dimen name="margin_start">20.8dp</dimen>
-<dimen name="layout_margin_top_5">6.5dp</dimen>
-<dimen name="layout_margin_top_25">32.5dp</dimen>
 
-<dimen name="layout_margin_top">-39.0dp</dimen>
-<dimen name="layout_margin_top_10">13.0dp</dimen>
-<dimen name="layout_rounded_image_view">104.0dp</dimen>
-<dimen name="border_width">1.3dp</dimen>
-<dimen name="text_size_18">23.4sp</dimen>
+    <!--margin size-->
+    <dimen name="margin_size__30dp">-39.0dp</dimen>
+    <dimen name="margin_size__18dp">-23.4dp</dimen>
+    <dimen name="margin_size__3dp">-3.8999999dp</dimen>
+    <dimen name="margin_size_5dp">6.5dp</dimen>
+    <dimen name="margin_size_8dp">10.4dp</dimen>
+    <dimen name="margin_size_10dp">13.0dp</dimen>
+    <dimen name="margin_size_13dp">16.9dp</dimen>
+    <dimen name="margin_size_15dp">19.5dp</dimen>
+    <dimen name="margin_size_16dp">20.8dp</dimen>
+    <dimen name="margin_size_18dp">23.4dp</dimen>
+    <dimen name="margin_size_20dp">26.0dp</dimen>
+    <dimen name="margin_size_21dp">27.3dp</dimen>
+    <dimen name="margin_size_22dp">28.599998dp</dimen>
+    <dimen name="margin_size_25dp">32.5dp</dimen>
+    <dimen name="margin_size_38dp">49.399998dp</dimen>
+    <dimen name="margin_size_48dp">62.399998dp</dimen>
+    <dimen name="margin_size_73dp">94.899994dp</dimen>
+    <dimen name="margin_size_75dp">97.5dp</dimen>
+    <dimen name="margin_size_110dp">143.0dp</dimen>
 
-<dimen name="main_activity_padding">10.4dp</dimen>
-<dimen name="login_activity_padding">41.6dp</dimen>
-<dimen name="login_activity_margin">31.199999dp</dimen>
-<dimen name="vehicle_activity_padding">10.4dp</dimen>
-<dimen name="item_news_padding">10.4dp</dimen>
-<dimen name="fragment_padding">20.8dp</dimen>
+
+    <!--padding size-->
+    <dimen name="padding_size_1dp">1.3dp</dimen>
+    <dimen name="padding_size_8dp">10.4dp</dimen>
+    <dimen name="padding_size_10dp">13.0dp</dimen>
+    <dimen name="padding_size_15dp">19.5dp</dimen>
+    <dimen name="padding_size_16dp">20.8dp</dimen>
+    <dimen name="padding_size_18dp">23.4dp</dimen>
+    <dimen name="padding_size_20dp">26.0dp</dimen>
+    <dimen name="padding_size_30dp">39.0dp</dimen>
+    <dimen name="padding_size_100dp">130.0dp</dimen>
+
+
+    <!--text size-->
+    <dimen name="text_size_10sp">13.0sp</dimen>
+    <dimen name="text_size_11sp">14.299999sp</dimen>
+    <dimen name="text_size_12sp">15.599999sp</dimen>
+    <dimen name="text_size_13sp">16.9sp</dimen>
+    <dimen name="text_size_14sp">18.199999sp</dimen>
+    <dimen name="text_size_15sp">19.5sp</dimen>
+    <dimen name="text_size_16sp">20.8sp</dimen>
+    <dimen name="text_size_18sp">23.4sp</dimen>
+    <dimen name="text_size_20sp">26.0sp</dimen>
+    <dimen name="text_size_22sp">28.599998sp</dimen>
+    <dimen name="text_size_24sp">31.199999sp</dimen>
+    <dimen name="text_size_50sp">65.0sp</dimen>
+
+    <!--radius size-->
+    <dimen name="stroke_size_1dp">1.3dp</dimen>
+    <dimen name="border_size_1dp">1.3dp</dimen>
+    <dimen name="border_size_2dp">2.6dp</dimen>
+    <dimen name="radius_size_2dp">2.6dp</dimen>
+    <dimen name="radius_size_10dp">1.3dp</dimen>
+    <dimen name="radius_size_15dp">19.5dp</dimen>
+    <dimen name="radius_size_20dp">26.0dp</dimen>
+
 </resources>
