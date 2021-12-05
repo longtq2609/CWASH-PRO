@@ -88,12 +88,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(CarWashServiceActivity.this, (view, year1, monthOfYear, dayOfMonth) -> {
                 tvDate.setText("Ngày " + dayOfMonth + " tháng " + (monthOfYear + 1) + " năm " + year1);
                 dateBook = dayOfMonth + "/" + (monthOfYear + 1);
-                rvTime.setAdapter(new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, new ItemClick() {
-                            @Override
-                            public void setOnItemClick(View v, int pos) {
-                                timeBook = timeList.get(pos).getTime();
-                            }
-                        })
+                rvTime.setAdapter(new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, (v1, pos) -> timeBook = timeList.get(pos).getTime())
                 );
             }, year, month, day);
             datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
