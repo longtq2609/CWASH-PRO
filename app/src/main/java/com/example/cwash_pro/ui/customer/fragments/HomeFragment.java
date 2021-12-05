@@ -145,8 +145,10 @@ public class HomeFragment extends Fragment {
         RetrofitClient.getInstance().create(ApiService.class).getUserInfo().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body().success) {
-                    Glide.with(getActivity()).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
+                if (response.body() != null && response.body().success) {
+                    if (getActivity() != null) {
+                        Glide.with(getActivity()).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
+                    }
                     tvName.setText(response.body().user.getFullName());
                     tvPhone.setText(response.body().user.getPhoneNumber());
                     RetrofitClient.user = response.body().user;

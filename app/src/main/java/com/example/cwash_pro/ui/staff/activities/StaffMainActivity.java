@@ -46,49 +46,49 @@ public class StaffMainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.schedule:
-                        ProgressDialog dialog = new ProgressDialog(StaffMainActivity.this);
-                        dialog.setMessage("Đang tải");
-                        dialog.show();
-                        new Handler().postDelayed(() -> {
-                            dialog.dismiss();
+//                        ProgressDialog dialog = new ProgressDialog(StaffMainActivity.this);
+//                        dialog.setMessage("Đang tải");
+//                        dialog.show();
+//                        new Handler().postDelayed(() -> {
+//                            dialog.dismiss();
                             setCurrentFragment(new PendingScheduleFragment());
-                        }, 2000);
+//                        }, 2000);
                         return true;
                     case R.id.perform:
-                        ProgressDialog dialog1 = new ProgressDialog(StaffMainActivity.this);
-                        dialog1.setMessage("Đang tải");
-                        dialog1.show();
-                        new Handler().postDelayed(() -> {
-                            dialog1.dismiss();
+//                        ProgressDialog dialog1 = new ProgressDialog(StaffMainActivity.this);
+//                        dialog1.setMessage("Đang tải");
+//                        dialog1.show();
+//                        new Handler().postDelayed(() -> {
+//                            dialog1.dismiss();
                             setCurrentFragment(new ProcessingScheduleFragment());
-                        }, 2000);
+//                        }, 2000);
                         return true;
                     case R.id.completed:
-                        ProgressDialog dialog3 = new ProgressDialog(StaffMainActivity.this);
-                        dialog3.setMessage("Đang tải");
-                        dialog3.show();
-                        new Handler().postDelayed(() -> {
-                            dialog3.dismiss();
+//                        ProgressDialog dialog3 = new ProgressDialog(StaffMainActivity.this);
+//                        dialog3.setMessage("Đang tải");
+//                        dialog3.show();
+//                        new Handler().postDelayed(() -> {
+//                            dialog3.dismiss();
                             setCurrentFragment(new CompletedScheduleFragment());
-                        }, 2000);
+//                        }, 2000);
                         return true;
                     case R.id.cancelled:
-                        ProgressDialog dialog4 = new ProgressDialog(StaffMainActivity.this);
-                        dialog4.setMessage("Đang tải");
-                        dialog4.show();
-                        new Handler().postDelayed(() -> {
-                            dialog4.dismiss();
+//                        ProgressDialog dialog4 = new ProgressDialog(StaffMainActivity.this);
+//                        dialog4.setMessage("Đang tải");
+//                        dialog4.show();
+//                        new Handler().postDelayed(() -> {
+//                            dialog4.dismiss();
                             setCurrentFragment(new CancelledScheduleFragment());
-                        }, 2000);
+//                        }, 2000);
                         return true;
                     case R.id.account2:
-                        ProgressDialog dialog5 = new ProgressDialog(StaffMainActivity.this);
-                        dialog5.setMessage("Đang tải");
-                        dialog5.show();
-                        new Handler().postDelayed(() -> {
-                            dialog5.dismiss();
+//                        ProgressDialog dialog5 = new ProgressDialog(StaffMainActivity.this);
+//                        dialog5.setMessage("Đang tải");
+//                        dialog5.show();
+//                        new Handler().postDelayed(() -> {
+//                            dialog5.dismiss();
                             setCurrentFragment(new AccountFragment());
-                        }, 2000);
+//                        }, 2000);
                 }
                 return false;
             }
