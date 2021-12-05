@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
+import com.github.nikartm.button.FitButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,15 +70,18 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             PendingHolder pendingHolder = (PendingHolder) holder;
             pendingHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
             pendingHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+            pendingHolder.tvVehicle.setText(scheduleList.get(position).getVehicle().getBrand());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
+
             }
             pendingHolder.tvService.setText(String.valueOf(stringList));
         } else if (holder instanceof ProcessingHolder) {
             ProcessingHolder processingHolder = (ProcessingHolder) holder;
             processingHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
             processingHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+            processingHolder.tvVehicle.setText(scheduleList.get(position).getVehicle().getBrand());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -87,6 +91,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CompletedHolder completedHolder = (CompletedHolder) holder;
             completedHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
             completedHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+            completedHolder.tvVehicle.setText(scheduleList.get(position).getVehicle().getBrand());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -96,6 +101,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CancelHolder cancelHolder = (CancelHolder) holder;
             cancelHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
             cancelHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
+            cancelHolder.tvVehicle.setText(scheduleList.get(position).getVehicle().getBrand());
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -114,6 +120,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvName;
         TextView tvTime;
         TextView tvService;
+        TextView tvVehicle;
         Button btnConfirm, btnCancel;
 
         public PendingHolder(@NonNull View itemView) {
@@ -121,6 +128,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tvName = itemView.findViewById(R.id.tvName);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvService = itemView.findViewById(R.id.tvService);
+            tvVehicle = itemView.findViewById(R.id.tvVehicle);
             btnCancel = itemView.findViewById(R.id.btnCancel);
             btnConfirm = itemView.findViewById(R.id.btnConfirm);
             btnConfirm.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
@@ -132,13 +140,15 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvName;
         TextView tvTime;
         TextView tvService;
-        Button btnComplete;
+        TextView tvVehicle;
+        FitButton btnComplete;
 
         public ProcessingHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvService = itemView.findViewById(R.id.tvService);
+            tvVehicle = itemView.findViewById(R.id.tvVehicle);
             btnComplete = itemView.findViewById(R.id.btnComplete);
             btnComplete.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
         }
@@ -148,6 +158,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvName;
         TextView tvTime;
         TextView tvService;
+        TextView tvVehicle;
         Button btnViewDetails;
 
         public CompletedHolder(@NonNull View itemView) {
@@ -155,6 +166,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tvName = itemView.findViewById(R.id.tvName);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvService = itemView.findViewById(R.id.tvService);
+            tvVehicle = itemView.findViewById(R.id.tvVehicle);
             btnViewDetails = itemView.findViewById(R.id.btnViewDetails);
             btnViewDetails.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
         }
@@ -164,6 +176,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvName;
         TextView tvTime;
         TextView tvService;
+        TextView tvVehicle;
         Button btnViewDetails;
 
         public CancelHolder(@NonNull View itemView) {
@@ -171,6 +184,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tvName = itemView.findViewById(R.id.tvName);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvService = itemView.findViewById(R.id.tvService);
+            tvVehicle = itemView.findViewById(R.id.tvVehicle);
             btnViewDetails = itemView.findViewById(R.id.btnViewDetails);
             btnViewDetails.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
         }

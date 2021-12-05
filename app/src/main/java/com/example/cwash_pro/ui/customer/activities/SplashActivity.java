@@ -3,7 +3,11 @@ package com.example.cwash_pro.ui.customer.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -11,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.services.IWashNotificationManager;
+import com.example.cwash_pro.utils.Constants;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -24,6 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        showNotification();
         init();
         hideSystemUI();
         getTime(tvTime);
@@ -40,7 +47,6 @@ public class SplashActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         int minutes = cal.get(Calendar.MINUTE);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        Log.e("TAG", "getTime: " + minutes + " - " + hour);
         String result = hour + ":" + minutes;
         timeClock.setText(result);
     }
@@ -67,5 +73,20 @@ public class SplashActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
+    }
+    private void showNotification(){
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager mNotificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(Constants.CHANNEL_ID, Constants.CHANNEL_NAME, importance);
+            mChannel.setDescription(Constants.CHANNEL_DESCRIPTION);
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.RED);
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mNotificationManager.createNotificationChannel(mChannel);
+        }
+        IWashNotificationManager.getInstance(this).displayNotification("CWASH-PRO", "Chào mừng bạn đến với CWASH-PRO");
     }
 }

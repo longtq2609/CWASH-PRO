@@ -108,12 +108,12 @@
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_60dp"
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:background="@drawable/shape_btn_login"
         android:text="@string/login"
         android:textAllCaps="false"
-        android:textSize="@dimen/text_size_16sp"
+        android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -130,7 +130,7 @@
             android:gravity="end"
             android:text="Bạn chưa có tài khoản?"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_14sp" />
+            android:textSize="@dimen/text_size_18sp" />
 
         <TextView
             android:id="@+id/tvCreateAccount"
@@ -141,7 +141,7 @@
             android:gravity="start"
             android:text="Đăng ký ngay"
             android:textColor="#F5802A"
-            android:textSize="@dimen/text_size_16sp" />
+            android:textSize="@dimen/text_size_18sp" />
 
     </LinearLayout>
 
@@ -151,6 +151,6 @@
         android:gravity="bottom|center_horizontal"
         android:text="Chào mừng bạn đến với CWASH-PRO"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_16sp" />
+        android:textSize="@dimen/text_size_22sp" />
 
 </LinearLayout>

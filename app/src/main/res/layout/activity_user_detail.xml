@@ -92,7 +92,7 @@
                     <EditText
                         android:id="@+id/edit_full_name"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/size_40dp"
+                        android:layout_height="@dimen/size_50dp"
                         android:background="@drawable/shape_email_pass"
                         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -110,7 +110,7 @@
                     <EditText
                         android:id="@+id/edit_phone_number"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/size_40dp"
+                        android:layout_height="@dimen/size_50dp"
                         android:background="@drawable/shape_email_pass"
                         android:focusable="false"
                         android:paddingStart="@dimen/padding_size_15dp" />
@@ -128,7 +128,7 @@
                     <EditText
                         android:id="@+id/edtAddress"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/size_40dp"
+                        android:layout_height="@dimen/size_50dp"
                         android:background="@drawable/shape_email_pass"
                         android:paddingStart="@dimen/padding_size_15dp" />
                 </LinearLayout>
@@ -144,7 +144,7 @@
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:layout_marginTop="@dimen/margin_size_8dp"

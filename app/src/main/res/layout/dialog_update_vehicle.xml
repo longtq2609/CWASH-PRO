@@ -14,12 +14,12 @@
         android:textColor="@color/white"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_50dp"/>
+        android:layout_height="@dimen/size_60dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên xe"
+        android:text="Tên chủ xe"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
@@ -27,7 +27,7 @@
     <EditText
         android:id="@+id/edtNameOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:inputType="text"
@@ -36,7 +36,7 @@
     <Spinner
         android:id="@+id/spnType"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp" />
 
     <TextView
@@ -50,7 +50,7 @@
     <EditText
         android:id="@+id/edtColorOfVehicle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:paddingStart="@dimen/padding_size_15dp" />
@@ -67,7 +67,7 @@
     <EditText
         android:id="@+id/edtLicense"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:paddingStart="@dimen/padding_size_15dp" />
@@ -84,7 +84,7 @@
     <EditText
         android:id="@+id/edtBrand"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/shape_email_pass"
         android:paddingStart="@dimen/padding_size_15dp" />
@@ -98,7 +98,7 @@
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/size_40dp"
+            android:layout_height="@dimen/size_60dp"
             android:layout_marginEnd="@dimen/margin_size_8dp"
             android:layout_weight="1"
             android:textColor="@color/white"
@@ -108,7 +108,7 @@
         <Button
             android:id="@+id/btnUpdateVehicle"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/size_40dp"
+            android:layout_height="@dimen/size_60dp"
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_weight="1"

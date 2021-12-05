@@ -107,7 +107,7 @@
                 <Button
                     android:id="@+id/btnUpdate"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/size_40dp"
+                    android:layout_height="@dimen/size_60dp"
                     android:layout_marginTop="@dimen/margin_size_8dp"
                     android:background="@drawable/boder_button_pri"
                     android:text="@string/update_infor" />

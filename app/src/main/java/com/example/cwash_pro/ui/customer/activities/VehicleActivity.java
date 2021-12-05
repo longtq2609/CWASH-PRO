@@ -27,6 +27,7 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.models.Vehicle;
+import com.reginald.editspinner.EditSpinner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class VehicleActivity extends AppCompatActivity {
     VehicleAdapter adapter;
     List<Vehicle> vehicles = new ArrayList<>();
     String type = "";
-
+    String brand = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,11 +169,17 @@ public class VehicleActivity extends AppCompatActivity {
             EditText edtNameOfVehicle = dialog.findViewById(R.id.edtNameOfVehicle);
             EditText edtColorOfVehicle = dialog.findViewById(R.id.edtColorOfVehicle);
             EditText edtLicense = dialog.findViewById(R.id.edtLicense);
-            EditText edtBrand = dialog.findViewById(R.id.edtBrand);
-            Spinner spnType = (Spinner) dialog.findViewById(R.id.spnType);
+            EditSpinner spnBrand = dialog.findViewById(R.id.editSpinnerBrand);
+            Spinner spnType =  dialog.findViewById(R.id.spnType);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                     R.array.type_of_vehicle, android.R.layout.simple_spinner_dropdown_item);
+            ArrayAdapter<String> adapterBrandMoto = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+                    getResources().getStringArray(R.array.brand_of_vehicle_moto));
+            ArrayAdapter<String> adapterBrandCar = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+                    getResources().getStringArray(R.array.brand_of_vehicle_car));
+
             adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+            spnBrand.setAdapter(adapterBrandMoto);
             spnType.setAdapter(adapter);
             Button btnAddVehicle = dialog.findViewById(R.id.btnAddVehicle);
             Button btnCancel = dialog.findViewById(R.id.btnCancel);
@@ -181,8 +188,10 @@ public class VehicleActivity extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (spnType.getSelectedItem().toString().equals("Xe máy")) {
                         type = "Motorcycle";
+                        spnBrand.setAdapter(adapterBrandMoto);
                     } else if (spnType.getSelectedItem().toString().equals("Ô tô")) {
                         type = "Car";
+                        spnBrand.setAdapter(adapterBrandCar);
                     }
                 }
 
@@ -193,7 +202,7 @@ public class VehicleActivity extends AppCompatActivity {
             });
             btnAddVehicle.setOnClickListener(view -> {
                 RetrofitClient.getInstance().create(ApiService.class).addVehicle(edtNameOfVehicle.getText().toString(), type
-                        , edtLicense.getText().toString(), edtColorOfVehicle.getText().toString(), edtBrand.getText().toString()).enqueue(new Callback<ServerResponse>() {
+                        , edtLicense.getText().toString(), edtColorOfVehicle.getText().toString(), spnBrand.getText().toString()).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
                         if (response.code() == 200) {

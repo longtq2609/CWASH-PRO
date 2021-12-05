@@ -39,20 +39,13 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
-                    //Toast.makeText(getApplicationContext(), "Loading", Toast.LENGTH_SHORT).show();
                     setCurrentFragment(homeFragment);
                     return true;
                 case R.id.account:
-//                    Toast.makeText(getApplicationContext(), "Loading", Toast.LENGTH_SHORT).show();
-//                    new Handler().postDelayed(() -> {
                     setCurrentFragment(accountFragment);
-//                    }, 3000);
                     return true;
                 case R.id.more:
-//                    Toast.makeText(getApplicationContext(), "Loading", Toast.LENGTH_SHORT).show();
-//                    new Handler().postDelayed(() -> {
                     setCurrentFragment(moreFunctionFragment);
-//                    }, 3000);
                     return true;
             }
 
@@ -64,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getService(MainActivity.this, 0, myIntent, 0);
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 00);
-        calendar.set(Calendar.SECOND, 00);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 5000, pendingIntent);
     }
 
@@ -80,12 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
         exit = true;
         Toast.makeText(this, "Bấm lần nữa để thoát", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                exit = false;
-            }
-        }, 1500);
+        new Handler().postDelayed(() -> exit = false, 1500);
     }
 
 }

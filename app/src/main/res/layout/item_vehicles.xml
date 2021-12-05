@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size_8dp"
         android:textColor="@color/black"
-        android:text="Loại xe: "
+        android:text="Hãng xe: "
         app:layout_constraintStart_toEndOf="@id/imgVehicle"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView

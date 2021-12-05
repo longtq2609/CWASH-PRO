@@ -4,4 +4,28 @@
         <item>Xe máy</item>
         <item>Ô tô</item>
     </array>
+    <array name="brand_of_vehicle_car">
+        <item>Toyota</item>
+        <item>Ford</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Isuzu</item>
+        <item>Suzuki</item>
+        <item>Kia</item>
+        <item>Mitsubishi</item>
+        <item>Lexus</item>
+        <item>Mazda</item>
+        <item>Nissan</item>
+        <item>Subaru</item>
+        <item>Ssangyong</item>
+        <item>Land Rover</item>
+    </array>
+    <array name="brand_of_vehicle_moto">
+        <item>Honda</item>
+        <item>Yamaha</item>
+        <item>Piaggio</item>
+        <item>Suzuki</item>
+        <item>SYM</item>
+        <item>Kawasaki</item>
+    </array>
 </resources>

@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_30dp"
+        android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:background="@drawable/shape_btn_login"
         android:gravity="center"
@@ -136,7 +136,7 @@
     <Button
         android:id="@+id/tvClose"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
+        android:layout_height="@dimen/size_60dp"
         android:layout_marginTop="@dimen/margin_size_15dp"
         android:textAllCaps="false"
         android:background="@drawable/shape_btn_login"

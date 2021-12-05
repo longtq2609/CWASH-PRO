@@ -38,7 +38,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
 
     @Override
     public void onBindViewHolder(@NonNull VehicleHolder holder, int position) {
-        holder.tvNameOfVehicle.setText(vehicles.get(position).getName());
+        holder.tvNameOfVehicle.setText(vehicles.get(position).getBrand());
         holder.tvLicense.setText(vehicles.get(position).getLicense());
         Log.e("onBindViewHolder: ", vehicles.get(position).getType());
         if (vehicles.get(position).getType().equals("Car")) {

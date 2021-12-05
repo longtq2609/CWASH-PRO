@@ -50,7 +50,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             service = schedules.get(position).getServices().get(i).getName();
         }
         service = service + "";
-        holder.tvVehicle.setText(schedules.get(position).getVehicle().getName());
+        holder.tvStatus.setTextColor(Color.GREEN);
+        holder.img.setAnimation("done-animation.json");
+        holder.tvVehicle.setText(schedules.get(position).getVehicle().getBrand());
         if (schedules.get(position).getStatus().equals("Confirmed") && !schedules.get(position).getVehicleStatus()) {
             holder.btnConfirmVehicle.setVisibility(View.VISIBLE);
             holder.img.setAnimation("done-animation.json");

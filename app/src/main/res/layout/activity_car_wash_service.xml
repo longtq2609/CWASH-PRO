@@ -87,7 +87,7 @@
             <Spinner
                 android:id="@+id/spnVehicleCar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_40dp"
+                android:layout_height="@dimen/size_50dp"
                 android:layout_below="@+id/view1"
                 android:layout_marginVertical="8dp"
                 android:background="@drawable/custom_shaper_spinner"
@@ -131,7 +131,7 @@
                     android:gravity="center_vertical"
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/size_40dp"
+                    android:layout_height="@dimen/size_60dp"
                     android:paddingStart="@dimen/padding_size_15dp"
                     android:textSize="@dimen/text_size_18sp"
                     android:textColor="@color/black"
@@ -218,7 +218,7 @@
         <Button
             android:id="@+id/btnBook"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_40dp"
+            android:layout_height="@dimen/size_60dp"
             android:layout_marginHorizontal="@dimen/margin_size_15dp"
             android:background="@drawable/shape_btn_login"
             android:text="Đặt lịch"

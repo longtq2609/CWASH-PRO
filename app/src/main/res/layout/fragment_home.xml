@@ -76,8 +76,8 @@
 
             <com.github.siyamed.shapeimageview.RoundedImageView
                 android:id="@+id/imgAvatar"
-                android:layout_width="@dimen/size_80dp"
-                android:layout_height="@dimen/size_80dp"
+                android:layout_width="@dimen/size_100dp"
+                android:layout_height="@dimen/size_100dp"
                 app:siBorderWidth="@dimen/border_size_1dp"
                 app:siRadius="@dimen/radius_size_15dp"
                 app:siSquare="true" />
