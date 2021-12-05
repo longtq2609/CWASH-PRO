@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/margin_size_8dp"
-    android:background="@drawable/background_list_news"
+    android:background="@drawable/bg_list_news"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/padding_size_15dp">

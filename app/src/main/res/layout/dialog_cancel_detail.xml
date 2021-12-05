@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="Thông tin"
         android:textColor="@color/white"
@@ -159,7 +159,7 @@
         android:layout_height="@dimen/size_60dp"
         android:layout_marginTop="@dimen/margin_size_15dp"
         android:textAllCaps="false"
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:text="Quay lại"
         android:textColor="@color/white" />
 </LinearLayout>

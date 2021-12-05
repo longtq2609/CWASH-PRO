@@ -17,7 +17,7 @@
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_90dp"
-            android:background="@drawable/header_top_bar"
+            android:background="@drawable/bg_header_top_bar"
             android:gravity="center">
 
             <ImageView
@@ -93,7 +93,7 @@
                         android:id="@+id/edit_full_name"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/size_50dp"
-                        android:background="@drawable/shape_email_pass"
+                        android:background="@drawable/bg_edit_text"
                         android:paddingStart="@dimen/padding_size_15dp" />
 
                     <TextView
@@ -111,7 +111,7 @@
                         android:id="@+id/edit_phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/size_50dp"
-                        android:background="@drawable/shape_email_pass"
+                        android:background="@drawable/bg_edit_text"
                         android:focusable="false"
                         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -129,7 +129,7 @@
                         android:id="@+id/edtAddress"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/size_50dp"
-                        android:background="@drawable/shape_email_pass"
+                        android:background="@drawable/bg_edit_text"
                         android:paddingStart="@dimen/padding_size_15dp" />
                 </LinearLayout>
 
@@ -149,6 +149,6 @@
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:layout_marginTop="@dimen/margin_size_8dp"
         android:layout_marginBottom="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:text="@string/update_infor" />
 </RelativeLayout>

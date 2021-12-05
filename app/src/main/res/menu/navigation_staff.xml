@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/schedule"
-        android:icon="@drawable/ic_icon_1"
+        android:icon="@drawable/ic_pendding"
         android:title="Lịch đang chờ" />
     <item
         android:id="@+id/perform"
-        android:icon="@drawable/ic_icon_2"
+        android:icon="@drawable/ic_processing"
         android:title="Đang thực hiện" />
     <item
         android:id="@+id/completed"
-        android:icon="@drawable/ic_icon_3"
+        android:icon="@drawable/ic_done"
         android:title="Hoàn thành" />
     <item
         android:id="@+id/cancelled"
-        android:icon="@drawable/ic_icon_4"
+        android:icon="@drawable/ic_cancel"
         android:title="Đã hủy" />
     <item
         android:id="@+id/account2"
-        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:icon="@drawable/ic_account_circle"
         android:title="Tài khoản" />
 
 </menu>

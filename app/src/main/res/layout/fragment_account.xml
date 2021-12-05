@@ -11,7 +11,7 @@
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_90dp"
-        android:background="@drawable/header_top_bar"
+        android:background="@drawable/bg_header_top_bar"
         android:gravity="center">
 
         <ImageView
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
                 android:layout_marginTop="@dimen/margin_size_15dp"
-                android:background="@drawable/background_list_news"
+                android:background="@drawable/bg_list_news"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_16dp">
 
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_60dp"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/bg_text_view"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_8dp">
 
@@ -136,7 +136,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
             </LinearLayout>
 
             <View
@@ -150,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_60dp"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/bg_text_view"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_8dp">
 
@@ -172,7 +172,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
             </LinearLayout>
 
             <View
@@ -186,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_60dp"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/bg_text_view"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_8dp"
                 tools:ignore="OnClick">
@@ -209,7 +209,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
             </LinearLayout>
 
 
@@ -220,7 +220,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_60dp"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/bg_text_view"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_8dp"
@@ -243,7 +243,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -251,7 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_60dp"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/bg_text_view"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_size_8dp"
@@ -274,7 +274,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
             </LinearLayout>
 
         </LinearLayout>

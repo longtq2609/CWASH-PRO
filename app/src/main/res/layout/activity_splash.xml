@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_size_110dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/ic_logo"
         app:layout_constraintBottom_toTopOf="@+id/timeClock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
         android:layout_width="@dimen/size_1578dp"
         android:layout_height="@dimen/size_1234dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/group_7921"
+        android:src="@drawable/ic_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.676"
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_bottom"
+        android:src="@drawable/bg_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

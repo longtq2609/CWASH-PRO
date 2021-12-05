@@ -2,7 +2,6 @@ package com.example.cwash_pro.ui.customer.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -16,9 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -87,7 +83,7 @@ public class MoreFunctionFragment extends Fragment {
                 });
                 builderSendMessage.setNegativeButton("Quay lại", (dialog, which) -> dialog.dismiss());
                 AlertDialog dialog = builderSendMessage.create();
-                dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                 dialog.show();
             });
             imvBtnCall.setOnClickListener(v12 -> {
@@ -95,7 +91,7 @@ public class MoreFunctionFragment extends Fragment {
                 startActivity(intent1);
             });
             AlertDialog dialog = builderSP.create();
-            dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
             dialog.show();
         });
         tvEvaluate.setOnClickListener(v -> {

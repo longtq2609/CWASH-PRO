@@ -1,7 +1,6 @@
 package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -150,7 +149,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
                             LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
                             lottieAnimationView.setAnimation("done-animation.json");
                             lottieAnimationView.playAnimation();
-                            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                             btnClose.setOnClickListener(v -> {
                                 builder.dismiss();
                                 finish();
@@ -164,7 +163,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
                             LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
                             lottieAnimationView.setAnimation("fail-animation.json");
                             lottieAnimationView.playAnimation();
-                            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                             btnClose.setOnClickListener(v -> {
                                 builder.dismiss();
                                 finish();

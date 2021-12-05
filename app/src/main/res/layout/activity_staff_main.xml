@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginHorizontal="@dimen/margin_size_73dp"
-        android:background="@drawable/shape_bottombar"
+        android:background="@drawable/menu_bottom_bar"
         app:itemIconTint="@color/custom_color_bottom_nav"
         app:itemTextColor="@color/custom_color_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"

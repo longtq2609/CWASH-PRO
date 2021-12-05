@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="@dimen/padding_size_15dp">
     <TextView
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="Chỉnh sửa phương tiện"
         android:textSize="@dimen/text_size_22sp"
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:inputType="text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
     <LinearLayout
@@ -102,7 +102,7 @@
             android:layout_marginEnd="@dimen/margin_size_8dp"
             android:layout_weight="1"
             android:textColor="@color/white"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:text="@string/cancel" />
 
         <Button
@@ -112,7 +112,7 @@
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:text="@string/update" />
     </LinearLayout>
 </LinearLayout>

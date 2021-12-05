@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="Thêm phương tiện"
         android:textColor="@color/white"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:inputType="text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:inputType="text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:inputType="text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -103,7 +103,7 @@
         app:dropDownDrawableWidth="25dp"
         app:dropDownDrawableHeight="25dp"
         app:dropDownDrawable="@drawable/ic_picker"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         tools:ignore="RtlSymmetry" />
@@ -121,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_60dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:text="Huỷ"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_13sp" />
@@ -132,7 +132,7 @@
             android:layout_height="@dimen/size_60dp"
             android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:text="Thêm phương tiện"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_13sp" />

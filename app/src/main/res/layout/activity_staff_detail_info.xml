@@ -33,7 +33,7 @@
                     android:layout_width="@dimen/size_200dp"
                     android:layout_height="@dimen/size_200dp"
                     android:layout_centerHorizontal="true"
-                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+                    app:srcCompat="@drawable/ic_account_circle" />
 
                 <ImageView
                     android:id="@+id/icImage"
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/imgAvatar"
                     android:layout_toEndOf="@id/imgAvatar"
-                    android:src="@drawable/ic_baseline_image_24" />
+                    android:src="@drawable/ic_image" />
 
                 <ImageView
                     android:id="@+id/icCamera"
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/imgAvatar"
                     android:layout_toStartOf="@id/imgAvatar"
-                    android:src="@drawable/ic_baseline_camera_alt_24" />
+                    android:src="@drawable/ic_camera_alt" />
 
             </RelativeLayout>
 
@@ -109,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_60dp"
                     android:layout_marginTop="@dimen/margin_size_8dp"
-                    android:background="@drawable/boder_button_pri"
+                    android:background="@drawable/btn_pri"
                     android:text="@string/update_infor" />
             </LinearLayout>
         </LinearLayout>

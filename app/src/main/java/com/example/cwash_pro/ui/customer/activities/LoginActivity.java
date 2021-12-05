@@ -23,8 +23,6 @@ import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.ui.staff.activities.StaffMainActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Call;
@@ -142,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
         alert.setView(alertLayout);
         AlertDialog dialog = alert.create();
         btnCancelDialog.setOnClickListener(view -> dialog.dismiss());
-        dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
         alert.setCancelable(false);
         dialog.show();
     }

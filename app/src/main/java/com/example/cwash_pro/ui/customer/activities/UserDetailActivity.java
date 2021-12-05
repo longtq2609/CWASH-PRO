@@ -3,7 +3,6 @@ package com.example.cwash_pro.ui.customer.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -21,7 +20,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -88,7 +86,7 @@ public class UserDetailActivity extends AppCompatActivity {
                 startActivityForResult(pickPhoto, REQUEST_CODE_IMAGE_STORAGE);
             });            alert.setView(alertLayout);
             AlertDialog dialog = alert.create();
-            dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
             alert.setCancelable(false);
             dialog.show();
         });

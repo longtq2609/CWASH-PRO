@@ -6,7 +6,7 @@
     android:padding="@dimen/padding_size_15dp"
     android:layout_height="match_parent">
     <TextView
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="@string/support"
         android:textSize="@dimen/text_size_22sp"
@@ -22,7 +22,7 @@
         <Button
             android:id="@+id/sendSupport"
             android:layout_width="wrap_content"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:layout_weight="1"
             android:text="SMS"
             android:layout_height="@dimen/size_60dp"
@@ -32,7 +32,7 @@
             android:id="@+id/imvBtnCall"
             android:scaleType="fitCenter"
             android:text="CALL"
-            android:background="@drawable/shape_btn_login"
+            android:background="@drawable/btn_login"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_60dp"

@@ -2,7 +2,6 @@ package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -86,7 +84,7 @@ public class VehicleActivity extends AppCompatActivity {
                                     dialog.dismiss();
                                 });
                                 AlertDialog dialog = builder.create();
-                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                                 dialog.show();
                             } else if (v.getId() == R.id.imgUpdate) {
                                 AlertDialog builder = new AlertDialog.Builder(VehicleActivity.this).create();
@@ -146,7 +144,7 @@ public class VehicleActivity extends AppCompatActivity {
                                         }));
 
                                 builder.setView(dialog);
-                                builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+                                builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                                 builder.show();
                             }
                         }
@@ -238,7 +236,7 @@ public class VehicleActivity extends AppCompatActivity {
                 builder.dismiss();
             });
             builder.setView(dialog);
-            builder.getWindow().setBackgroundDrawableResource(R.drawable.custom_shape_dialog);
+            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
             builder.show();
         });
     }

@@ -45,7 +45,7 @@
         app:fb_cornerRadius="@dimen/radius_size_15dp"
         app:fb_divColor="#fff"
         app:fb_divWidth="@dimen/size_1dp"
-        app:fb_icon="@drawable/ic_image"
+        app:fb_icon="@drawable/ic_gallery"
         app:fb_iconColor="@color/black"
         app:fb_iconHeight="@dimen/size_40dp"
         app:fb_iconMarginStart="@dimen/margin_size_20dp"

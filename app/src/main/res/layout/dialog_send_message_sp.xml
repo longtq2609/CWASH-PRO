@@ -14,6 +14,6 @@
     <EditText
         android:id="@+id/edtSendSP"
         android:layout_width="match_parent"
-        android:background="@drawable/shape_email_pass"
+        android:background="@drawable/bg_edit_text"
         android:layout_height="@dimen/size_75dp"/>
 </LinearLayout>

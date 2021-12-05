@@ -11,7 +11,7 @@
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_90dp"
-        android:background="@drawable/header_top_bar"
+        android:background="@drawable/bg_header_top_bar"
         android:gravity="center">
 
         <ImageView
@@ -64,6 +64,6 @@
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:layout_marginTop="@dimen/margin_size_8dp"
         android:layout_marginBottom="@dimen/margin_size_10dp"
-        android:background="@drawable/shape_btn_login"
+        android:background="@drawable/btn_login"
         android:text="Thêm xe" />
 </RelativeLayout>
