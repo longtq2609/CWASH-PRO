@@ -1,5 +1,6 @@
 package com.example.cwash_pro.ui.customer.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +34,7 @@ import com.example.cwash_pro.models.Service;
 import com.example.cwash_pro.models.Time;
 import com.example.cwash_pro.models.User;
 import com.example.cwash_pro.models.Vehicle;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -98,11 +100,9 @@ public class CarWashServiceActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 vehicle = vehicleList.get(position).getId();
                 if (vehicleList.get(position).getType().equals("Motorcycle")) {
-                    Log.e( "onItemSelected: ","Motorcycle");
                     timeList = timeListOfMoto;
                     rvTime.setAdapter(chooseTimeAdapter());
                 } else if (vehicleList.get(position).getType().equals("Car")) {
-                    Log.e( "onItemSelected: ","Car");
                     timeList = timeListOfCar;
                     rvTime.setAdapter(chooseTimeAdapter());
                 }
@@ -113,7 +113,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
             }
         });
 
-//        chooseTimeAdapter =
         rvTime.setAdapter(chooseTimeAdapter());
         btnBook.setOnClickListener(v ->
 
@@ -137,40 +136,45 @@ public class CarWashServiceActivity extends AppCompatActivity {
                 scheduleBody.setTimeBook(timeBook + " @ " + dateBook);
                 scheduleBody.setVehicle(vehicle);
                 scheduleBody.setServices(serviceSelect);
+                final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+                dialogLoadBook.show();
                 RetrofitClient.getInstance().create(ApiService.class).book(scheduleBody).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                         AlertDialog builder = new AlertDialog.Builder(CarWashServiceActivity.this).create();
                         View dialog;
-                        if (response.body().success) {
-                            dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_success, null);
-                            Button btnClose = dialog.findViewById(R.id.btnClose);
-                            LinearLayout rootView = dialog.findViewById(R.id.rootView);
-                            LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
-                            lottieAnimationView.setAnimation("done-animation.json");
-                            lottieAnimationView.playAnimation();
-                            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
-                            btnClose.setOnClickListener(v -> {
-                                builder.dismiss();
-                                finish();
-                            });
-                        } else {
-                            dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_failed, null);
-                            Button btnClose = dialog.findViewById(R.id.btnClose);
-                            TextView tvMessage = dialog.findViewById(R.id.tvMessage);
-                            tvMessage.setText(response.body().message);
-                            LinearLayout rootView = dialog.findViewById(R.id.rootView);
-                            LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
-                            lottieAnimationView.setAnimation("fail-animation.json");
-                            lottieAnimationView.playAnimation();
-                            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
-                            btnClose.setOnClickListener(v -> {
-                                builder.dismiss();
-                                finish();
-                            });
+                        if (response.body() != null) {
+                            if (response.body().success) {
+                                dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_success, null);
+                                Button btnClose = dialog.findViewById(R.id.btnClose);
+                                LinearLayout rootView = dialog.findViewById(R.id.rootView);
+                                LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
+                                lottieAnimationView.setAnimation("done-animation.json");
+                                lottieAnimationView.playAnimation();
+                                builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
+                                btnClose.setOnClickListener(v -> {
+                                    builder.dismiss();
+                                    finish();
+                                });
+                            } else {
+                                dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_failed, null);
+                                Button btnClose = dialog.findViewById(R.id.btnClose);
+                                TextView tvMessage = dialog.findViewById(R.id.tvMessage);
+                                tvMessage.setText(response.body().message);
+                                LinearLayout rootView = dialog.findViewById(R.id.rootView);
+                                LottieAnimationView lottieAnimationView = rootView.findViewById(R.id.lottieAnimation);
+                                lottieAnimationView.setAnimation("fail-animation.json");
+                                lottieAnimationView.playAnimation();
+                                builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
+                                btnClose.setOnClickListener(v -> {
+                                    builder.dismiss();
+                                    finish();
+                                });
+                            }
+                            builder.setView(dialog);
                         }
-                        builder.setView(dialog);
                         builder.show();
+                        dialogLoadBook.dismiss();
                     }
 
                     @Override
@@ -183,20 +187,25 @@ public class CarWashServiceActivity extends AppCompatActivity {
     }
 
     private void getStatusSchedulePending() {
+        final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+        dialogLoadBook.show();
         RetrofitClient.getInstance().create(ApiService.class).getSchedulePending().enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if (response.body().success) {
-                    schedulesPending = response.body().schedules;
-                    staffList = response.body().users;
-                    Log.e("TAG", "onResponse: " + schedulesPending.size());
-                } else {
-                    Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        schedulesPending = response.body().schedules;
+                        staffList = response.body().users;
+                        Log.e("TAG", "onResponse: " + schedulesPending.size());
+                    } else {
+                        Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                    }
+                    dialogLoadBook.dismiss();
                 }
             }
 
             @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
                 Log.e("onFailureGetNumber: ", t.getMessage());
             }
         });
@@ -213,45 +222,54 @@ public class CarWashServiceActivity extends AppCompatActivity {
     }
 
 
-
     private void getServices() {
+        final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+        dialogLoadBook.show();
         RetrofitClient.getInstance().create(ApiService.class).getServices().enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if (response.body().success) {
-                    serviceList = response.body().services;
-                    Log.e("onResponse: ", String.valueOf(serviceList.size()));
-                    serviceAdapter = new ServiceAdapter(CarWashServiceActivity.this, serviceList);
-                    Log.e("onCreate: ", String.valueOf(serviceList.size()));
-                    rvService.setLayoutManager(new LinearLayoutManager(CarWashServiceActivity.this));
-                    rvService.setAdapter(serviceAdapter);
-                } else {
-                    Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        serviceList = response.body().services;
+                        Log.e("onResponse: ", String.valueOf(serviceList.size()));
+                        serviceAdapter = new ServiceAdapter(CarWashServiceActivity.this, serviceList);
+                        Log.e("onCreate: ", String.valueOf(serviceList.size()));
+                        rvService.setLayoutManager(new LinearLayoutManager(CarWashServiceActivity.this));
+                        rvService.setAdapter(serviceAdapter);
+                    } else {
+                        Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                    }
+                    dialogLoadBook.dismiss();
                 }
             }
 
             @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
                 Log.e("onFailure: ", t.getMessage());
             }
         });
     }
 
     private void getVehicle() {
+        final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+        dialogLoadBook.show();
         RetrofitClient.getInstance().create(ApiService.class).getVehicle().enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if (response.body().success) {
-                    vehicleList = response.body().vehicles;
-                    ChooseVehicleAdapter chooseVehicleAdapter = new ChooseVehicleAdapter(CarWashServiceActivity.this, vehicleList);
-                    spnVehicleCar.setAdapter(chooseVehicleAdapter);
-                } else {
-                    Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        vehicleList = response.body().vehicles;
+                        ChooseVehicleAdapter chooseVehicleAdapter = new ChooseVehicleAdapter(CarWashServiceActivity.this, vehicleList);
+                        spnVehicleCar.setAdapter(chooseVehicleAdapter);
+                    } else {
+                        Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                    }
+                    dialogLoadBook.dismiss();
                 }
             }
 
             @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
                 Log.e("getVehicles: ", t.getMessage());
             }
         });
@@ -260,7 +278,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     public void getTimeOfMoto() {
         for (int i = 8; i <= 19; i++) {
             for (int j = 0; j < 60; j = j + 30) {
-                String s = null;
+                String s;
                 if (i < 10) {
                     if (j < 10) {
                         s = i + ":" + j + "0";
@@ -282,7 +300,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     public void getTimeOfCar() {
         for (int i = 8; i <= 19; i++) {
             for (int j = 0; j < 60; j = j + 60) {
-                String s = null;
+                String s;
                 if (i < 10) {
                     if (j < 10) {
                         s = i + ":" + j + "0";
@@ -302,12 +320,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     }
 
     private ChooseTimeAdapter chooseTimeAdapter() {
-        return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, new ItemClick() {
-            @Override
-            public void setOnItemClick(View v, int pos) {
-                timeBook = timeList.get(pos).getTime();
-            }
-        });
+        return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, (v, pos) -> timeBook = timeList.get(pos).getTime());
     }
 
 }

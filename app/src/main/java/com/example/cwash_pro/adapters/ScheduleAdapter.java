@@ -159,7 +159,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvTime;
         TextView tvService;
         TextView tvVehicle;
-        Button btnViewDetails;
+        FitButton btnViewDetails;
 
         public CompletedHolder(@NonNull View itemView) {
             super(itemView);
@@ -177,7 +177,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvTime;
         TextView tvService;
         TextView tvVehicle;
-        Button btnViewDetails;
+        FitButton btnViewDetails;
 
         public CancelHolder(@NonNull View itemView) {
             super(itemView);

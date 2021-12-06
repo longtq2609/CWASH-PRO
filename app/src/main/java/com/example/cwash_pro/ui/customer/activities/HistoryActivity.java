@@ -22,6 +22,7 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,8 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         initView();
+        final CustomDialogProgress dialog = new CustomDialogProgress(this);
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -57,6 +60,8 @@ public class HistoryActivity extends AppCompatActivity {
                                 builder.dismiss();
                             });
                             btnCancel.setOnClickListener(v1 -> {
+                                final CustomDialogProgress customDialogProgressCancel = new CustomDialogProgress(HistoryActivity.this);
+                                customDialogProgressCancel.show();
                                 RetrofitClient.getInstance().create(ApiService.class).cancel(scheduleList.get(pos).getId(), edtNote.getText().toString(), "Canceled").enqueue(new Callback<ServerResponse>() {
                                     @Override
                                     public void onResponse(@NonNull Call<ServerResponse> call2, @NonNull Response<ServerResponse> response2) {
@@ -66,6 +71,7 @@ public class HistoryActivity extends AppCompatActivity {
                                             builder.dismiss();
                                             finish();
                                             startActivity(getIntent());
+                                            customDialogProgressCancel.dismiss();
                                         }
                                     }
 
@@ -78,12 +84,15 @@ public class HistoryActivity extends AppCompatActivity {
                             builder.setView(dialog);
                             builder.show();
                         } else if (view.getId() == R.id.btnConfirmVehicle) {
+                            final CustomDialogProgress customDialogProgressCancel = new CustomDialogProgress(HistoryActivity.this);
+                            customDialogProgressCancel.show();
                             RetrofitClient.getInstance().create(ApiService.class).confirmVehicle(scheduleList.get(pos).getId(), true).enqueue(new Callback<ServerResponse>() {
                                 @Override
                                 public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
                                     if (response.body().success) {
                                         finish();
                                         startActivity(getIntent());
+                                        customDialogProgressCancel.dismiss();
                                     }
                                 }
 
@@ -100,6 +109,7 @@ public class HistoryActivity extends AppCompatActivity {
                 });
                 rvHistory.setLayoutManager(new LinearLayoutManager(HistoryActivity.this, LinearLayoutManager.VERTICAL, false));
                 rvHistory.setAdapter(historyAdapter);
+                dialog.dismiss();
             }
 
             @Override

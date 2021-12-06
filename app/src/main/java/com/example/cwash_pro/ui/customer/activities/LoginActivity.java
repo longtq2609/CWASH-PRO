@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cwash_pro.CustomDialogProgress;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;

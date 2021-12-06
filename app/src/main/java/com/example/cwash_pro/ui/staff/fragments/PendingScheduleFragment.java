@@ -26,9 +26,11 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,25 +50,31 @@ public class PendingScheduleFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pending_schedule, container, false);
         initView(view);
         scheduleList = new ArrayList<>();
-        fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getAllSchedule().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                List<Schedule> schedules = response.body().schedules;
-                if (response.body().success) {
-                    for (int i = 0; i < schedules.size(); i++) {
-                        if (schedules.get(i).getStatus().equals("Pending")) {
-                            scheduleList.add(schedules.get(i));
+                List<Schedule> schedules = null;
+                if (response.body() != null) {
+                    schedules = response.body().schedules;
+                }
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        for (int i = 0; i < schedules.size(); i++) {
+                            if (schedules.get(i).getStatus().equals("Pending")) {
+                                scheduleList.add(schedules.get(i));
+                            }
                         }
-                    }
-                    scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), new ItemClick() {
-                        @Override
-                        public void setOnItemClick(View v, int pos) {
+                        scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), (v, pos) -> {
                             if (v.getId() == R.id.btnConfirm) {
+                                final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(getContext());
+                                dialogLoadBook.show();
                                 RetrofitClient.getInstance().create(ApiService.class).confirm(scheduleList.get(pos).getId(), "Confirmed").enqueue(new Callback<ServerResponse>() {
                                     @Override
                                     public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
-                                        if (response1.body().success) {
+                                        if (response1.body() != null && response1.body().success) {
                                             ProgressDialog dialog = new ProgressDialog(getContext());
                                             dialog.setMessage("Đang xác nhận");
                                             dialog.show();
@@ -76,12 +84,12 @@ public class PendingScheduleFragment extends Fragment {
                                                 dialog.dismiss();
                                             }, 2000);
                                             Toast.makeText(getActivity(), " Xác nhận thành công", Toast.LENGTH_SHORT).show();
-                                            //setCurrentFragment(new ProcessingScheduleFragment());
+                                            dialogLoadBook.dismiss();
                                         }
                                     }
 
                                     @Override
-                                    public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                                    public void onFailure(@NonNull Call<ServerResponse> call13, @NonNull Throwable t) {
                                         Log.d("onFailure: ", t.getMessage());
                                     }
                                 });
@@ -95,22 +103,22 @@ public class PendingScheduleFragment extends Fragment {
                                     builder.dismiss();
                                 });
                                 btnCancel.setOnClickListener(v1 -> {
+                                    final CustomDialogProgress dialogCancel = new CustomDialogProgress(getContext());
+                                    dialogCancel.show();
                                     RetrofitClient.getInstance().create(ApiService.class).cancel(scheduleList.get(pos).getId(), edtNote.getText().toString(), "Canceled").enqueue(new Callback<ServerResponse>() {
                                         @Override
                                         public void onResponse(@NonNull Call<ServerResponse> call2, @NonNull Response<ServerResponse> response2) {
-                                            if (response2.body().success) {
-                                                ProgressDialog dialog = new ProgressDialog(getContext());
-                                                dialog.setMessage("Đang hủy");
+                                            if (response2.body() != null && response2.body().success) {
+                                                final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
                                                 dialog.show();
-                                                new Handler().postDelayed(() -> {
-                                                    scheduleList.remove(pos);
-                                                    scheduleAdapter.notifyDataSetChanged();
-                                                    dialog.dismiss();
-                                                }, 2000);
+                                                scheduleList.remove(pos);
+                                                scheduleAdapter.notifyDataSetChanged();
+                                                dialog.dismiss();
                                                 Toast.makeText(getActivity(), "Hủy thành công", Toast.LENGTH_SHORT).show();
                                                 setCurrentFragment(new CancelledScheduleFragment());
                                                 builder.dismiss();
                                             }
+                                            dialogCancel.dismiss();
                                         }
 
                                         @Override
@@ -122,12 +130,13 @@ public class PendingScheduleFragment extends Fragment {
                                 builder.setView(dialog);
                                 builder.show();
                             }
-                        }
-                    });
-                    rvPendingSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    rvPendingSchedule.setAdapter(scheduleAdapter);
-                } else {
-                    Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                        });
+                        rvPendingSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        rvPendingSchedule.setAdapter(scheduleAdapter);
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

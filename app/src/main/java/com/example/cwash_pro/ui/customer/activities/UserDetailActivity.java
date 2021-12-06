@@ -27,6 +27,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.example.cwash_pro.utils.Support;
 import com.github.nikartm.button.FitButton;
 
@@ -102,15 +103,21 @@ public class UserDetailActivity extends AppCompatActivity {
             filePart = MultipartBody.Part.createFormData(
                     "avatar", file.getName(), requestBody);
         }
+        final CustomDialogProgress dialog = new CustomDialogProgress(this);
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).updateInfo( editFullName.getText().toString(), editAddress.getText().toString(),
                 filePart).enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body().success) {
-                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
-                    RetrofitClient.user = response.body().user;
-                } else {
-                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                        RetrofitClient.user = response.body().user;
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
                 }
             }
 

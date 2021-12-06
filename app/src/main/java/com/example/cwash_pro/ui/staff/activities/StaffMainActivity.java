@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.ui.customer.fragments.AccountFragment;
 import com.example.cwash_pro.models.Schedule;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.example.cwash_pro.ui.staff.fragments.CancelledScheduleFragment;
 import com.example.cwash_pro.ui.staff.fragments.CompletedScheduleFragment;
 import com.example.cwash_pro.ui.staff.fragments.PendingScheduleFragment;
@@ -41,57 +42,24 @@ public class StaffMainActivity extends AppCompatActivity {
         scheduleListCancel = new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         setCurrentFragment(new PendingScheduleFragment());
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.schedule:
-//                        ProgressDialog dialog = new ProgressDialog(StaffMainActivity.this);
-//                        dialog.setMessage("Đang tải");
-//                        dialog.show();
-//                        new Handler().postDelayed(() -> {
-//                            dialog.dismiss();
-                            setCurrentFragment(new PendingScheduleFragment());
-//                        }, 2000);
-                        return true;
-                    case R.id.perform:
-//                        ProgressDialog dialog1 = new ProgressDialog(StaffMainActivity.this);
-//                        dialog1.setMessage("Đang tải");
-//                        dialog1.show();
-//                        new Handler().postDelayed(() -> {
-//                            dialog1.dismiss();
-                            setCurrentFragment(new ProcessingScheduleFragment());
-//                        }, 2000);
-                        return true;
-                    case R.id.completed:
-//                        ProgressDialog dialog3 = new ProgressDialog(StaffMainActivity.this);
-//                        dialog3.setMessage("Đang tải");
-//                        dialog3.show();
-//                        new Handler().postDelayed(() -> {
-//                            dialog3.dismiss();
-                            setCurrentFragment(new CompletedScheduleFragment());
-//                        }, 2000);
-                        return true;
-                    case R.id.cancelled:
-//                        ProgressDialog dialog4 = new ProgressDialog(StaffMainActivity.this);
-//                        dialog4.setMessage("Đang tải");
-//                        dialog4.show();
-//                        new Handler().postDelayed(() -> {
-//                            dialog4.dismiss();
-                            setCurrentFragment(new CancelledScheduleFragment());
-//                        }, 2000);
-                        return true;
-                    case R.id.account2:
-//                        ProgressDialog dialog5 = new ProgressDialog(StaffMainActivity.this);
-//                        dialog5.setMessage("Đang tải");
-//                        dialog5.show();
-//                        new Handler().postDelayed(() -> {
-//                            dialog5.dismiss();
-                            setCurrentFragment(new AccountFragment());
-//                        }, 2000);
-                }
-                return false;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.schedule:
+                        setCurrentFragment(new PendingScheduleFragment());
+                    return true;
+                case R.id.perform:
+                        setCurrentFragment(new ProcessingScheduleFragment());
+                    return true;
+                case R.id.completed:
+                        setCurrentFragment(new CompletedScheduleFragment());
+                    return true;
+                case R.id.cancelled:
+                        setCurrentFragment(new CancelledScheduleFragment());
+                    return true;
+                case R.id.account2:
+                        setCurrentFragment(new AccountFragment());
             }
+            return false;
         });
     }
 

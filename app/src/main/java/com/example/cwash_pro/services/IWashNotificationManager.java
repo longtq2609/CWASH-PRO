@@ -15,7 +15,7 @@ import com.example.cwash_pro.ui.customer.activities.SplashActivity;
 import com.example.cwash_pro.utils.Constants;
 
 public class IWashNotificationManager {
-    private Context mCtx;
+    private final Context mCtx;
     private static IWashNotificationManager mInstance;
 
     private IWashNotificationManager(Context context) {

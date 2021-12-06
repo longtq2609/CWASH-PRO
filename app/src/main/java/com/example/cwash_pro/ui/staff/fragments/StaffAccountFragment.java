@@ -22,6 +22,9 @@ import com.example.cwash_pro.ui.customer.activities.LoginActivity;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
+
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,17 +46,22 @@ public class StaffAccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_staff_account, container, false);
         initView(view);
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getUserInfo().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body().success) {
-                    Glide.with(getActivity()).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
+                if (response.body() != null && response.body().success) {
+                    Glide.with(Objects.requireNonNull(getActivity())).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
                     linkAvatar = RetrofitClient.link + response.body().user.getAvatar();
                     tvName.setText(response.body().user.getFullName());
                     tvPhone.setText(response.body().user.getPhoneNumber());
                     address = response.body().user.getAddress();
+                    dialog.dismiss();
                 }
-                Log.d("onResponse: ", response.body().message);
+                if (response.body() != null) {
+                    Log.d("onResponse: ", response.body().message);
+                }
             }
 
             @Override
@@ -89,7 +97,7 @@ public class StaffAccountFragment extends Fragment {
             new Handler().postDelayed(() -> {
                 startActivity(new Intent(getContext(), LoginActivity.class));
                 dialog.dismiss();
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).finish();
             }, 2000);
         });
     }

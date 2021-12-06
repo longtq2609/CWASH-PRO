@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
+import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.github.siyamed.shapeimageview.RoundedImageView;
+
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoreFunctionFragment extends Fragment {
     SharedPreferences preferences;
@@ -34,14 +45,12 @@ public class MoreFunctionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more_function, container, false);
-        preferences = getActivity().getSharedPreferences("Setting", Context.MODE_PRIVATE);
+        preferences = Objects.requireNonNull(getActivity()).getSharedPreferences("Setting", Context.MODE_PRIVATE);
         editor = preferences.edit();
         imgAvatar = view.findViewById(R.id.imgAvatar);
-        tvName =  view.findViewById(R.id.tvName);
-        tvPhone =  view.findViewById(R.id.tvPhone);
-        Glide.with(getActivity()).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
-        tvName.setText(RetrofitClient.user.getFullName());
-        tvPhone.setText(RetrofitClient.user.getPhoneNumber());
+        tvName = view.findViewById(R.id.tvName);
+        tvPhone = view.findViewById(R.id.tvPhone);
+        loadDataUserInfo();
         tvPolicyandprivacy = view.findViewById(R.id.idPolicyandprivacy);
         tvShare = view.findViewById(R.id.idShare);
         tvEvaluate = view.findViewById(R.id.idEvaluate);
@@ -54,17 +63,14 @@ public class MoreFunctionFragment extends Fragment {
             Intent intentToLink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cwash-pro.blogspot.com/2021/10/chinh-sach-bao-mat-thong-tin.html"));
             startActivity(intentToLink);
         });
-        tvShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                String shareBody = "https://play.google.com/store/apps/details?id=dd.video.photomaker&hl=en&gl=US";
-                String shareSub = "https://play.google.com/store/apps/details?id=dd.video.photomaker&hl=en&gl=US";
-                intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
-                intent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(intent, "Share"));
-            }
+        tvShare.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String shareBody = "https://play.google.com/store/apps/details?id=dd.video.photomaker&hl=en&gl=US";
+            String shareSub = "https://play.google.com/store/apps/details?id=dd.video.photomaker&hl=en&gl=US";
+            intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+            intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(intent, "Share"));
         });
         tvSupport.setOnClickListener(v -> {
             AlertDialog.Builder builderSP = new AlertDialog.Builder(getContext());
@@ -97,12 +103,36 @@ public class MoreFunctionFragment extends Fragment {
         tvEvaluate.setOnClickListener(v -> {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("market://details?id=" + getContext().getPackageName())));
+                        Uri.parse("market://details?id=" + Objects.requireNonNull(getContext()).getPackageName())));
             } catch (android.content.ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://play.google.com/store/apps/details?id=" + getContext().getPackageName())));
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + Objects.requireNonNull(getContext()).getPackageName())));
             }
         });
         return view;
+    }
+
+    private void loadDataUserInfo() {
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
+        RetrofitClient.getInstance().create(ApiService.class).getUserInfo().enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body() != null && response.body().success) {
+                    if (getActivity() != null) {
+                        Glide.with(getActivity()).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
+                    }
+                    tvName.setText(response.body().user.getFullName());
+                    tvPhone.setText(response.body().user.getPhoneNumber());
+                    RetrofitClient.user = response.body().user;
+                    dialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                Log.d("onFailure: ", t.getMessage());
+            }
+        });
     }
 }

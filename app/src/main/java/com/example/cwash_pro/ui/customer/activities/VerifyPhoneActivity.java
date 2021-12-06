@@ -15,6 +15,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -83,11 +84,15 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("name");
                 String address = getIntent().getStringExtra("address");
                 String passWord = getIntent().getStringExtra("password");
+                final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+                dialogLoadBook.show();
                 RetrofitClient.getInstance().create(ApiService.class).registersUser(name, phoneNumber, address, passWord).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
                         if (response.code() == 200) {
                             Toast.makeText(VerifyPhoneActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                            final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(VerifyPhoneActivity.this);
+                            dialogLoadBook.show();
                             RetrofitClient.getInstance().create(ApiService.class).login(phoneNumber, passWord, RetrofitClient.tokenDevice).enqueue(new Callback<ServerResponse>() {
                                 @Override
                                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
@@ -98,6 +103,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(VerifyPhoneActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
                                     }
+                                    dialogLoadBook.dismiss();
                                 }
 
                                 @Override
@@ -105,6 +111,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                                     Log.e("onFailure1: ", t.getMessage());
                                 }
                             });
+                            dialogLoadBook.dismiss();
                         }
                     }
 

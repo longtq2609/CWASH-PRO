@@ -25,6 +25,7 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.models.Vehicle;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.reginald.editspinner.EditSpinner;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class VehicleActivity extends AppCompatActivity {
     List<Vehicle> vehicles = new ArrayList<>();
     String type = "";
     String brand = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,8 @@ public class VehicleActivity extends AppCompatActivity {
 
         rvVehicle = findViewById(R.id.rvVehicle);
         imgAddVehicle = findViewById(R.id.imgAddVehicle);
+        final CustomDialogProgress dialogLoad = new CustomDialogProgress(this);
+        dialogLoad.show();
         RetrofitClient.getInstance().create(ApiService.class).getVehicle().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -61,6 +65,8 @@ public class VehicleActivity extends AppCompatActivity {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(VehicleActivity.this);
                                 builder.setTitle("Bạn có chắc chắn muốn xoá phương tiên này không? ");
                                 builder.setPositiveButton("Xoá", (dialog, which) -> {
+                                    final CustomDialogProgress dialogLoad = new CustomDialogProgress(VehicleActivity.this);
+                                    dialogLoad.show();
                                     RetrofitClient.getInstance().create(ApiService.class).deleteVehicle(vehicles.get(pos).getId()).enqueue(new Callback<ServerResponse>() {
                                         @Override
                                         public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -72,7 +78,7 @@ public class VehicleActivity extends AppCompatActivity {
                                             } else {
                                                 Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
                                             }
-
+                                            dialogLoad.dismiss();
                                         }
 
                                         @Override
@@ -120,28 +126,33 @@ public class VehicleActivity extends AppCompatActivity {
                                 edtLicense.setText(vehicles.get(pos).getLicense());
                                 Button btnCancel = dialog.findViewById(R.id.btnCancel);
                                 btnCancel.setOnClickListener(v1 -> builder.dismiss());
-                                btnUpdate.setOnClickListener(v1 -> RetrofitClient.getInstance().create(ApiService.class).updateVehicle(vehicles.get(pos).getId(),
-                                        edtName.getText().toString().trim(),
-                                        type,
-                                        edtLicense.getText().toString().trim(),
-                                        edtColor.getText().toString().trim(),
-                                        edtBrand.getText().toString().trim())
-                                        .enqueue(new Callback<ServerResponse>() {
-                                            @Override
-                                            public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
-                                                if (response1.body().success) {
-                                                    Toast.makeText(VehicleActivity.this, response1.body().message, Toast.LENGTH_SHORT).show();
-                                                    finish();
-                                                    startActivity(getIntent());
-                                                } else {
-                                                    Toast.makeText(VehicleActivity.this, response1.body().message, Toast.LENGTH_SHORT).show();
+                                btnUpdate.setOnClickListener(v1 -> {
+                                    final CustomDialogProgress dialogLoadAdd = new CustomDialogProgress(VehicleActivity.this);
+                                    dialogLoadAdd.show();
+                                    RetrofitClient.getInstance().create(ApiService.class).updateVehicle(vehicles.get(pos).getId(),
+                                            edtName.getText().toString().trim(),
+                                            type,
+                                            edtLicense.getText().toString().trim(),
+                                            edtColor.getText().toString().trim(),
+                                            edtBrand.getText().toString().trim())
+                                            .enqueue(new Callback<ServerResponse>() {
+                                                @Override
+                                                public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
+                                                    if (response1.body().success) {
+                                                        Toast.makeText(VehicleActivity.this, response1.body().message, Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                        startActivity(getIntent());
+                                                    } else {
+                                                        Toast.makeText(VehicleActivity.this, response1.body().message, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    dialogLoad.dismiss();
                                                 }
-                                            }
 
-                                            @Override
-                                            public void onFailure(@NonNull Call<ServerResponse> call1, @NonNull Throwable t) {
-                                            }
-                                        }));
+                                                @Override
+                                                public void onFailure(@NonNull Call<ServerResponse> call1, @NonNull Throwable t) {
+                                                }
+                                            });
+                                });
 
                                 builder.setView(dialog);
                                 builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
@@ -151,6 +162,7 @@ public class VehicleActivity extends AppCompatActivity {
                     });
                     rvVehicle.setLayoutManager(new LinearLayoutManager(VehicleActivity.this, LinearLayoutManager.VERTICAL, false));
                     rvVehicle.setAdapter(adapter);
+                    dialogLoad.dismiss();
                 } else {
                     Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
                 }
@@ -163,12 +175,12 @@ public class VehicleActivity extends AppCompatActivity {
         });
         imgAddVehicle.setOnClickListener(v -> {
             AlertDialog builder = new AlertDialog.Builder(this).create();
-            View dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_add_vehicle, null);
-            EditText edtNameOfVehicle = dialog.findViewById(R.id.edtNameOfVehicle);
-            EditText edtColorOfVehicle = dialog.findViewById(R.id.edtColorOfVehicle);
-            EditText edtLicense = dialog.findViewById(R.id.edtLicense);
-            EditSpinner spnBrand = dialog.findViewById(R.id.editSpinnerBrand);
-            Spinner spnType =  dialog.findViewById(R.id.spnType);
+            View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_add_vehicle, null);
+            EditText edtNameOfVehicle = inflate.findViewById(R.id.edtNameOfVehicle);
+            EditText edtColorOfVehicle = inflate.findViewById(R.id.edtColorOfVehicle);
+            EditText edtLicense = inflate.findViewById(R.id.edtLicense);
+            EditSpinner spnBrand = inflate.findViewById(R.id.editSpinnerBrand);
+            Spinner spnType = inflate.findViewById(R.id.spnType);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                     R.array.type_of_vehicle, android.R.layout.simple_spinner_dropdown_item);
             ArrayAdapter<String> adapterBrandMoto = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
@@ -179,8 +191,8 @@ public class VehicleActivity extends AppCompatActivity {
             adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
             spnBrand.setAdapter(adapterBrandMoto);
             spnType.setAdapter(adapter);
-            Button btnAddVehicle = dialog.findViewById(R.id.btnAddVehicle);
-            Button btnCancel = dialog.findViewById(R.id.btnCancel);
+            Button btnAddVehicle = inflate.findViewById(R.id.btnAddVehicle);
+            Button btnCancel = inflate.findViewById(R.id.btnCancel);
             spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -199,29 +211,21 @@ public class VehicleActivity extends AppCompatActivity {
                 }
             });
             btnAddVehicle.setOnClickListener(view -> {
+                final CustomDialogProgress dialogLoadAdd = new CustomDialogProgress(this);
+                dialogLoadAdd.show();
                 RetrofitClient.getInstance().create(ApiService.class).addVehicle(edtNameOfVehicle.getText().toString(), type
                         , edtLicense.getText().toString(), edtColorOfVehicle.getText().toString(), spnBrand.getText().toString()).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
                         if (response.code() == 200) {
-//                            Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
-//                            adapter.notifyDataSetChanged();
-//                            ProgressDialog dialog = new ProgressDialog(VehicleActivity.this);
-//                            dialog.setMessage("Đang tải");
-//                            dialog.show();
-//                            new Handler().postDelayed(() -> {
-//                                dialog.dismiss();
-//                            }, 2000);
-//                            finish();
-//                            overridePendingTransition(0, 0);
-//                            startActivity(getIntent());
-//                            overridePendingTransition(0, 0);
-//                            Toast.makeText(VehicleActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                            if (response.body() != null) {
+                                Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                            }
                             finish();
                             overridePendingTransition(0, 0);
                             startActivity(getIntent());
                             overridePendingTransition(0, 0);
+                            dialogLoad.dismiss();
                         }
                     }
 
@@ -232,10 +236,8 @@ public class VehicleActivity extends AppCompatActivity {
                 });
                 builder.dismiss();
             });
-            btnCancel.setOnClickListener(view -> {
-                builder.dismiss();
-            });
-            builder.setView(dialog);
+            btnCancel.setOnClickListener(view -> builder.dismiss());
+            builder.setView(inflate);
             builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
             builder.show();
         });

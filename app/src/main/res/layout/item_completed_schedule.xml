@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_size_15dp"
+    android:orientation="horizontal"
     android:background="@drawable/bg_item"
     android:gravity="center"
     android:padding="@dimen/padding_size_8dp">
@@ -13,12 +14,14 @@
         android:layout_width="@dimen/size_100dp"
         android:layout_height="@dimen/size_100dp"
         app:lottie_autoPlay="true"
+        android:layout_weight="1"
         app:lottie_fileName="complete-animation.json"
         app:lottie_loop="true" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_100dp"
+        android:layout_weight="6"
         android:layout_marginStart="@dimen/margin_size_8dp"
         android:orientation="vertical">
 
@@ -30,7 +33,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/margin_size_8dp"
-            android:layout_toStartOf="@+id/btnViewDetails"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -134,31 +136,28 @@
         <!--            android:textSize="@dimen/text_size_10sp"-->
         <!--            app:layout_constraintEnd_toEndOf="parent"-->
         <!--            app:layout_constraintTop_toBottomOf="@id/tvVehicle" />-->
-        <com.github.nikartm.button.FitButton
-            android:id="@+id/btnViewDetails"
-            android:layout_width="@dimen/size_100dp"
-            android:layout_height="@dimen/size_100dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:enabled="true"
-            android:gravity="center"
-            app:fb_backgroundColor="@color/white"
-            app:fb_borderColor="@color/mainColor"
-            app:fb_borderWidth="@dimen/border_size_2dp"
-            app:fb_cornerRadius="@dimen/radius_size_2dp"
-            app:fb_divColor="#fff"
-            app:fb_divWidth="@dimen/size_1dp"
-            app:fb_iconColor="#344187"
-            app:fb_iconMarginBottom="@dimen/margin_size_5dp"
-            app:fb_iconPosition="top"
-            app:fb_rippleColor="#FBE9E7"
-            app:fb_shape="circle"
-            app:fb_text="Chi Tiết"
-            app:fb_textColor="#344187"
-            app:fb_textSize="@dimen/text_size_15sp"
-            app:fb_textStyle="bold" />
+
 
     </RelativeLayout>
-
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btnViewDetails"
+        android:layout_width="@dimen/size_80dp"
+        android:layout_height="@dimen/size_80dp"
+        android:enabled="true"
+        android:gravity="center"
+        app:fb_backgroundColor="@color/white"
+        app:fb_borderColor="@color/mainColor"
+        app:fb_borderWidth="@dimen/border_size_2dp"
+        app:fb_cornerRadius="@dimen/radius_size_2dp"
+        app:fb_divColor="#fff"
+        app:fb_divWidth="@dimen/size_1dp"
+        app:fb_iconColor="#344187"
+        app:fb_iconMarginBottom="@dimen/margin_size_5dp"
+        app:fb_iconPosition="top"
+        app:fb_rippleColor="#FBE9E7"
+        app:fb_shape="circle"
+        app:fb_text="Chi Tiết"
+        app:fb_textColor="#344187"
+        app:fb_textSize="@dimen/text_size_20sp"
+        app:fb_textStyle="bold" />
 </LinearLayout>

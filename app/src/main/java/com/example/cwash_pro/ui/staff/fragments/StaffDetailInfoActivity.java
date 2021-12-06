@@ -26,6 +26,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.example.cwash_pro.utils.Support;
 
 import java.io.File;
@@ -76,29 +77,32 @@ public class StaffDetailInfoActivity extends AppCompatActivity {
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(pickPhoto, REQUEST_CODE_IMAGE_STORAGE);
         });
-        btnUpdate.setOnClickListener(v -> {
-            updateInfor();
-        });
+        btnUpdate.setOnClickListener(v -> updateInfor());
     }
 
     public void updateInfor() {
         MultipartBody.Part filePart = null;
         if (uri != null) {
-            File file = new File(Support.getPathFromUri(getApplicationContext(), uri));
+            File file = new File(Objects.requireNonNull(Support.getPathFromUri(getApplicationContext(), uri)));
             RequestBody requestBody = RequestBody.create(MediaType.parse(
                     StaffDetailInfoActivity.this.getContentResolver().getType(uri)), file);
             filePart = MultipartBody.Part.createFormData(
                     "avatar", file.getName(), requestBody);
         }
+        final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(this);
+        dialogLoadBook.show();
         RetrofitClient.getInstance().create(ApiService.class).updateInfo(editFullName.getText().toString(), editAddress.getText().toString(),
                 filePart).enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body().success) {
-                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
-                    RetrofitClient.user = response.body().user;
-                } else {
-                    Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                        RetrofitClient.user = response.body().user;
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                    }
+                    dialogLoadBook.dismiss();
                 }
             }
 
@@ -154,13 +158,11 @@ public class StaffDetailInfoActivity extends AppCompatActivity {
         }
     }
 
-    public boolean checkPermission() {
+    public void checkPermission() {
         int READ_EXTERNAL_PERMISSION = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if ((READ_EXTERNAL_PERMISSION != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_READ);
-            return false;
         }
-        return true;
     }
 
     @Override

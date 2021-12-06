@@ -22,6 +22,7 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,20 +43,23 @@ public class CancelledScheduleFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cancelled_schedule, container, false);
         initView(view);
         scheduleList = new ArrayList<>();
-
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getAllSchedule().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                List<Schedule> schedules = response.body().schedules;
-                if (response.body().success) {
-                    for (int i = 0; i < schedules.size(); i++) {
-                        if (schedules.get(i).getStatus().equals("Cancelled")) {
-                            scheduleList.add(schedules.get(i));
+                List<Schedule> schedules = null;
+                if (response.body() != null) {
+                    schedules = response.body().schedules;
+                }
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        for (int i = 0; i < schedules.size(); i++) {
+                            if (schedules.get(i).getStatus().equals("Cancelled")) {
+                                scheduleList.add(schedules.get(i));
+                            }
                         }
-                    }
-                    ScheduleAdapter scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), new ItemClick() {
-                        @Override
-                        public void setOnItemClick(View view, int pos) {
+                        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), (view1, pos) -> {
                             AlertDialog builder = new AlertDialog.Builder(getContext()).create();
                             View dialog = LayoutInflater.from(getContext()).inflate(R.layout.dialog_cancel_detail, null);
                             TextView tvName = dialog.findViewById(R.id.tvName);
@@ -71,19 +75,18 @@ public class CancelledScheduleFragment extends Fragment {
                             tvTime.setText(scheduleList.get(pos).getTimeBook());
                             tvStatus.setText(scheduleList.get(pos).getStatus());
                             tvNote.setText(scheduleList.get(pos).getNote());
-                            tvClose.setOnClickListener(v -> {
-                                builder.dismiss();
-                            });
+                            tvClose.setOnClickListener(v -> builder.dismiss());
                             builder.setView(dialog);
                             builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
                             builder.show();
-                        }
+                        });
+                        rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        rvSchedule.setAdapter(scheduleAdapter);
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                    }
 
-                    });
-                    rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    rvSchedule.setAdapter(scheduleAdapter);
-                } else {
-                    Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
                 }
             }
 

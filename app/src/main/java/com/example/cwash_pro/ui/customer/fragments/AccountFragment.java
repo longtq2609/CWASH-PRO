@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
+import com.example.cwash_pro.apis.ApiService;
+import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.ui.customer.activities.ChangePasswordActivity;
 import com.example.cwash_pro.ui.customer.activities.HistoryActivity;
 import com.example.cwash_pro.ui.customer.activities.LoginActivity;
@@ -23,7 +27,14 @@ import com.example.cwash_pro.ui.customer.activities.NotificationActivity;
 import com.example.cwash_pro.ui.customer.activities.UserDetailActivity;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.User;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.github.siyamed.shapeimageview.RoundedImageView;
+
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AccountFragment extends Fragment {
 
@@ -41,9 +52,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         initView(view);
-        Glide.with(getActivity()).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
-        tvName.setText(RetrofitClient.user.getFullName());
-        tvPhone.setText(RetrofitClient.user.getPhoneNumber());
+        loadDataUserInfo();
         setOnclick();
         return view;
     }
@@ -74,15 +83,35 @@ public class AccountFragment extends Fragment {
             startActivity(new Intent(getContext(), ChangePasswordActivity.class));
         });
         layoutLogout.setOnClickListener(v -> {
-            ProgressDialog dialog = new ProgressDialog(getContext());
-            dialog.setMessage("Log out");
+            final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
             dialog.show();
-            new Handler().postDelayed(() -> {
-                startActivity(new Intent(getContext(), LoginActivity.class));
-                dialog.dismiss();
-                getActivity().finish();
-            }, 2000);
+            startActivity(new Intent(getContext(), LoginActivity.class));
+            dialog.dismiss();
+            Objects.requireNonNull(getActivity()).finish();
         });
     }
 
+    private void loadDataUserInfo() {
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
+        RetrofitClient.getInstance().create(ApiService.class).getUserInfo().enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                if (response.body() != null && response.body().success) {
+                    if (getActivity() != null) {
+                        Glide.with(getActivity()).load(RetrofitClient.link + response.body().user.getAvatar()).into(imgAvatar);
+                    }
+                    tvName.setText(response.body().user.getFullName());
+                    tvPhone.setText(response.body().user.getPhoneNumber());
+                    RetrofitClient.user = response.body().user;
+                    dialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                Log.d("onFailure: ", t.getMessage());
+            }
+        });
+    }
 }

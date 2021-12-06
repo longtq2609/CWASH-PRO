@@ -1,4 +1,4 @@
-package com.example.cwash_pro;
+package com.example.cwash_pro.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.example.cwash_pro.R;
 
 public class CustomDialogProgress extends Dialog {
     public CustomDialogProgress(Context context) {

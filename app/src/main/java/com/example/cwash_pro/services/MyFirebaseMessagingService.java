@@ -22,7 +22,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         Log.d("From: ", remoteMessage.getFrom());
         if (remoteMessage.getData().size() > 0) {
-            Log.d("Message data payload: ", String.valueOf(remoteMessage.getData()));
+            Log.w("Message data payload: ", String.valueOf(remoteMessage.getData()));
         }
         if (remoteMessage.getNotification() != null) {
             Log.d("Message Notification Body: ", remoteMessage.getNotification().getBody());
@@ -39,6 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
             mNotificationManager.createNotificationChannel(mChannel);
         }
-        IWashNotificationManager.getInstance(this).displayNotification("CWASH-PRO", remoteMessage.getData().get("message"));
+        Log.e("longtq", "onMessageReceived: "+remoteMessage.getData().get("message") );
+        IWashNotificationManager.getInstance(this).displayNotification(remoteMessage.getData().get("title"), remoteMessage.getData().get("message"));
     }
 }

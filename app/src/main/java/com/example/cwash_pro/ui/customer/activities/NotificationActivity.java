@@ -16,6 +16,7 @@ import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.Notification;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,8 @@ public class NotificationActivity extends AppCompatActivity {
         imgBack.setOnClickListener(view -> onBackPressed());
         rvNotification = findViewById(R.id.rvNotification);
         notifications = new ArrayList<>();
+        final CustomDialogProgress dialog = new CustomDialogProgress(this);
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getNotifyUser().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -45,6 +48,7 @@ public class NotificationActivity extends AppCompatActivity {
                     adapter = new NotificationAdapter(NotificationActivity.this, notifications);
                     rvNotification.setLayoutManager(new LinearLayoutManager(NotificationActivity.this, LinearLayoutManager.VERTICAL, false));
                     rvNotification.setAdapter(adapter);
+                    dialog.dismiss();
                 }
             }
 

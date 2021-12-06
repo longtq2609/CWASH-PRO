@@ -22,9 +22,11 @@ import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,46 +44,59 @@ public class ProcessingScheduleFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_processing_schedule, container, false);
         initView(view);
         scheduleList = new ArrayList<>();
-        fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getAllSchedule().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                List<Schedule> schedules = response.body().schedules;
-                if (response.body().success) {
-                    for (int i = 0; i < schedules.size(); i++) {
-                        if (schedules.get(i).getStatus().equals("Confirmed")) {
-                            scheduleList.add(schedules.get(i));
+                List<Schedule> schedules = null;
+                if (response.body() != null) {
+                    schedules = response.body().schedules;
+                }
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        for (int i = 0; i < schedules.size(); i++) {
+                            if (schedules.get(i).getStatus().equals("Confirmed")) {
+                                scheduleList.add(schedules.get(i));
+                            }
                         }
-                    }
-                    scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), (view1, pos) ->
-                            RetrofitClient.getInstance().create(ApiService.class).complete(scheduleList.get(pos).getId(), "Completed").enqueue(new Callback<ServerResponse>() {
-                                @Override
-                                public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
-                                    if (response1.body().success) {
-                                        ProgressDialog dialog = new ProgressDialog(getContext());
-                                        dialog.setMessage("Đang tải");
-                                        dialog.show();
-                                        new Handler().postDelayed(() -> {
-                                            scheduleList.remove(pos);
-                                            scheduleAdapter.notifyDataSetChanged();
-                                            dialog.dismiss();
-                                        }, 2000);
-                                        Toast.makeText(getActivity(), "Lịch đã hoàn thành", Toast.LENGTH_SHORT).show();
-                                        //setCurrentFragment(new CompletedScheduleFragment());
-                                    } else {
-                                        Toast.makeText(getActivity(), "Khách hàng chưa lấy xe, chưa thể hoàn thành lịch", Toast.LENGTH_SHORT).show();
+                        scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), (view1, pos) ->{
+                            final CustomDialogProgress dialogLoadBook = new CustomDialogProgress(getContext());
+                            dialogLoadBook.show();
+                                RetrofitClient.getInstance().create(ApiService.class).complete(scheduleList.get(pos).getId(), "Completed").enqueue(new Callback<ServerResponse>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
+                                        if (response1.body() != null) {
+                                            if (response1.body().success) {
+                                                ProgressDialog dialog = new ProgressDialog(getContext());
+                                                dialog.setMessage("Đang tải");
+                                                dialog.show();
+                                                new Handler().postDelayed(() -> {
+                                                    scheduleList.remove(pos);
+                                                    scheduleAdapter.notifyDataSetChanged();
+                                                    dialog.dismiss();
+                                                }, 2000);
+                                                Toast.makeText(getActivity(), "Lịch đã hoàn thành", Toast.LENGTH_SHORT).show();
+                                                //setCurrentFragment(new CompletedScheduleFragment());
+                                            } else {
+                                                Toast.makeText(getActivity(), "Khách hàng chưa lấy xe, chưa thể hoàn thành lịch", Toast.LENGTH_SHORT).show();
+                                            }
+                                            dialogLoadBook.dismiss();
+                                        }
                                     }
-                                }
 
-                                @Override
-                                public void onFailure(@NonNull Call<ServerResponse> call12, @NonNull Throwable t) {
-                                    Log.d("onFailure: ", t.getMessage());
-                                }
-                            }));
-                    rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    rvSchedule.setAdapter(scheduleAdapter);
-                } else {
-                    Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                                    @Override
+                                    public void onFailure(@NonNull Call<ServerResponse> call12, @NonNull Throwable t) {
+                                        Log.d("onFailure: ", t.getMessage());
+                                    }
+                                });});
+                        rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        rvSchedule.setAdapter(scheduleAdapter);
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

@@ -14,6 +14,7 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +31,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
         initViews();
         btnChange.setOnClickListener(v -> {
             if (edtNewPwRs.getText().toString().equals(edtNewPw.getText().toString())) {
-
+                final CustomDialogProgress dialog = new CustomDialogProgress(this);
+                dialog.show();
                 RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -39,8 +41,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(ChangePasswordActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
                         }
+                        dialog.dismiss();
                     }
-
                     @Override
                     public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
                         Log.d("onFailureChangePw: ", t.getMessage());

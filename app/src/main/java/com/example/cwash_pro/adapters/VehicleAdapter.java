@@ -40,14 +40,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     public void onBindViewHolder(@NonNull VehicleHolder holder, int position) {
         holder.tvNameOfVehicle.setText(vehicles.get(position).getBrand());
         holder.tvLicense.setText(vehicles.get(position).getLicense());
-        Log.e("onBindViewHolder: ", vehicles.get(position).getType());
         if (vehicles.get(position).getType().equals("Car")) {
-            Log.e("onBindViewHolder1: ", vehicles.get(position).getType());
             holder.lottieAnimationView.setAnimation("car-animation.json");
             holder.lottieAnimationView.playAnimation();
            // holder.imgVehicle.setImageResource(R.drawable.carcar);
         } else if (vehicles.get(position).getType().equals("Motorcycle")) {
-            Log.e("onBindViewHolder2: ", vehicles.get(position).getType());
             holder.lottieAnimationView.setAnimation("motorcycle-animation.json");
             holder.lottieAnimationView.playAnimation();        }
     }

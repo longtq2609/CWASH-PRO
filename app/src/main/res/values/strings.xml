@@ -1,5 +1,175 @@
 <resources>
+
+    <!-- App Name -->
     <string name="app_name">CWASH-PRO</string>
+
+    <!-- Activity Car Wash Service -->
+    <string name="activity_car_wash_service_text_view_title">Đặt lịch</string>
+    <string name="activity_car_wash_service_title_text_view_info">Thông tin đặt lịch</string>
+    <string name="activity_car_wash_service_choose_text_view_vehicles">Chọn phương tiện</string>
+    <string name="activity_car_wash_service_text_view_choose_day">Chọn ngày</string>
+    <string name="activity_car_wash_service_text_view_choose_time">Chọn thời gian</string>
+    <string name="activity_car_wash_service_text_view_choose_service">Chọn dịch vụ</string>
+    <string name="activity_car_wash_service_text_view_note">Ghi chú</string>
+    <string name="activity_car_wash_service_button_book_time">Đặt lịch</string>
+
+    <!-- Activity Change Password -->
+    <string name="activity_change_password_text_view_title">Đổi mật khẩu</string>
+    <string name="activity_change_password_text_view_password">Mật khẩu hiện tại</string>
+    <string name="activity_change_password_text_view_password_new">Mật khẩu mới</string>
+    <string name="activity_change_password_text_view_password_new_retype">Nhập lại mật khẩu mới</string>
+    <string name="activity_car_wash_service_button_change_password">Đổi mật khẩu</string>
+
+    <!-- Activity History -->
+    <string name="activity_history_text_view_title">Lịch sử</string>
+
+    <!-- Activity Login -->
+    <string name="activity_login_text_view_title">Đăng nhập</string>
+    <string name="activity_login_text_view_phone">Số điện thoại</string>
+    <string name="activity_login_text_view_password">Mật khẩu</string>
+    <string name="activity_login_check_box_save_password">Lưu mật khẩu?</string>
+    <string name="activity_car_wash_service_button_login">Đăng nhập</string>
+    <string name="activity_login_text_view_title_sign_up">Bạn chưa có tài khoảng?</string>
+    <string name="activity_login_text_view_title_sign_up_info">Đăng ký ngay</string>
+    <string name="activity_login_text_view_title_info">Chào mừng bạn đến với CWASH-PRO</string>
+
+    <!-- Activity Main -->
+
+
+    <!-- Activity Notification -->
+    <string name="activity_notification_text_view_title">Thông báo</string>
+
+    <!-- Activity Sign Up -->
+    <string name="activity_sign_up_text_view_title">Đăng ký</string>
+    <string name="activity_sign_up_text_view_phone">Số điện thoại</string>
+    <string name="activity_sign_up_text_view_password">Mật khẩu</string>
+    <string name="activity_sign_up_text_view_name">Tên</string>
+    <string name="activity_sign_up_text_view_location">Địa chỉ</string>
+    <string name="activity_sign_up_button_login">Đăng nhập</string>
+    <string name="activity_sign_up_button_sign_up">Đăng ký</string>
+
+    <!-- Activity Splash -->
+
+
+    <!-- Activity Staff Detail Info -->
+
+
+    <!-- Activity Staff Main -->
+
+
+    <!-- Activity User Detail -->
+    <string name="activity_user_detail_text_view_title">Tài khoản</string>
+    <string name="activity_user_detail_text_view_name">Tên</string>
+    <string name="activity_user_detail_text_view_phone">Số điện thoại</string>
+    <string name="activity_user_detail_text_view_location">Địa chỉ</string>
+    <string name="activity_sign_up_button_update">Cập nhật</string>
+
+    <!-- Activity Vehicle -->
+    <string name="activity_vehicle_text_view_title">Quản lý xe</string>
+    <string name="activity_vehicle_button_add_vehicle">Thêm xe</string>
+
+    <!-- Activity Verify Phone -->
+    <string name="activity_verift_phone_text_view_title">Xác thực số điện thoại</string>
+    <string name="activity_verift_phone_text_view_title_intro">Mã xác thực đã được gửi đến thuê bao</string>
+    <string name="activity_verift_phone_text_view_title_note">Vui lòng để ý tin nhắn để nhận được mã xác thực</string>
+    <string name="activity_sign_up_button_confirm">Xác nhận</string>
+
+    <!-- Dialog Login -->
+    <string name="dialog_login_button_cancel">Quay lại</string>
+
+    <!-- Dialog Progress  -->
+
+
+    <!-- Dialog Add Vehicle -->
+    <string name="dialog_add_vehicle_text_view_title">Thêm phương tiện</string>
+    <string name="dialog_add_vehicle_text_view_name">Tên chủ xe</string>
+    <string name="dialog_add_vehicle_text_view_type">Loại xe</string>
+    <string name="dialog_add_vehicle_text_view_color">Màu xe</string>
+    <string name="dialog_add_vehicle_text_view_license">Biển số xe</string>
+    <string name="dialog_add_vehicle_text_view_brand">Hãng xe</string>
+    <string name="dialog_add_vehicle_login_button_cancel">Quay lại</string>
+    <string name="dialog_add_vehicle_login_button_add_vehicle">Thêm phương tiện</string>
+
+    <!-- Dialog Cancel Detail -->
+    <string name="dialog_cancel_detail_text_view_title">Thông tin huỷ</string>
+    <string name="dialog_cancel_detail_text_view_customer">Khách hàng</string>
+    <string name="dialog_cancel_detail_text_view_vehicle">Xe</string>
+    <string name="dialog_cancel_detail_text_view_license">Biển số xe</string>
+    <string name="dialog_cancel_detail_text_view_time">Thời gian đặt</string>
+    <string name="dialog_cancel_detail_text_view_status">Trạng thái</string>
+    <string name="dialog_cancel_detail_text_view_reason">Lý do huỷ</string>
+    <string name="dialog_cancel_detail_login_button_cancel">Quay lại</string>
+
+    <!-- Dialog Cancel Schedule -->
+    <string name="dialog_cancel_schedule_text_view_title">Xác nhận huỷ lịch</string>
+    <string name="dialog_cancel_schedule_text_view_title_info">Thông tin huỷ</string>
+    <string name="dialog_cancel_schedule_login_button_cancel">Không huỷ</string>
+    <string name="dialog_cancel_schedule_login_button_confirm">Đồng ý</string>
+
+    <!-- Dialog Chose Avatar -->
+    <string name="dialog_choose_avatar_text_view_fit_button_camera">Chụp ảnh</string>
+    <string name="dialog_choose_avatar_text_view_fit_button_gallery">Chọn ảnh</string>
+
+    <!-- Dialog Complete Detail -->
+    <string name="dialog_complete_detail_text_view_title">Thông tin huỷ</string>
+    <string name="dialog_complete_detail_text_view_customer">Khách hàng</string>
+    <string name="dialog_complete_detail_text_view_vehicle">Xe</string>
+    <string name="dialog_complete_detail_text_view_license">Biển số xe</string>
+    <string name="dialog_complete_detail_text_view_time">Thời gian đặt</string>
+    <string name="dialog_complete_detail_text_view_status">Trạng thái</string>
+    <string name="dialog_complete_detail_text_view_reason">Lý do huỷ</string>
+    <string name="dialog_complete_detail_login_button_cancel">Quay lại</string>
+
+    <!-- Dialog Failed -->
+    <string name="dialog_failed_login_button_cancel">Quay lại</string>
+
+    <!-- Dialog New Detail -->
+
+
+    <!-- Dialog Send Message -->
+    <string name="dialog_send_message_text_view_title">Gửi thông tin hỗ trợ</string>
+    <string name="dialog_send_message_text_view_title_intro">Nhập tin nhắn</string>
+
+    <!-- Dialog Success -->
+    <string name="dialog_success_text_view_title">Đặt lịch thành công</string>
+    <string name="dialog_success_button_cancel">Quay lại</string>
+
+    <!-- Dialog Support -->
+    <string name="dialog_support_text_view_title">Hỗ trợ</string>
+    <string name="dialog_support_text_view_title_sms">SMS</string>
+    <string name="dialog_support_text_view_title_call">Call</string>
+
+    <!-- Dialog Update Vehicle -->
+    <string name="dialog_update_vehicle_text_view_title">Chỉnh sửa phương tiện</string>
+    <string name="dialog_update_vehicle_text_view_name">Tên chủ xe</string>
+    <string name="dialog_update_vehicle_text_view_type">Loại xe</string>
+    <string name="dialog_update_vehicle_text_view_color">Màu xe</string>
+    <string name="dialog_update_vehicle_text_view_license">Biển số xe</string>
+    <string name="dialog_update_vehicle_text_view_brand">Hãng xe</string>
+    <string name="dialog_update_vehicle_login_button_cancel">Quay lại</string>
+    <string name="dialog_update_vehicle_login_button_add_vehicle">Cập nhật</string>
+
+    <!-- Fragment Account -->
+
+    <!-- Fragment Cancelled Schedule -->
+    <!-- Fragment Completed Schedule -->
+    <!-- Fragment Home -->
+    <!-- Fragment More Function -->
+    <!-- Fragment Pending Schedule -->
+    <!-- Fragment Processing Schedule -->
+    <!-- Fragment Staff Account -->
+    <!-- Item Cancel Schedule -->
+    <!-- Item Choose Time -->
+    <!-- Item Choose Vehicles -->
+    <!-- Item Completed Schedule -->
+    <!-- Item History -->
+    <!-- Item News -->
+    <!-- Item Notification -->
+    <!-- Item Pending Schedule -->
+    <!-- Item Processing Schedule -->
+    <!-- Item Service -->
+    <!-- Item Vehicles -->
+
     <string name="login_phone_hint">Số điện thoại (+84)</string>
     <string name="login_name_hint">Tên</string>
     <string name="login_address_hint">Địa chỉ</string>

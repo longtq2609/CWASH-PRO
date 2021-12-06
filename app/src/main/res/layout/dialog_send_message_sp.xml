@@ -6,6 +6,16 @@
     android:padding="@dimen/padding_size_15dp"
     android:layout_height="match_parent">
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_60dp"
+        android:layout_marginBottom="@dimen/margin_size_15dp"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:text="Thông tin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_22sp"
+        android:textStyle="bold" />
+    <TextView
         style="@style/TextElement"
         android:text="Nhập tin nhắn"
         android:layout_width="match_parent"

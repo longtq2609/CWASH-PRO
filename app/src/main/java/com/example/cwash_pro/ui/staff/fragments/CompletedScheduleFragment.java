@@ -22,6 +22,7 @@ import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,46 +43,52 @@ public class CompletedScheduleFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_completed_schedule, container, false);
         initView(view);
         scheduleList = new ArrayList<>();
-
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getAllSchedule().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                List<Schedule> schedules = response.body().schedules;
-                if (response.body().success) {
-                    for (int i = 0; i < schedules.size(); i++) {
-                        if (schedules.get(i).getStatus().equals("Completed")) {
-                            scheduleList.add(schedules.get(i));
+                List<Schedule> schedules = null;
+                if (response.body() != null) {
+                    schedules = response.body().schedules;
+                }
+                if (response.body() != null) {
+                    if (response.body().success) {
+                        for (int i = 0; i < schedules.size(); i++) {
+                            if (schedules.get(i).getStatus().equals("Completed")) {
+                                scheduleList.add(schedules.get(i));
+                            }
                         }
+                        scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), new ItemClick() {
+                            @Override
+                            public void setOnItemClick(View view, int pos) {
+                                AlertDialog builder = new AlertDialog.Builder(getContext()).create();
+                                View dialog = LayoutInflater.from(getContext()).inflate(R.layout.dialog_complete_detail, null);
+                                TextView tvName = dialog.findViewById(R.id.tvName);
+                                TextView tvVehicle = dialog.findViewById(R.id.tvVehicle);
+                                TextView tvLicense = dialog.findViewById(R.id.tvLicense);
+                                TextView tvTime = dialog.findViewById(R.id.tvTime);
+                                TextView tvStatus = dialog.findViewById(R.id.tvStatus);
+                                TextView tvClose = dialog.findViewById(R.id.tvClose);
+                                tvName.setText(scheduleList.get(pos).getUser().getFullName());
+                                tvVehicle.setText(scheduleList.get(pos).getVehicle().getName());
+                                tvLicense.setText(scheduleList.get(pos).getVehicle().getLicense());
+                                tvTime.setText(scheduleList.get(pos).getTimeBook());
+                                tvStatus.setText(scheduleList.get(pos).getStatus());
+                                tvClose.setOnClickListener(v -> {
+                                    builder.dismiss();
+                                });
+                                builder.setView(dialog);
+                                builder.show();
+                                scheduleAdapter.notifyDataSetChanged();
+                            }
+                        });
+                        rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        rvSchedule.setAdapter(scheduleAdapter);
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
                     }
-                    scheduleAdapter = new ScheduleAdapter(scheduleList, getActivity(), new ItemClick() {
-                        @Override
-                        public void setOnItemClick(View view, int pos) {
-                            AlertDialog builder = new AlertDialog.Builder(getContext()).create();
-                            View dialog = LayoutInflater.from(getContext()).inflate(R.layout.dialog_complete_detail, null);
-                            TextView tvName = dialog.findViewById(R.id.tvName);
-                            TextView tvVehicle = dialog.findViewById(R.id.tvVehicle);
-                            TextView tvLicense = dialog.findViewById(R.id.tvLicense);
-                            TextView tvTime = dialog.findViewById(R.id.tvTime);
-                            TextView tvStatus = dialog.findViewById(R.id.tvStatus);
-                            TextView tvClose = dialog.findViewById(R.id.tvClose);
-                            tvName.setText(scheduleList.get(pos).getUser().getFullName());
-                            tvVehicle.setText(scheduleList.get(pos).getVehicle().getName());
-                            tvLicense.setText(scheduleList.get(pos).getVehicle().getLicense());
-                            tvTime.setText(scheduleList.get(pos).getTimeBook());
-                            tvStatus.setText(scheduleList.get(pos).getStatus());
-                            tvClose.setOnClickListener(v -> {
-                                builder.dismiss();
-                            });
-                            builder.setView(dialog);
-                            builder.getWindow().setBackgroundDrawableResource(R.drawable.dialog);
-                            builder.show();
-                            scheduleAdapter.notifyDataSetChanged();
-                        }
-                    });
-                    rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    rvSchedule.setAdapter(scheduleAdapter);
-                } else {
-                    Toast.makeText(getActivity(), "Lỗi " + response.body().message, Toast.LENGTH_SHORT).show();
                 }
             }
 

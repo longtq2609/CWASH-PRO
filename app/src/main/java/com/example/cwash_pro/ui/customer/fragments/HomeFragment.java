@@ -31,6 +31,7 @@ import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.News;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.github.nikartm.button.FitButton;
 import com.github.siyamed.shapeimageview.RoundedImageView;
 
@@ -78,6 +79,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void getNews() {
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getNews().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -109,6 +112,7 @@ public class HomeFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), response.body().message, Toast.LENGTH_SHORT).show();
                 }
+                dialog.dismiss();
             }
 
             @Override
@@ -142,6 +146,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadDataUserInfo() {
+        final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
+        dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getUserInfo().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
@@ -152,6 +158,7 @@ public class HomeFragment extends Fragment {
                     tvName.setText(response.body().user.getFullName());
                     tvPhone.setText(response.body().user.getPhoneNumber());
                     RetrofitClient.user = response.body().user;
+                    dialog.dismiss();
                 }
             }
 
