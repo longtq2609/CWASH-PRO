@@ -46,50 +46,29 @@ public class HistoryActivity extends AppCompatActivity {
         RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                scheduleList = response.body().schedules;
-                historyAdapter = new HistoryAdapter(HistoryActivity.this, scheduleList, new ItemClick() {
-                    @Override
-                    public void setOnItemClick(View view, int pos) {
-                        if (view.getId() == R.id.btnCancelSchedule) {
-                            AlertDialog builder = new AlertDialog.Builder(HistoryActivity.this).create();
-                            View dialog = LayoutInflater.from(HistoryActivity.this).inflate(R.layout.dialog_cancel_schedule, null);
-                            EditText edtNote = dialog.findViewById(R.id.edtNote);
-                            Button btnCancel = dialog.findViewById(R.id.btnOKCancel);
-                            Button btnNone = dialog.findViewById(R.id.btnNone);
-                            btnNone.setOnClickListener(view1 -> {
-                                builder.dismiss();
-                            });
-                            btnCancel.setOnClickListener(v1 -> {
-                                final CustomDialogProgress customDialogProgressCancel = new CustomDialogProgress(HistoryActivity.this);
-                                customDialogProgressCancel.show();
-                                RetrofitClient.getInstance().create(ApiService.class).cancel(scheduleList.get(pos).getId(), edtNote.getText().toString(), "Canceled").enqueue(new Callback<ServerResponse>() {
-                                    @Override
-                                    public void onResponse(@NonNull Call<ServerResponse> call2, @NonNull Response<ServerResponse> response2) {
-                                        if (response2.body().success) {
-                                            Toast.makeText(HistoryActivity.this, "Hủy thành công", Toast.LENGTH_SHORT).show();
-                                            scheduleList.remove(pos);
-                                            builder.dismiss();
-                                            finish();
-                                            startActivity(getIntent());
-                                            customDialogProgressCancel.dismiss();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(@NonNull Call<ServerResponse> call12, @NonNull Throwable t) {
-                                        Log.d("onFailure: ", t.getMessage());
-                                    }
-                                });
-                            });
-                            builder.setView(dialog);
-                            builder.show();
-                        } else if (view.getId() == R.id.btnConfirmVehicle) {
+                if (response.body() != null) {
+                    scheduleList = response.body().schedules;
+                }
+                historyAdapter = new HistoryAdapter(HistoryActivity.this, scheduleList, (view, pos) -> {
+                    if (view.getId() == R.id.btnCancelSchedule) {
+                        AlertDialog builder = new AlertDialog.Builder(HistoryActivity.this).create();
+                        View dialog1 = LayoutInflater.from(HistoryActivity.this).inflate(R.layout.dialog_cancel_schedule, null);
+                        EditText edtNote = dialog1.findViewById(R.id.edtNote);
+                        Button btnCancel = dialog1.findViewById(R.id.btnOKCancel);
+                        Button btnNone = dialog1.findViewById(R.id.btnNone);
+                        btnNone.setOnClickListener(view1 -> {
+                            builder.dismiss();
+                        });
+                        btnCancel.setOnClickListener(v1 -> {
                             final CustomDialogProgress customDialogProgressCancel = new CustomDialogProgress(HistoryActivity.this);
                             customDialogProgressCancel.show();
-                            RetrofitClient.getInstance().create(ApiService.class).confirmVehicle(scheduleList.get(pos).getId(), true).enqueue(new Callback<ServerResponse>() {
+                            RetrofitClient.getInstance().create(ApiService.class).cancel(scheduleList.get(pos).getId(), edtNote.getText().toString(), "Canceled").enqueue(new Callback<ServerResponse>() {
                                 @Override
-                                public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                                    if (response.body().success) {
+                                public void onResponse(@NonNull Call<ServerResponse> call2, @NonNull Response<ServerResponse> response2) {
+                                    if (response2.body() != null && response2.body().success) {
+                                        Toast.makeText(HistoryActivity.this, "Hủy thành công", Toast.LENGTH_SHORT).show();
+                                        scheduleList.remove(pos);
+                                        builder.dismiss();
                                         finish();
                                         startActivity(getIntent());
                                         customDialogProgressCancel.dismiss();
@@ -97,13 +76,32 @@ public class HistoryActivity extends AppCompatActivity {
                                 }
 
                                 @Override
-                                public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                                public void onFailure(@NonNull Call<ServerResponse> call12, @NonNull Throwable t) {
                                     Log.d("onFailure: ", t.getMessage());
-
                                 }
                             });
-                        }
+                        });
+                        builder.setView(dialog1);
+                        builder.show();
+                    } else if (view.getId() == R.id.btnConfirmVehicle) {
+                        final CustomDialogProgress customDialogProgressCancel = new CustomDialogProgress(HistoryActivity.this);
+                        customDialogProgressCancel.show();
+                        RetrofitClient.getInstance().create(ApiService.class).confirmVehicle(scheduleList.get(pos).getId(), true).enqueue(new Callback<ServerResponse>() {
+                            @Override
+                            public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
+                                if (response1.body() != null && response1.body().success) {
+                                    finish();
+                                    startActivity(getIntent());
+                                    customDialogProgressCancel.dismiss();
+                                }
+                            }
 
+                            @Override
+                            public void onFailure(@NonNull Call<ServerResponse> call1, @NonNull Throwable t) {
+                                Log.d("onFailure: ", t.getMessage());
+
+                            }
+                        });
                     }
 
                 });

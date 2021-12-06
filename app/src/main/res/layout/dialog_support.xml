@@ -28,7 +28,7 @@
             android:layout_height="@dimen/size_60dp"
             />
         <Button
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginStart="8dp"
             android:id="@+id/imvBtnCall"
             android:scaleType="fitCenter"
             android:text="CALL"

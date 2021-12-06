@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.customer.activities.HistoryActivity">
-
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.customer.activities.WebViewActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
@@ -34,7 +33,7 @@
             android:layout_marginStart="@dimen/margin_size_16dp"
             android:layout_marginBottom="@dimen/margin_size_15dp"
             android:gravity="center"
-            android:text="Lịch sử"
+            android:text="Chính sách và bảo mật"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -44,13 +43,9 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_size__30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_history" />
+    <com.example.cwash_pro.custom.WebviewCustom
+        android:id="@+id/webView"
+        android:background="@drawable/bg_list_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

@@ -1,30 +1,42 @@
 package com.example.cwash_pro.ui.customer.fragments;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
 import com.example.cwash_pro.models.ServerResponse;
+import com.example.cwash_pro.ui.customer.activities.SignUpActivity;
+import com.example.cwash_pro.ui.customer.activities.VerifyPhoneActivity;
+import com.example.cwash_pro.ui.customer.activities.WebViewActivity;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.github.siyamed.shapeimageview.RoundedImageView;
 
@@ -35,6 +47,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MoreFunctionFragment extends Fragment {
+    private static final int MY_PERMISSION_REQUEST_CODE_SEND_SMS = 1;
+    private static final String LOG_TAG = "AndroidExample";
+    EditText edSendSP;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     private RoundedImageView imgAvatar;
@@ -60,8 +75,8 @@ public class MoreFunctionFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         tvPolicyandprivacy.setOnClickListener(v -> {
-            Intent intentToLink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cwash-pro.blogspot.com/2021/10/chinh-sach-bao-mat-thong-tin.html"));
-            startActivity(intentToLink);
+            Intent intent = new Intent(getContext(), WebViewActivity.class);
+            startActivity(intent);
         });
         tvShare.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_SEND);
@@ -83,9 +98,13 @@ public class MoreFunctionFragment extends Fragment {
                 View viewMessage = LayoutInflater.from(getContext()).inflate(R.layout.dialog_send_message_sp, null);
                 builderSendMessage.setView(viewMessage);
                 builderSendMessage.create();
-
+                EditText edtSendSP = viewMessage.findViewById(R.id.edtSendSP);
                 builderSendMessage.setPositiveButton("Gửi", (dialog, which) -> {
-
+                    if(ContextCompat.checkSelfPermission(Objects.requireNonNull(getContext()), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                        sendMessage(edtSendSP);
+                    }else {
+                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS},100);
+                    }
                 });
                 builderSendMessage.setNegativeButton("Quay lại", (dialog, which) -> dialog.dismiss());
                 AlertDialog dialog = builderSendMessage.create();
@@ -134,5 +153,27 @@ public class MoreFunctionFragment extends Fragment {
                 Log.d("onFailure: ", t.getMessage());
             }
         });
+    }
+    private void sendMessage(EditText edSendSP){
+        String phone = "0389127389";
+        String message = edSendSP.getText().toString().trim();
+        if(!message.equals("") ){
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phone, null, message, null ,null);
+            Toast.makeText(getContext(), "Đã gửi hỗ trợ", Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(getContext(), "Gửi hỗ trợ thất bại", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            sendMessage(edSendSP);
+        }else {
+            Toast.makeText(getContext(), "Chưa có phép quyền", Toast.LENGTH_LONG).show();
+
+        }
     }
 }
