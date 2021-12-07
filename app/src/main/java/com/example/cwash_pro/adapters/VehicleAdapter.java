@@ -41,12 +41,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         holder.tvNameOfVehicle.setText(vehicles.get(position).getBrand());
         holder.tvLicense.setText(vehicles.get(position).getLicense());
         if (vehicles.get(position).getType().equals("Car")) {
-            holder.lottieAnimationView.setAnimation("car-animation.json");
-            holder.lottieAnimationView.playAnimation();
-           // holder.imgVehicle.setImageResource(R.drawable.carcar);
+             holder.imgVehicle.setImageResource(R.drawable.ic_car);
         } else if (vehicles.get(position).getType().equals("Motorcycle")) {
-            holder.lottieAnimationView.setAnimation("motorcycle-animation.json");
-            holder.lottieAnimationView.playAnimation();        }
+             holder.imgVehicle.setImageResource(R.drawable.ic_motorcycle);
+
+        }
     }
 
     @Override
@@ -55,17 +54,16 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     }
 
     public class VehicleHolder extends RecyclerView.ViewHolder {
-        ImageView  imgDelete, imgUpdate;
+        ImageView imgDelete, imgUpdate, imgVehicle;
         TextView tvNameOfVehicle, tvLicense;
-        LottieAnimationView lottieAnimationView;
 
         public VehicleHolder(@NonNull View itemView) {
             super(itemView);
-            lottieAnimationView = itemView.findViewById(R.id.imgVehicle);
-            tvNameOfVehicle = (TextView) itemView.findViewById(R.id.tvNameOfVehicle);
-            tvLicense = (TextView) itemView.findViewById(R.id.tvLicense);
-            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
-            imgUpdate = (ImageView) itemView.findViewById(R.id.imgUpdate);
+            imgVehicle = itemView.findViewById(R.id.imgVehicle);
+            tvNameOfVehicle = itemView.findViewById(R.id.tvNameOfVehicle);
+            tvLicense =  itemView.findViewById(R.id.tvLicense);
+            imgDelete =  itemView.findViewById(R.id.imgDelete);
+            imgUpdate =  itemView.findViewById(R.id.imgUpdate);
             imgUpdate.setOnClickListener(v -> {
                 itemClick.setOnItemClick(v, getAdapterPosition());
             });

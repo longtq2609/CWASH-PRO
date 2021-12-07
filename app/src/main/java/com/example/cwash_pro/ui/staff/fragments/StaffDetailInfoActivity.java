@@ -114,11 +114,11 @@ public class StaffDetailInfoActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        editFullName = (EditText) findViewById(R.id.edit_full_name);
-        editPhoneNumber = (EditText) findViewById(R.id.edit_phone_number);
-        editAddress = (EditText) findViewById(R.id.edtAddress);
-        imgAvatar = (ImageView) findViewById(R.id.imgAvatar);
+        toolbar =  findViewById(R.id.toolbar);
+        editFullName = findViewById(R.id.edit_full_name);
+        editPhoneNumber =findViewById(R.id.edit_phone_number);
+        editAddress =  findViewById(R.id.edtAddress);
+        imgAvatar =  findViewById(R.id.imgAvatar);
         icImage = findViewById(R.id.icImage);
         btnUpdate = findViewById(R.id.btnUpdate);
         icCamera = findViewById(R.id.icCamera);

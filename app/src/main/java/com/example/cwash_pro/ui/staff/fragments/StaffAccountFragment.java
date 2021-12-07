@@ -74,11 +74,11 @@ public class StaffAccountFragment extends Fragment {
     }
 
     private void initView(View view) {
-        imgAvatar = (ImageView) view.findViewById(R.id.imgAvatar);
-        tvName = (TextView) view.findViewById(R.id.tvName);
-        tvPhone = (TextView) view.findViewById(R.id.tvPhone);
-        layoutInfo = (LinearLayout) view.findViewById(R.id.AccountInformation);
-        layoutLogout = (LinearLayout) view.findViewById(R.id.LogOut);
+        imgAvatar = view.findViewById(R.id.imgAvatar);
+        tvName = view.findViewById(R.id.tvName);
+        tvPhone = view.findViewById(R.id.tvPhone);
+        layoutInfo = view.findViewById(R.id.AccountInformation);
+        layoutLogout = view.findViewById(R.id.LogOut);
     }
 
     private void setOnclick() {
@@ -91,14 +91,10 @@ public class StaffAccountFragment extends Fragment {
             startActivity(intent);
         });
         layoutLogout.setOnClickListener(v -> {
-            ProgressDialog dialog = new ProgressDialog(getContext());
-            dialog.setMessage("Log out");
+            final CustomDialogProgress dialog = new CustomDialogProgress(getContext());
             dialog.show();
-            new Handler().postDelayed(() -> {
-                startActivity(new Intent(getContext(), LoginActivity.class));
-                dialog.dismiss();
-                Objects.requireNonNull(getActivity()).finish();
-            }, 2000);
+            startActivity(new Intent(getContext(), LoginActivity.class));
+            dialog.dismiss();
         });
     }
 }

@@ -198,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
-                    android:paddingHorizontal="@dimen/padding_size_18dp"
+                    android:paddingHorizontal="@dimen/padding_size_8dp"
                     android:text="@string/notification"
                     android:textSize="@dimen/text_size_22sp"
                     android:textStyle="bold" />

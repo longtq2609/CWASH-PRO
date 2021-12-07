@@ -99,6 +99,6 @@ public class CancelledScheduleFragment extends Fragment {
     }
 
     private void initView(View view) {
-        rvSchedule = (RecyclerView) view.findViewById(R.id.rvCancelSchedule);
+        rvSchedule = view.findViewById(R.id.rvCancelSchedule);
     }
 }

@@ -101,6 +101,6 @@ public class CompletedScheduleFragment extends Fragment {
     }
 
     private void initView(View view) {
-        rvSchedule = (RecyclerView) view.findViewById(R.id.rvCompletedSchedule);
+        rvSchedule = view.findViewById(R.id.rvCompletedSchedule);
     }
 }

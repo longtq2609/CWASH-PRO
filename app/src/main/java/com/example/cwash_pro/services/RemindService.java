@@ -32,7 +32,7 @@ public class RemindService extends Service {
             mChannel.enableVibration(true);
             mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
             mNotificationManager.createNotificationChannel(mChannel);
-            IWashNotificationManager.getInstance(this).displayNotification("CWASH-PRO", "Có thông báo bạn êi");
+            IWashNotificationManager.getInstance(this).displayNotification("CWASH-PRO", "Sắp tới giờ rửa xe. Mời bạn bạn mang xe đến");
         }
         return START_NOT_STICKY;
     }

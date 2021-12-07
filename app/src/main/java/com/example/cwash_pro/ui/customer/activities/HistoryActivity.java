@@ -117,6 +117,6 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        rvHistory = (RecyclerView) findViewById(R.id.rvHistory);
+        rvHistory =  findViewById(R.id.rvHistory);
     }
 }

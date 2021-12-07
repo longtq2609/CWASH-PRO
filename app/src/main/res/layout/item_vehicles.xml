@@ -7,15 +7,16 @@
     android:background="@drawable/bg_item"
     android:padding="@dimen/padding_size_8dp">
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/imgVehicle"
         android:layout_width="@dimen/size_50dp"
         android:layout_height="@dimen/size_50dp"
+        android:background="@color/white"
+        android:layout_marginStart="@dimen/radius_size_2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true" />
+        />
     <TextView
         android:id="@+id/tvTitleName"
         android:layout_width="wrap_content"

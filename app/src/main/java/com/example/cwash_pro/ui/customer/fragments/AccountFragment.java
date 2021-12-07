@@ -59,12 +59,12 @@ public class AccountFragment extends Fragment {
 
     private void initView(View view) {
         imgAvatar = view.findViewById(R.id.imgAvatar);
-        tvName = (TextView) view.findViewById(R.id.tvName);
-        tvPhone = (TextView) view.findViewById(R.id.tvPhone);
-        layoutInfo = (LinearLayout) view.findViewById(R.id.layoutInfo);
-        layoutNoti = (LinearLayout) view.findViewById(R.id.layoutNoti);
-        layoutHistory = (LinearLayout) view.findViewById(R.id.layoutHistory);
-        layoutLogout = (LinearLayout) view.findViewById(R.id.layoutLogout);
+        tvName = view.findViewById(R.id.tvName);
+        tvPhone =  view.findViewById(R.id.tvPhone);
+        layoutInfo =  view.findViewById(R.id.layoutInfo);
+        layoutNoti =  view.findViewById(R.id.layoutNoti);
+        layoutHistory =  view.findViewById(R.id.layoutHistory);
+        layoutLogout =  view.findViewById(R.id.layoutLogout);
         layoutChangePw = view.findViewById(R.id.layoutChangePw);
     }
 

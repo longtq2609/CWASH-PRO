@@ -123,10 +123,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void initView(View view) {
-        imgAvatar = (ImageView) view.findViewById(R.id.imgAvatar);
-        imgNotification = (ImageView) view.findViewById(R.id.imgNotification);
-        tvName = (TextView) view.findViewById(R.id.tvName);
-        tvPhone = (TextView) view.findViewById(R.id.tvPhone);
+        imgAvatar = view.findViewById(R.id.imgAvatar);
+        imgNotification =  view.findViewById(R.id.imgNotification);
+        tvName = view.findViewById(R.id.tvName);
+        tvPhone =  view.findViewById(R.id.tvPhone);
         btnOpenWashService = view.findViewById(R.id.btnOpenWashService);
         btnOpenVehicle = view.findViewById(R.id.btnOpenVehicle);
         btnOpenHistory = view.findViewById(R.id.btnOpenHistory);

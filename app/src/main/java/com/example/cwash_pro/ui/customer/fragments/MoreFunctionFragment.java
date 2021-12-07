@@ -47,8 +47,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MoreFunctionFragment extends Fragment {
-    private static final int MY_PERMISSION_REQUEST_CODE_SEND_SMS = 1;
-    private static final String LOG_TAG = "AndroidExample";
     EditText edSendSP;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -71,7 +69,7 @@ public class MoreFunctionFragment extends Fragment {
         tvEvaluate = view.findViewById(R.id.idEvaluate);
         tvSupport = view.findViewById(R.id.idSupport);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         tvPolicyandprivacy.setOnClickListener(v -> {
@@ -172,7 +170,7 @@ public class MoreFunctionFragment extends Fragment {
         if(requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             sendMessage(edSendSP);
         }else {
-            Toast.makeText(getContext(), "Chưa có phép quyền", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Chưa cho phép quyền", Toast.LENGTH_LONG).show();
 
         }
     }
