@@ -1,6 +1,7 @@
 package com.example.cwash_pro.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,6 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int VIEW_TYPE_PROCESSING = 2;
     private static final int VIEW_TYPE_COMPLETED = 3;
     private static final int VIEW_TYPE_CANCELED = 4;
-
     private final List<Schedule> scheduleList;
     private final Context context;
     static ItemClick itemClick;
@@ -82,6 +82,13 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             processingHolder.tvTime.setText(scheduleList.get(position).getTimeBook());
             processingHolder.tvName.setText(scheduleList.get(position).getUser().getFullName());
             processingHolder.tvVehicle.setText(scheduleList.get(position).getVehicle().getBrand());
+            if (scheduleList.get(position).getStatus().equals("Confirmed") && !scheduleList.get(position).getVehicleStatus()) {
+                processingHolder.tvStatusVehicle.setText("Khách hàng chưa lấy xe");
+                processingHolder.tvStatusVehicle.setTextColor(Color.RED);
+            }else {
+                processingHolder.tvStatusVehicle.setText("Khách hàng đã lấy xe");
+                processingHolder.tvStatusVehicle.setTextColor(Color.GREEN);
+            }
             List<String> stringList = new ArrayList<>();
             for (int i = 0; i < scheduleList.get(position).getServices().size(); i++) {
                 stringList.add(scheduleList.get(position).getServices().get(i).getName());
@@ -141,6 +148,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView tvTime;
         TextView tvService;
         TextView tvVehicle;
+        TextView tvStatusVehicle;
         FitButton btnComplete;
 
         public ProcessingHolder(@NonNull View itemView) {
@@ -149,6 +157,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tvTime = itemView.findViewById(R.id.tvTime);
             tvService = itemView.findViewById(R.id.tvService);
             tvVehicle = itemView.findViewById(R.id.tvVehicle);
+            tvStatusVehicle = itemView.findViewById(R.id.tvStatusVehicles);
             btnComplete = itemView.findViewById(R.id.btnComplete);
             btnComplete.setOnClickListener(v -> itemClick.setOnItemClick(v, getAdapterPosition()));
         }
