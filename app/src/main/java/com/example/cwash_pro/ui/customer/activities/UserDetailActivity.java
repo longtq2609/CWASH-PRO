@@ -30,6 +30,7 @@ import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.example.cwash_pro.utils.Support;
 import com.github.nikartm.button.FitButton;
+import com.github.siyamed.shapeimageview.RoundedImageView;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private EditText editFullName;
     private EditText editPhoneNumber;
     private EditText editAddress;
-    private ImageView imgAvatar, icImage, icCamera;
+    private RoundedImageView imgAvatar;
     Button btnUpdate;
     int REQUEST_CODE_IMAGE = 100;
     int REQUEST_CODE_IMAGE_STORAGE = 200;
@@ -72,7 +73,6 @@ public class UserDetailActivity extends AppCompatActivity {
         checkPermission();
         btnUpdate.setOnClickListener(v -> {
             updateInfor();
-            Log.d("onCreate: ", "hihi");
         });
         imgAvatar.setOnClickListener(view -> {
             LayoutInflater inflater = getLayoutInflater();
@@ -96,8 +96,7 @@ public class UserDetailActivity extends AppCompatActivity {
     public void updateInfor() {
         MultipartBody.Part filePart = null;
         if (uri != null) {
-            Log.d("updateInfor: ", "Co anh");
-            File file = new File(Support.getPathFromUri(getApplicationContext(), uri));
+            File file = new File(Objects.requireNonNull(Support.getPathFromUri(getApplicationContext(), uri)));
             RequestBody requestBody = RequestBody.create(MediaType.parse(
                     UserDetailActivity.this.getContentResolver().getType(uri)), file);
             filePart = MultipartBody.Part.createFormData(
@@ -132,10 +131,8 @@ public class UserDetailActivity extends AppCompatActivity {
         editFullName = (EditText) findViewById(R.id.edit_full_name);
         editPhoneNumber = (EditText) findViewById(R.id.edit_phone_number);
         editAddress = (EditText) findViewById(R.id.edtAddress);
-        imgAvatar = (ImageView) findViewById(R.id.imgAvatar);
-        icImage = findViewById(R.id.icImage);
+        imgAvatar =  findViewById(R.id.imgAvatar);
         btnUpdate = findViewById(R.id.btnUpdate);
-        icCamera = findViewById(R.id.icCamera);
     }
 
     private void capturePicture() {

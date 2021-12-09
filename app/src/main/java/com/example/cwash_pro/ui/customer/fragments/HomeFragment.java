@@ -37,6 +37,7 @@ import com.github.siyamed.shapeimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import me.relex.circleindicator.CircleIndicator3;
 import retrofit2.Call;
@@ -93,7 +94,7 @@ public class HomeFragment extends Fragment {
                         RoundedImageView imgNews = v.findViewById(R.id.imgNews);
                         TextView tvTitle = v.findViewById(R.id.tvTitle);
                         TextView tvDescription = v.findViewById(R.id.tvDescription);
-                        Glide.with(getActivity()).load(RetrofitClient.link + newsList.get(pos).getImage()).into(imgNews);
+                        Glide.with(Objects.requireNonNull(getActivity())).load(RetrofitClient.link + newsList.get(pos).getImage()).into(imgNews);
                         tvTitle.setText(newsList.get(pos).getTitle());
                         tvDescription.setText(newsList.get(pos).getDescription());
                         alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog);

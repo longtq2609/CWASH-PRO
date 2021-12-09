@@ -16,22 +16,34 @@
         app:siBorderWidth="@dimen/border_size_2dp"
         app:siRadius="@dimen/radius_size_15dp" />
 
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_size_15dp"
-        android:fontFamily="@font/sf_pro_text_bold"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_20sp" />
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_size_15dp"
+                android:fontFamily="@font/sf_pro_text_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_20sp" />
 
 
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ui_text_regular"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_15sp" />
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ui_text_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_15sp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

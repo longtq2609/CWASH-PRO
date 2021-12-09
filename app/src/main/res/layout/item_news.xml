@@ -26,13 +26,14 @@
         android:visibility="visible">
 
         <TextView
+            android:gravity="center"
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_16sp"
+            android:textSize="@dimen/text_size_20sp"
             android:textStyle="bold" />
 
         <TextView
