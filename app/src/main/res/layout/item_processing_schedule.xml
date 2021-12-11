@@ -151,7 +151,6 @@
 
 
     </RelativeLayout>
-
     <com.github.nikartm.button.FitButton
         android:id="@+id/btnComplete"
         android:layout_width="@dimen/size_80dp"
@@ -169,8 +168,8 @@
         app:fb_iconPosition="top"
         app:fb_rippleColor="#FBE9E7"
         app:fb_shape="circle"
-        app:fb_text="Hoàn thành"
+        app:fb_text="Hoàn Thành"
         app:fb_textColor="#344187"
-        app:fb_textSize="@dimen/text_size_20sp"
+        app:fb_textSize="@dimen/text_size_15sp"
         app:fb_textStyle="bold" />
 </LinearLayout>
