@@ -24,7 +24,9 @@
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_cancel.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_car.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_done.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_group_8238.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_icon.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_icon_1.xml" value="0.21354166666666666" />
@@ -33,6 +35,7 @@
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_icon_4.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_login_hero.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_motorcycle.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/ic_pending.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/menu_bottom_bar.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/shape_avatar.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/shape_bottombar.xml" value="0.21354166666666666" />
@@ -41,6 +44,7 @@
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/shape_email_pass.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/shape_item_view.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/shape_layout.xml" value="0.37083333333333335" />
+        <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/drawable/spinner.xml" value="0.21354166666666666" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/layout/activity_car_wash_service.xml" value="0.2749094202898551" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/layout/activity_change_password.xml" value="0.19739583333333333" />
         <entry key="..\:/Android/android project/fpoly/CWASH-PRO/app/src/main/res/layout/activity_history.xml" value="0.33" />

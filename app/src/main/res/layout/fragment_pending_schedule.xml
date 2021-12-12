@@ -15,18 +15,7 @@
         android:background="@drawable/bg_header_top_bar"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_size_8dp"
-            android:layout_marginBottom="@dimen/margin_size_15dp"
-            android:contentDescription="@string/report"
-            android:foregroundGravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back" />
+
 
         <TextView
             style="@style/TextTitle"

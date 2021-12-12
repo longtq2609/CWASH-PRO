@@ -1,7 +1,6 @@
 package com.example.cwash_pro.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Vehicle;

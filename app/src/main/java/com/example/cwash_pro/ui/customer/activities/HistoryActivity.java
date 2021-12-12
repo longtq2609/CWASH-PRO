@@ -2,7 +2,6 @@ package com.example.cwash_pro.ui.customer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,13 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.adapters.HistoryAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
@@ -33,6 +32,7 @@ import retrofit2.Response;
 
 public class HistoryActivity extends AppCompatActivity {
     private RecyclerView rvHistory;
+    private ImageView imgBack;
     private List<Schedule> scheduleList = new ArrayList<>();
     HistoryAdapter historyAdapter;
 
@@ -41,6 +41,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         initView();
+        imgBack.setOnClickListener(v -> onBackPressed());
         final CustomDialogProgress dialog = new CustomDialogProgress(this);
         dialog.show();
         RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
@@ -118,5 +119,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     private void initView() {
         rvHistory =  findViewById(R.id.rvHistory);
+        imgBack = findViewById(R.id.imgBack);
     }
 }

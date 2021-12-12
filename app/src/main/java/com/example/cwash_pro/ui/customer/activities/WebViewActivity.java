@@ -9,6 +9,7 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.cwash_pro.R;
@@ -17,12 +18,15 @@ import com.example.cwash_pro.custom.WebviewCustom;
 
 public class WebViewActivity extends AppCompatActivity {
     private WebviewCustom webView;
-
+    private ImageView imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         webView = findViewById(R.id.webView);
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(v -> onBackPressed());
+
         String url = "https://cwash-pro.blogspot.com/2021/10/chinh-sach-bao-mat-thong-tin.html";
         webView.loadUrl(url);
         settingWebAccess();

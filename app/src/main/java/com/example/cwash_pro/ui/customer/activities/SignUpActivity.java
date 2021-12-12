@@ -39,16 +39,16 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void registerAccount() {
-        if (!edtPhoneNumber.getText().toString().isEmpty() && !edtPassword.getText().toString().isEmpty() || !edtFullName.getText().toString().isEmpty() || !edtAddress.getText().toString().isEmpty()) {
+        if (!edtPhoneNumber.getText().toString().isEmpty() && !edtPassword.getText().toString().isEmpty() && !edtFullName.getText().toString().isEmpty() && !edtAddress.getText().toString().isEmpty()) {
             Intent intent = new Intent(SignUpActivity.this, VerifyPhoneActivity.class);
             String phone_number = "+84" + edtPhoneNumber.getText().toString().trim();
             intent.putExtra("phone_number", phone_number);
             intent.putExtra("name", edtFullName.getText().toString());
-            intent.putExtra("password", edtPassword.getText().toString());
+            intent.putExtra("password", edtPassword.getText().toString().trim());
             intent.putExtra("address", edtAddress.getText().toString());
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Không ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
         }
     }
 }

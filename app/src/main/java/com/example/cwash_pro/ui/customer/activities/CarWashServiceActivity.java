@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,7 +27,6 @@ import com.example.cwash_pro.adapters.ChooseVehicleAdapter;
 import com.example.cwash_pro.adapters.ServiceAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ScheduleBody;
 import com.example.cwash_pro.models.ServerResponse;
@@ -49,6 +49,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     List<Service> serviceList;
     private Spinner spnVehicleCar;
     private TextView tvDate;
+    private ImageView imgBack;
     LinearLayout tvChooseDate;
     private RecyclerView rvTime, rvService;
     private Button btnBook;
@@ -81,6 +82,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
         timeList = timeListOfMoto;
         getStatusSchedulePending();
         rvTime.setLayoutManager(new GridLayoutManager(this, 3, RecyclerView.HORIZONTAL, false));
+        imgBack.setOnClickListener(v -> onBackPressed());
         tvChooseDate.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -215,6 +217,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     private void initView() {
         spnVehicleCar = findViewById(R.id.spnVehicleCar);
         tvChooseDate = findViewById(R.id.tvChooseDate);
+        imgBack = findViewById(R.id.imgBack);
         tvDate = findViewById(R.id.tvDate);
         rvTime = findViewById(R.id.rvTime);
         rvService = findViewById(R.id.rvService);

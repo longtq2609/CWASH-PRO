@@ -48,6 +48,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private EditText editPhoneNumber;
     private EditText editAddress;
     private RoundedImageView imgAvatar;
+    private ImageView imgBack;
     Button btnUpdate;
     int REQUEST_CODE_IMAGE = 100;
     int REQUEST_CODE_IMAGE_STORAGE = 200;
@@ -65,7 +66,7 @@ public class UserDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setTitle("Back");
         }
-
+        imgBack.setOnClickListener(v -> onBackPressed());
         editPhoneNumber.setText(RetrofitClient.user.getPhoneNumber());
         editFullName.setText(RetrofitClient.user.getFullName());
         editAddress.setText(RetrofitClient.user.getAddress());
@@ -133,6 +134,7 @@ public class UserDetailActivity extends AppCompatActivity {
         editAddress = (EditText) findViewById(R.id.edtAddress);
         imgAvatar =  findViewById(R.id.imgAvatar);
         btnUpdate = findViewById(R.id.btnUpdate);
+        imgBack = findViewById(R.id.imgBack);
     }
 
     private void capturePicture() {

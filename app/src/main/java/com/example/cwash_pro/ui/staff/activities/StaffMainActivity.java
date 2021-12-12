@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.ui.customer.fragments.AccountFragment;
@@ -30,6 +31,7 @@ public class StaffMainActivity extends AppCompatActivity {
     List<Schedule> scheduleListConfirm;
     List<Schedule> scheduleListComplete;
     List<Schedule> scheduleListCancel;
+    private boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,5 +67,14 @@ public class StaffMainActivity extends AppCompatActivity {
 
     private void setCurrentFragment(Fragment fragment) {
         fragmentManager.beginTransaction().replace(R.id.flFragment2, fragment).commit();
+    }
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            super.onBackPressed();
+        }
+        exit = true;
+        Toast.makeText(this, "Bấm lần nữa để thoát", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> exit = false, 1500);
     }
 }

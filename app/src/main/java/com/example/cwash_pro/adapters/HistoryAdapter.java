@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,22 +52,21 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         }
         service = service + "";
         holder.tvStatus.setTextColor(Color.GREEN);
-        holder.img.setAnimation("done-animation.json");
+        holder.img.setImageResource(R.drawable.ic_done);
         holder.tvVehicle.setText(schedules.get(position).getVehicle().getBrand());
         if (schedules.get(position).getStatus().equals("Confirmed") && !schedules.get(position).getVehicleStatus()) {
             holder.btnConfirmVehicle.setVisibility(View.VISIBLE);
-            holder.img.setAnimation("done-animation.json");
-            holder.img.playAnimation();
+            holder.img.setImageResource(R.drawable.ic_done);
             holder.tvStatus.setTextColor(Color.GREEN);
         }
         if (schedules.get(position).getStatus().equals("Pending")) {
             holder.btnCancelSchedule.setVisibility(View.VISIBLE);
-            holder.img.setAnimation("pending-animation.json");
+            holder.img.setImageResource(R.drawable.ic_pending);
             holder.tvStatus.setTextColor(Color.RED);
         }
         if (schedules.get(position).getStatus().equals("Cancelled")) {
             holder.tvStatus.setTextColor(Color.BLUE);
-            holder.img.setAnimation("fail-animation.json");
+            holder.img.setImageResource(R.drawable.ic_cancel);
         }
         holder.tvStatus.setText(schedules.get(position).getStatus());
         holder.tvService.setText(service);
@@ -78,7 +78,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        LottieAnimationView img;
+        ImageView img;
         TextView tvTime, tvVehicle, tvStatus, tvService;
         FitButton btnConfirmVehicle, btnCancelSchedule;
         LinearLayout layout_bottom;

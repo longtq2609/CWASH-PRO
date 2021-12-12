@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import retrofit2.Response;
 public class VehicleActivity extends AppCompatActivity {
     RecyclerView rvVehicle;
     Button imgAddVehicle;
+    ImageView imgBack;
     VehicleAdapter adapter;
     List<Vehicle> vehicles = new ArrayList<>();
     String type = "";
@@ -48,6 +50,8 @@ public class VehicleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle);
 
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(v -> onBackPressed());
 
         rvVehicle = findViewById(R.id.rvVehicle);
         imgAddVehicle = findViewById(R.id.imgAddVehicle);

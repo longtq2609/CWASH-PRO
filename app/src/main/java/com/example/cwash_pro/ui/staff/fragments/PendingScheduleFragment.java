@@ -23,7 +23,6 @@ import com.example.cwash_pro.R;
 import com.example.cwash_pro.adapters.ScheduleAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.Schedule;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;

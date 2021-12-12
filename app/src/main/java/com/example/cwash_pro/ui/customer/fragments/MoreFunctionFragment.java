@@ -69,8 +69,6 @@ public class MoreFunctionFragment extends Fragment {
         tvEvaluate = view.findViewById(R.id.idEvaluate);
         tvSupport = view.findViewById(R.id.idSupport);
 
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         tvPolicyandprivacy.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), WebViewActivity.class);

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.cwash_pro.R;
@@ -22,6 +23,7 @@ import retrofit2.Response;
 
 public class ChangePasswordActivity extends AppCompatActivity {
     EditText edtCurPw, edtNewPw, edtNewPwRs;
+    ImageView imgBack;
     Button btnChange;
 
     @Override
@@ -29,6 +31,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         initViews();
+        imgBack.setOnClickListener(v -> onBackPressed());
         btnChange.setOnClickListener(v -> {
             if (edtNewPwRs.getText().toString().equals(edtNewPw.getText().toString())) {
                 final CustomDialogProgress dialog = new CustomDialogProgress(this);
@@ -60,6 +63,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         edtNewPw = findViewById(R.id.edtNewPw);
         edtNewPwRs = findViewById(R.id.edtNewPwRs);
         btnChange = findViewById(R.id.btnChange);
+        imgBack = findViewById(R.id.imgBack);
     }
 
 }

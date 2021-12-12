@@ -103,7 +103,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(VerifyPhoneActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
                                     }
-                                    dialogLoadBook.dismiss();
                                 }
 
                                 @Override
