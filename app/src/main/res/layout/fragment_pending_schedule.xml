@@ -18,13 +18,14 @@
 
 
         <TextView
-            style="@style/TextTitle"
+            android:textSize="@dimen/text_size_24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_size_16dp"
             android:layout_marginBottom="@dimen/margin_size_15dp"
             android:gravity="center"
             android:text="Lịch Đang Chờ"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -11,6 +11,7 @@
         android:text="Chỉnh sửa phương tiện"
         android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textColor="@color/white"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:layout_width="match_parent"
@@ -18,6 +19,7 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_height="wrap_content"
         android:text="Tên chủ xe"
         android:textColor="@color/black"
@@ -28,6 +30,7 @@
         android:id="@+id/edtNameOfVehicle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
+        android:fontFamily="@font/ui_text_regular"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/bg_edit_text"
         android:inputType="text"
@@ -42,6 +45,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:text="Màu xe"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18sp"
@@ -50,6 +54,7 @@
     <EditText
         android:id="@+id/edtColorOfVehicle"
         android:layout_width="match_parent"
+        android:fontFamily="@font/ui_text_regular"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:background="@drawable/bg_edit_text"
@@ -61,6 +66,7 @@
         android:text="Biển số xe"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
@@ -69,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
+        android:fontFamily="@font/ui_text_regular"
         android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -78,6 +85,7 @@
         android:text="Hãng xe"
         android:layout_marginTop="@dimen/margin_size_10dp"
         android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
@@ -86,6 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
         android:layout_marginTop="@dimen/margin_size_10dp"
+        android:fontFamily="@font/ui_text_regular"
         android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
 
@@ -101,6 +110,7 @@
             android:layout_height="@dimen/size_60dp"
             android:layout_marginEnd="@dimen/margin_size_8dp"
             android:layout_weight="1"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/white"
             android:background="@drawable/btn_login"
             android:text="@string/cancel" />
@@ -109,6 +119,7 @@
             android:id="@+id/btnUpdateVehicle"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_60dp"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_weight="1"

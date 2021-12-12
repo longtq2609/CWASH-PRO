@@ -42,6 +42,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/ui_text_regular"
                     android:id="@+id/tvTitleName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -51,6 +52,7 @@
 
                 <TextView
                     android:id="@+id/tvName"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -64,6 +66,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/ui_text_regular"
                     android:id="@+id/tvTitleService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,6 +76,7 @@
 
                 <TextView
                     android:id="@+id/tvService"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -86,6 +90,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/ui_text_regular"
                     android:id="@+id/tvTitleVehicle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,9 +100,9 @@
 
                 <TextView
                     android:id="@+id/tvVehicle"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wave Alpha"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_16sp"
                     android:textStyle="bold" />
@@ -109,6 +114,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/ui_text_regular"
                     android:id="@+id/tvTitleTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +126,7 @@
                     android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8:00 Ngày 31 tháng 3"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_16sp"
                     android:textStyle="bold" />
@@ -131,6 +137,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/ui_text_regular"
                     android:id="@+id/tvTitleStatusVehicles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,7 +149,7 @@
                     android:id="@+id/tvStatusVehicles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8:00 Ngày 31 tháng 3"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_16sp"
                     android:textStyle="bold" />
@@ -162,6 +169,7 @@
         app:fb_borderWidth="@dimen/border_size_2dp"
         app:fb_cornerRadius="@dimen/radius_size_2dp"
         app:fb_divColor="#fff"
+        android:fontFamily="@font/sf_pro_text_bold"
         app:fb_divWidth="@dimen/size_1dp"
         app:fb_iconColor="#344187"
         app:fb_iconMarginBottom="@dimen/margin_size_5dp"
@@ -170,6 +178,6 @@
         app:fb_shape="circle"
         app:fb_text="Hoàn Thành"
         app:fb_textColor="#344187"
-        app:fb_textSize="@dimen/text_size_15sp"
+        app:fb_textSize="@dimen/text_size_13sp"
         app:fb_textStyle="bold" />
 </LinearLayout>

@@ -13,16 +13,21 @@
         android:gravity="center"
         android:text="Thông tin"
         android:textColor="@color/white"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold" />
     <TextView
-        style="@style/TextElement"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:text="Nhập tin nhắn"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_marginBottom="@dimen/margin_size_10dp"
         android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/edtSendSP"
+        android:fontFamily="@font/ui_text_regular"
+        android:paddingStart="@dimen/padding_size_15dp"
         android:layout_width="match_parent"
         android:background="@drawable/bg_edit_text"
         android:layout_height="@dimen/size_75dp"/>

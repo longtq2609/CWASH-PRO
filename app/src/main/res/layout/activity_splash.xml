@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:textColor="#F5802A"
         android:textSize="@dimen/text_size_14sp"
+        android:fontFamily="@font/sf_pro_text_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeClock" />
@@ -36,6 +37,7 @@
         android:layout_marginBottom="@dimen/margin_size_75dp"
         android:textColor="#F5802A"
         android:textSize="50sp"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

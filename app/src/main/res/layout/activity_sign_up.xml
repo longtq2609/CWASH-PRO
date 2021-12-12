@@ -36,13 +36,14 @@
                     app:srcCompat="@drawable/ic_back" />
 
                 <TextView
-                    style="@style/TextTitle"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_size_16dp"
                     android:layout_marginBottom="@dimen/margin_size_18dp"
                     android:gravity="center"
                     android:text="Đăng ký"
+                    android:textSize="@dimen/text_size_24sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -59,6 +60,7 @@
                 android:src="@drawable/ic_logo" />
 
             <TextView
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -79,11 +81,13 @@
                     android:id="@+id/edtPhoneNumber"
                     android:layout_width="match_parent"
                     android:inputType="number"
+                    android:fontFamily="@font/ui_text_regular"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_edit_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -103,10 +107,12 @@
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/ui_text_regular"
                     android:background="@drawable/bg_edit_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -126,10 +132,12 @@
                     android:id="@+id/edtFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/ui_text_regular"
                     android:background="@drawable/bg_edit_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -142,13 +150,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
-                app:startIconDrawable="@drawable/ic_location_on">
+                app:startIconDrawable="@drawable/ic_location">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:fontFamily="@font/ui_text_regular"
                     android:background="@drawable/bg_edit_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,6 +172,7 @@
                     android:layout_height="@dimen/size_60dp"
                     android:layout_marginHorizontal="@dimen/margin_size_15dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:background="@drawable/btn_login_white"
                     android:text="Đăng nhập"
                     android:textAllCaps="false"
@@ -172,6 +181,7 @@
                     android:textStyle="bold" />
 
                 <Button
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:id="@+id/btnNext"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_60dp"

@@ -151,7 +151,7 @@ public class MoreFunctionFragment extends Fragment {
         });
     }
     private void sendMessage(EditText edSendSP){
-        String phone = "0389127389";
+        String phone = "0393360802";
         String message = edSendSP.getText().toString().trim();
         if(!message.equals("") ){
             SmsManager smsManager = SmsManager.getDefault();

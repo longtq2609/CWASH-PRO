@@ -12,6 +12,7 @@
         android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:background="@drawable/btn_login"
+        app:fb_fontFamilyRes="@font/sf_pro_text_bold"
         android:gravity="center"
         android:text="Thông tin"
         android:textColor="@color/white"
@@ -28,6 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Khách hàng: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:fontFamily="@font/ui_text_regular"
             app:layout_constraintStart_toEndOf="@+id/tv1"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -49,9 +52,11 @@
             android:id="@+id/tv2"
             android:layout_width="@dimen/size_90dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:text="Xe: "
             android:textColor="@color/black"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,6 +64,7 @@
             android:id="@+id/tvVehicle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tv2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -74,6 +80,7 @@
             android:layout_height="wrap_content"
             android:text="Biển số xe: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -82,6 +89,7 @@
             android:id="@+id/tvLicense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tv3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -97,6 +105,7 @@
             android:layout_height="wrap_content"
             android:text="Thời gian đặt: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,6 +113,7 @@
         <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tv4"
@@ -120,6 +130,7 @@
             android:layout_height="wrap_content"
             android:text="Trạng thái: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -129,6 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:fontFamily="@font/ui_text_regular"
             app:layout_constraintStart_toEndOf="@+id/tv5"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -137,6 +149,7 @@
         android:id="@+id/tvClose"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
+        app:fb_fontFamilyRes="@font/sf_pro_text_bold"
         android:layout_marginTop="@dimen/margin_size_15dp"
         android:textAllCaps="false"
         android:background="@drawable/btn_login"

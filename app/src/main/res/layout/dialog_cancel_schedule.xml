@@ -12,6 +12,7 @@
         android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="Thông tin"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold" />
@@ -27,6 +28,7 @@
         android:id="@+id/edtNote"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
+        android:fontFamily="@font/ui_text_regular"
         android:layout_marginTop="@dimen/margin_size_15dp"
         android:background="@drawable/bg_edit_text"
         android:paddingStart="@dimen/padding_size_15dp" />
@@ -44,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_60dp"
             android:layout_marginEnd="@dimen/margin_size_15dp"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:layout_weight="1"
             android:background="@drawable/btn_login"
             android:text="Không huỷ"
@@ -53,6 +56,7 @@
             android:id="@+id/btnOKCancel"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_60dp"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:layout_marginStart="@dimen/margin_size_15dp"
             android:layout_weight="1"
             android:background="@drawable/btn_login"

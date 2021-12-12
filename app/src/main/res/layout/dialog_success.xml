@@ -21,9 +21,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:text="@string/success"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/black"
         android:textSize="@dimen/text_size_24sp" />
 
     <Button
@@ -33,6 +35,7 @@
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:background="@drawable/btn_login"
         android:text="Đặt lịch"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_16sp"

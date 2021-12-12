@@ -32,7 +32,7 @@
                 app:srcCompat="@drawable/ic_back" />
 
             <TextView
-                style="@style/TextTitle"
+                android:textSize="@dimen/text_size_24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_size_16dp"
@@ -40,6 +40,7 @@
                 android:gravity="center"
                 android:text="Xác thực số điện thoại"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_size_15dp"
+            android:fontFamily="@font/ui_text_regular"
             android:layout_marginTop="@dimen/margin_size_48dp"
             android:text="Mã xác thực đã được gửi đến thuê bao: "
             android:textColor="@color/black"
@@ -65,6 +67,7 @@
 
         <TextView
             android:id="@+id/tvNumberPhoneUser"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -95,7 +98,8 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtCode"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
+            android:layout_height="wrap_content"
                 android:background="@drawable/bg_edit_text"
                 android:inputType="phone"
                 android:maxLines="1" />
@@ -110,6 +114,7 @@
             android:layout_marginTop="@dimen/margin_size_21dp"
             android:background="@drawable/btn_login"
             android:text="Xác nhận"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textAllCaps="false"
             android:textSize="@dimen/text_size_16sp"
             android:textStyle="bold" />

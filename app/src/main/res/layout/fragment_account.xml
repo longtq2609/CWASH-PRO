@@ -17,14 +17,16 @@
 
 
         <TextView
-            style="@style/TextTitle"
+            android:textSize="@dimen/text_size_24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_size_16dp"
             android:layout_marginBottom="@dimen/margin_size_15dp"
             android:gravity="center"
-            android:text="Tài khoản"
+            android:text="Tài khoản cá nhân"
             android:textColor="@color/white"
+            android:fontFamily="@font/sf_pro_text_bold"
+
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_size_15dp"
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:text="Tài khoản của bạn"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_22sp"
@@ -109,8 +112,9 @@
                 android:padding="@dimen/padding_size_8dp">
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
@@ -125,7 +129,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
+                    app:srcCompat="@drawable/ic_arrow_forward" />
             </LinearLayout>
 
             <View
@@ -145,9 +149,10 @@
 
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="@dimen/margin_size_8dp"
@@ -161,7 +166,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
+                    app:srcCompat="@drawable/ic_arrow_forward" />
             </LinearLayout>
 
             <View
@@ -182,11 +187,12 @@
 
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
                     android:text="@string/notification"
                     android:textSize="@dimen/text_size_22sp"
@@ -198,7 +204,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
+                    app:srcCompat="@drawable/ic_arrow_forward" />
             </LinearLayout>
 
 
@@ -217,11 +223,12 @@
 
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:text="@string/history"
                     android:textSize="@dimen/text_size_22sp"
                     android:textStyle="bold" />
@@ -232,7 +239,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
+                    app:srcCompat="@drawable/ic_arrow_forward" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -248,12 +255,13 @@
 
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
                     android:text="@string/logout"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:textSize="@dimen/text_size_22sp"
                     android:textStyle="bold" />
 
@@ -263,7 +271,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_arrow_forward_ios" />
+                    app:srcCompat="@drawable/ic_arrow_forward" />
             </LinearLayout>
 
         </LinearLayout>

@@ -14,6 +14,7 @@
         android:gravity="center"
         android:text="Thông tin"
         android:textColor="@color/white"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold" />
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +26,7 @@
             android:layout_width="@dimen/size_90dp"
             android:layout_height="wrap_content"
             android:text="Khách hàng: "
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:fontFamily="@font/ui_text_regular"
             app:layout_constraintStart_toEndOf="@+id/tv1"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -48,6 +51,7 @@
             android:layout_width="@dimen/size_90dp"
             android:layout_height="wrap_content"
             android:text="Xe: "
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,7 @@
             android:id="@+id/tvVehicle"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/tv2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -72,6 +77,7 @@
             android:layout_height="wrap_content"
             android:text="Biển số xe: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -79,6 +85,7 @@
         <TextView
             android:id="@+id/tvLicense"
             android:textColor="@color/black"
+            android:fontFamily="@font/ui_text_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/tv3"
@@ -96,6 +103,7 @@
             android:text="Thời gian đặt: "
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:fontFamily="@font/sf_pro_text_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,6 +111,7 @@
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tv4"
             app:layout_constraintTop_toTopOf="parent" />
@@ -117,6 +126,7 @@
             android:layout_height="wrap_content"
             android:text="Trạng thái: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -125,6 +135,7 @@
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tv5"
             app:layout_constraintTop_toTopOf="parent" />
@@ -140,6 +151,7 @@
             android:layout_height="wrap_content"
             android:text="Lý do huỷ: "
             android:textColor="@color/black"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -149,6 +161,7 @@
             android:layout_width="wrap_content"
             android:textColor="@color/black"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             app:layout_constraintStart_toEndOf="@+id/tv6"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -158,6 +171,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginTop="@dimen/margin_size_15dp"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textAllCaps="false"
         android:background="@drawable/btn_login"
         android:text="Quay lại"

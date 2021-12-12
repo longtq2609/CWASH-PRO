@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/tvChoosedTime"
-            android:layout_width="@dimen/size_50dp"
+            android:layout_width="@dimen/size_60dp"
             android:layout_height="@dimen/size_30dp"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>

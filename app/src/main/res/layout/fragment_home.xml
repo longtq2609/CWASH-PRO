@@ -16,15 +16,16 @@
 
 
         <TextView
-            style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_size_8dp"
             android:layout_marginBottom="@dimen/margin_size_15dp"
             android:gravity="center"
+            android:textSize="@dimen/text_size_24sp"
             android:text="Trang chủ"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:fontFamily="@font/sf_pro_text_bold"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -120,6 +121,8 @@
                 app:fb_backgroundColor="@color/white"
                 app:fb_borderColor="@color/mainColor"
                 app:fb_borderWidth="@dimen/border_size_2dp"
+                android:fontFamily="@font/sf_pro_text_bold"
+
                 app:fb_cornerRadius="@dimen/radius_size_2dp"
                 app:fb_divColor="#fff"
                 app:fb_divWidth="@dimen/size_1dp"
@@ -148,6 +151,7 @@
                 app:fb_borderWidth="@dimen/border_size_2dp"
                 app:fb_cornerRadius="@dimen/radius_size_2dp"
                 app:fb_divColor="#fff"
+                android:fontFamily="@font/sf_pro_text_bold"
                 app:fb_divWidth="@dimen/size_1dp"
                 app:fb_icon="@drawable/ic_traffic_jam"
                 app:fb_iconColor="#344187"
@@ -177,6 +181,7 @@
                 app:fb_icon="@drawable/ic_history"
                 app:fb_iconColor="#344187"
                 app:fb_iconHeight="@dimen/size_50dp"
+                android:fontFamily="@font/sf_pro_text_bold"
                 app:fb_iconMarginBottom="@dimen/margin_size_5dp"
                 app:fb_iconPosition="top"
                 app:fb_iconWidth="@dimen/size_50dp"

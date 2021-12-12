@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/ic_back" />
 
         <TextView
-            style="@style/TextTitle"
+            android:textSize="@dimen/text_size_24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_size_16dp"
@@ -39,7 +39,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent
+"            android:fontFamily="@font/sf_pro_text_bold"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -51,6 +52,7 @@
         android:src="@drawable/ic_logo" />
 
     <TextView
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -70,11 +72,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edit_text" />
+            android:background="@drawable/bg_edit_text"
+            android:fontFamily="@font/ui_text_regular" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
@@ -93,11 +98,13 @@
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_text_regular"
             android:layout_marginHorizontal="@dimen/margin_size_15dp"
             android:background="@drawable/bg_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
+        android:fontFamily="@font/sf_pro_text_bold"
         android:id="@+id/cbSavePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,6 +119,7 @@
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:background="@drawable/btn_login"
         android:text="@string/login"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:textAllCaps="false"
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
@@ -123,6 +131,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:fontFamily="@font/sf_pro_text_bold"
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,6 +142,7 @@
             android:textSize="@dimen/text_size_18sp" />
 
         <TextView
+            android:fontFamily="@font/sf_pro_text_bold"
             android:id="@+id/tvCreateAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,6 +156,7 @@
     </LinearLayout>
 
     <TextView
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center_horizontal"

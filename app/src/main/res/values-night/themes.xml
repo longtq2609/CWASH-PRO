@@ -32,29 +32,4 @@
         <item name="android:textColorSecondary">@color/textColorSecondary</item>   <!--Màu chữ ở trạng thái  ... -->
     </style>
 
-    <style name="TextTitle">
-        <item name="android:textSize">24sp</item>
-        <item name="fontFamily">serif</item>
-        <item name="font">@color/black</item>
-    </style>
-    <style name="TextElement" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="fontFamily">sans-serif-condensed</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-    <style name="TextElement.big">
-        <item name="fontFamily">sans-serif-condensed</item>
-        <item name="android:textSize">28sp</item>
-    </style>
-    <style name="TextElement.medium">
-        <item name="fontFamily">sans-serif-condensed</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-    <style name="TextSmall">
-        <item name="fontFamily">sans-serif</item>
-        <item name="android:textSize">10sp</item>
-    </style>
-    <style name="TextElement.small">
-        <item name="fontFamily">serif</item>
-        <item name="android:textSize">14sp</item>
-    </style>
 </resources>

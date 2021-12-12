@@ -6,6 +6,7 @@
     <CheckBox
         android:id="@+id/chkSelect"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/ui_text_regular"
         android:layout_height="wrap_content"
         android:text="Name" />
 </RelativeLayout>

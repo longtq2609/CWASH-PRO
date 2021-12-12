@@ -16,7 +16,7 @@
 
 
         <TextView
-            style="@style/TextTitle"
+            android:textSize="@dimen/text_size_24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_size_16dp"
@@ -24,6 +24,7 @@
             android:gravity="center"
             android:text="Thông tin"
             android:textColor="@color/white"
+            android:fontFamily="@font/sf_pro_text_bold"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +92,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:layout_marginVertical="20dp"
                 android:layout_marginStart="@dimen/margin_size_8dp"
                 android:text="Thông tin CWASH-PRO"
@@ -108,11 +110,12 @@
                 android:padding="@dimen/padding_size_8dp">
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
                     android:text="Chính sách và bảo mật"
                     android:textSize="@dimen/text_size_22sp"
@@ -137,12 +140,13 @@
                 android:padding="@dimen/padding_size_8dp">
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:text="Chia sẽ"
                     android:textSize="@dimen/text_size_22sp"
                     android:textStyle="bold" />
@@ -166,13 +170,14 @@
                 android:padding="@dimen/padding_size_8dp">
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:paddingHorizontal="@dimen/margin_size_8dp"
                     android:text="Đánh giá"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:textSize="@dimen/text_size_22sp"
                     android:textStyle="bold" />
 
@@ -195,11 +200,12 @@
                 android:padding="@dimen/padding_size_8dp">
 
                 <TextView
-                    style="@style/TextElement"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     android:paddingHorizontal="@dimen/padding_size_8dp"
                     android:text="Hỗ trợ"
                     android:textSize="@dimen/text_size_22sp"

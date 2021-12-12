@@ -34,7 +34,7 @@
                 app:srcCompat="@drawable/ic_back" />
 
             <TextView
-                style="@style/TextTitle"
+                android:textSize="@dimen/text_size_24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_size_16dp"
@@ -42,6 +42,7 @@
                 android:gravity="center"
                 android:text="Tài khoản"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_text_bold"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_size_15dp"
+                        android:fontFamily="@font/sf_pro_text_bold"
                         android:layout_marginBottom="@dimen/margin_size_10dp"
                         android:text="Họ và tên"
                         android:textColor="@color/black"
@@ -92,11 +94,13 @@
                     <EditText
                         android:id="@+id/edit_full_name"
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/ui_text_regular"
                         android:layout_height="@dimen/size_50dp"
                         android:background="@drawable/bg_edit_text"
                         android:paddingStart="@dimen/padding_size_15dp" />
 
                     <TextView
+                        android:fontFamily="@font/sf_pro_text_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_size_15dp"
@@ -111,11 +115,13 @@
                         android:id="@+id/edit_phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/size_50dp"
+                        android:fontFamily="@font/ui_text_regular"
                         android:background="@drawable/bg_edit_text"
                         android:focusable="false"
                         android:paddingStart="@dimen/padding_size_15dp" />
 
                     <TextView
+                        android:fontFamily="@font/sf_pro_text_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_size_15dp"
@@ -128,6 +134,7 @@
                     <EditText
                         android:id="@+id/edtAddress"
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/ui_text_regular"
                         android:layout_height="@dimen/size_50dp"
                         android:background="@drawable/bg_edit_text"
                         android:paddingStart="@dimen/padding_size_15dp" />
@@ -145,6 +152,7 @@
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
+        android:fontFamily="@font/sf_pro_text_bold"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/margin_size_15dp"
         android:layout_marginTop="@dimen/margin_size_8dp"
