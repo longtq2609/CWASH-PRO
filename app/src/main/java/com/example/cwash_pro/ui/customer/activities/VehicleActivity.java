@@ -1,10 +1,5 @@
 package com.example.cwash_pro.ui.customer.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,13 +14,18 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.cwash_pro.R;
 import com.example.cwash_pro.adapters.VehicleAdapter;
 import com.example.cwash_pro.apis.ApiService;
 import com.example.cwash_pro.apis.RetrofitClient;
-import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.models.ServerResponse;
 import com.example.cwash_pro.models.Vehicle;
+import com.example.cwash_pro.myinterface.ItemClick;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 import com.reginald.editspinner.EditSpinner;
 
@@ -215,30 +215,36 @@ public class VehicleActivity extends AppCompatActivity {
                 }
             });
             btnAddVehicle.setOnClickListener(view -> {
-                final CustomDialogProgress dialogLoadAdd = new CustomDialogProgress(this);
-                dialogLoadAdd.show();
-                RetrofitClient.getInstance().create(ApiService.class).addVehicle(edtNameOfVehicle.getText().toString(), type
-                        , edtLicense.getText().toString(), edtColorOfVehicle.getText().toString(), spnBrand.getText().toString()).enqueue(new Callback<ServerResponse>() {
-                    @Override
-                    public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                        if (response.code() == 200) {
-                            if (response.body() != null) {
-                                Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
-                            }
-                            finish();
-                            overridePendingTransition(0, 0);
-                            startActivity(getIntent());
-                            overridePendingTransition(0, 0);
-                            dialogLoad.dismiss();
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                        Log.d("Error to add vehicle", t.getMessage());
-                    }
-                });
-                builder.dismiss();
+                if (!edtNameOfVehicle.getText().toString().isEmpty() && !edtLicense.getText().toString().isEmpty() && !edtColorOfVehicle.getText().toString().isEmpty() && !spnBrand.getText().toString().isEmpty()) {
+                    final CustomDialogProgress dialogLoadAdd = new CustomDialogProgress(this);
+                    dialogLoadAdd.show();
+                    RetrofitClient.getInstance().create(ApiService.class).addVehicle(edtNameOfVehicle.getText().toString(), type
+                            , edtLicense.getText().toString(), edtColorOfVehicle.getText().toString(), spnBrand.getText().toString()).enqueue(new Callback<ServerResponse>() {
+                        @Override
+                        public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                            if (response.code() == 200) {
+                                if (response.body() != null) {
+                                    Toast.makeText(VehicleActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                                }
+                                finish();
+                                overridePendingTransition(0, 0);
+                                startActivity(getIntent());
+                                overridePendingTransition(0, 0);
+                            }
+                            dialogLoadAdd.dismiss();
+                            builder.dismiss();
+                        }
+
+                        @Override
+                        public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                            Log.d("Error to add vehicle", t.getMessage());
+                            dialogLoadAdd.dismiss();
+                        }
+                    });
+                } else {
+                    Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
             });
             btnCancel.setOnClickListener(view -> builder.dismiss());
             builder.setView(inflate);
