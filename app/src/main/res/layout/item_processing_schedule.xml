@@ -9,14 +9,13 @@
     android:gravity="center"
     android:padding="@dimen/padding_size_8dp">
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/img"
         android:layout_width="@dimen/size_100dp"
         android:layout_weight="1"
         android:layout_height="@dimen/size_100dp"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="processing-animation.json"
-        app:lottie_loop="true" />
+        android:src="@drawable/ic_done"
+         />
 
     <RelativeLayout
         android:layout_width="match_parent"

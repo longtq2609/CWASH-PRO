@@ -72,11 +72,6 @@ public class ProcessingScheduleFragment extends Fragment {
                                                 ProgressDialog dialog = new ProgressDialog(getContext());
                                                 dialog.setMessage("Đang tải");
                                                 dialog.show();
-                                                new Handler().postDelayed(() -> {
-                                                    scheduleList.remove(pos);
-                                                    scheduleAdapter.notifyDataSetChanged();
-                                                    dialog.dismiss();
-                                                }, 2000);
                                                 Toast.makeText(getActivity(), "Lịch đã hoàn thành", Toast.LENGTH_SHORT).show();
                                                 //setCurrentFragment(new CompletedScheduleFragment());
                                             } else {
