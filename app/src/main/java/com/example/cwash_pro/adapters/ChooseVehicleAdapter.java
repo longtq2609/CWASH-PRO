@@ -3,6 +3,7 @@ package com.example.cwash_pro.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import java.util.List;
 public class ChooseVehicleAdapter implements SpinnerAdapter {
     Context context;
     List<Vehicle> vehicleList;
-
 
     public ChooseVehicleAdapter(Context context, List<Vehicle> vehicleList) {
         this.context = context;

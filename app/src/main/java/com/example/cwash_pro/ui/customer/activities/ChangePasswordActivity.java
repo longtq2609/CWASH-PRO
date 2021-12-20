@@ -33,27 +33,33 @@ public class ChangePasswordActivity extends AppCompatActivity {
         initViews();
         imgBack.setOnClickListener(v -> onBackPressed());
         btnChange.setOnClickListener(v -> {
-            if (edtNewPwRs.getText().toString().equals(edtNewPw.getText().toString())) {
-                final CustomDialogProgress dialog = new CustomDialogProgress(this);
-                dialog.show();
-                RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
-                    @Override
-                    public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                        if (response.body().success) {
-                            Toast.makeText(ChangePasswordActivity.this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(ChangePasswordActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+            if(!edtCurPw.getText().toString().trim().isEmpty() && !edtNewPwRs.getText().toString().trim().isEmpty() && !edtNewPw.getText().toString().trim().isEmpty()){
+                if (edtNewPwRs.getText().toString().trim().equals(edtNewPw.getText().toString().trim())) {
+                    final CustomDialogProgress dialog = new CustomDialogProgress(this);
+                    dialog.show();
+                    RetrofitClient.getInstance().create(ApiService.class).changePassword(edtCurPw.getText().toString().trim(), edtNewPw.getText().toString().trim()).enqueue(new Callback<ServerResponse>() {
+                        @Override
+                        public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                            if (response.body().success) {
+                                Toast.makeText(ChangePasswordActivity.this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(ChangePasswordActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                            }
+                            dialog.dismiss();
                         }
-                        dialog.dismiss();
-                    }
-                    @Override
-                    public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                        Log.d("onFailureChangePw: ", t.getMessage());
-                    }
-                });
-            } else {
-                Toast.makeText(ChangePasswordActivity.this, "Mật khẩu mới không đúng", Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                            Log.d("onFailureChangePw: ", t.getMessage());
+                        }
+                    });
+                } else {
+                    Toast.makeText(ChangePasswordActivity.this, "Mật khẩu mới không đúng", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(ChangePasswordActivity.this, "Mời nhập thông tin", Toast.LENGTH_SHORT).show();
+
             }
+
 
         });
     }

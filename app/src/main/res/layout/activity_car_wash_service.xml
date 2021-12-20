@@ -91,6 +91,7 @@
                 android:id="@+id/spnVehicleCar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_50dp"
+                android:theme="@style/SpinnerTheme"
                 android:layout_below="@+id/view1"
                 android:layout_marginVertical="8dp"
                 android:background="@drawable/bg_spinner"
@@ -169,7 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tvChooseTime"
-                android:background="@drawable/bg_list_news"
+                android:background="@drawable/bg_spinner"
                 android:padding="@dimen/padding_size_10dp"
                 tools:listitem="@layout/item_choose_time" />
 
@@ -191,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvService"
                 android:layout_marginTop="@dimen/margin_size_8dp"
-                android:background="@drawable/bg_list_news"
+                android:background="@drawable/bg_spinner"
                 android:padding="10dp" />
 
             <TextView
@@ -209,6 +210,8 @@
             <EditText
                 android:id="@+id/edtNote"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/ui_text_regular"
+                android:textColor="@color/black"
                 android:layout_height="@dimen/size_70dp"
                 android:layout_below="@id/tvNote"
                 android:background="@drawable/bg_spinner"

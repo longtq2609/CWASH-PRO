@@ -156,14 +156,14 @@
         app:fb_cornerRadius="@dimen/radius_size_2dp"
         app:fb_divColor="#fff"
         app:fb_divWidth="@dimen/size_1dp"
-        app:fb_iconColor="#344187"
+        app:fb_iconColor="@color/black"
         app:fb_iconMarginBottom="@dimen/margin_size_5dp"
         android:fontFamily="@font/sf_pro_text_bold"
         app:fb_iconPosition="top"
         app:fb_rippleColor="#FBE9E7"
         app:fb_shape="circle"
         app:fb_text="Chi Tiết"
-        app:fb_textColor="#344187"
+        app:fb_textColor="@color/black"
         app:fb_textSize="@dimen/text_size_20sp"
         app:fb_textStyle="bold" />
 </LinearLayout>

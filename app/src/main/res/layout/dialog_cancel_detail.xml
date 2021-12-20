@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
+        android:background="@drawable/bg_spinner"
         android:gravity="center"
         android:text="Thông tin"
         android:textColor="@color/black"
@@ -169,6 +170,7 @@
     <Button
         android:id="@+id/tvClose"
         android:layout_width="match_parent"
+        android:textStyle="bold"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginTop="@dimen/margin_size_15dp"
         android:fontFamily="@font/sf_pro_text_bold"

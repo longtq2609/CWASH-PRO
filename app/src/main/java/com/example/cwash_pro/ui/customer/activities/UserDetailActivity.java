@@ -103,29 +103,35 @@ public class UserDetailActivity extends AppCompatActivity {
             filePart = MultipartBody.Part.createFormData(
                     "avatar", file.getName(), requestBody);
         }
-        final CustomDialogProgress dialog = new CustomDialogProgress(this);
-        dialog.show();
-        RetrofitClient.getInstance().create(ApiService.class).updateInfo( editFullName.getText().toString(), editAddress.getText().toString(),
-                filePart).enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body() != null) {
-                    if (response.body().success) {
-                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
-                        RetrofitClient.user = response.body().user;
-                        dialog.dismiss();
-                    } else {
-                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
+        if(!editFullName.getText().toString().isEmpty() && !editAddress.getText().toString().isEmpty() ){
+            final CustomDialogProgress dialog = new CustomDialogProgress(this);
+            dialog.show();
+            RetrofitClient.getInstance().create(ApiService.class).updateInfo( editFullName.getText().toString(), editAddress.getText().toString(),
+                    filePart).enqueue(new Callback<ServerResponse>() {
+                @Override
+                public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+                    if (response.body() != null) {
+                        if (response.body().success) {
+                            Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                            RetrofitClient.user = response.body().user;
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-                Log.d("onFailureUser: ", t.getMessage());
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                    Log.d("onFailureUser: ", t.getMessage());
+                }
+            });
+        }else {
+            Toast.makeText(getApplicationContext(),"Mời nhập thông tin", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
     private void initView() {

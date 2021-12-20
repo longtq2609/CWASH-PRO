@@ -106,6 +106,7 @@
 
         <Button
             android:id="@+id/btnCancel"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_60dp"
             android:layout_marginEnd="@dimen/margin_size_8dp"
@@ -119,6 +120,7 @@
             android:id="@+id/btnUpdateVehicle"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_60dp"
+            android:textStyle="bold"
             android:fontFamily="@font/sf_pro_text_bold"
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/margin_size_8dp"

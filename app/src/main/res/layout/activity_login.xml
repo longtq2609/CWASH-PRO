@@ -91,12 +91,15 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/ic_lock">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
+            android:cursorVisible="true"
+            android:inputType="numberPassword"
+            android:maxLength="10"
+            android:maxLines="1"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ui_text_regular"
             android:layout_marginHorizontal="@dimen/margin_size_15dp"

@@ -53,6 +53,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         service = service + "";
         holder.tvStatus.setTextColor(Color.GREEN);
         holder.img.setImageResource(R.drawable.ic_done);
+        holder.tvStatus.setText("Đã hoàn thành");
         holder.tvVehicle.setText(schedules.get(position).getVehicle().getBrand());
         if (schedules.get(position).getStatus().equals("Confirmed") && !schedules.get(position).getVehicleStatus()) {
             holder.btnConfirmVehicle.setVisibility(View.VISIBLE);

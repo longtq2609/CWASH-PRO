@@ -9,13 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/layoutContainer"
-        app:cardCornerRadius="@dimen/size_30dp"
         app:strokeColor="#C0C0C0"
         app:strokeWidth="1dp">
 
         <TextView
             android:id="@+id/tvChoosedTime"
             android:layout_width="@dimen/size_60dp"
+            android:fontFamily="@font/ui_text_regular"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_height="@dimen/size_30dp"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>

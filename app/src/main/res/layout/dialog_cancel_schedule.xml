@@ -43,6 +43,7 @@
         <Button
             android:id="@+id/btnNone"
             android:layout_width="match_parent"
+            android:textStyle="bold"
             android:layout_height="@dimen/size_60dp"
             android:layout_marginEnd="@dimen/margin_size_15dp"
             android:fontFamily="@font/sf_pro_text_bold"
@@ -54,6 +55,7 @@
         <Button
             android:id="@+id/btnOKCancel"
             android:layout_width="match_parent"
+            android:textStyle="bold"
             android:layout_height="@dimen/size_60dp"
             android:fontFamily="@font/sf_pro_text_bold"
             android:layout_marginStart="@dimen/margin_size_15dp"
