@@ -17,8 +17,8 @@
         android:icon="@drawable/ic_cancel"
         android:title="Đã hủy" />
     <item
-        android:id="@+id/account2"
+        android:id="@+id/account"
         android:icon="@drawable/ic_account_circle"
-        android:title="Tài khoản" />
+        android:title="@string/account" />
 
 </menu>

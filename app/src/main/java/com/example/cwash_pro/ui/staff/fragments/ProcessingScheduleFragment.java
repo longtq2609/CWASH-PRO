@@ -69,9 +69,6 @@ public class ProcessingScheduleFragment extends Fragment {
                                     public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
                                         if (response1.body() != null) {
                                             if (response1.body().success) {
-                                                ProgressDialog dialog = new ProgressDialog(getContext());
-                                                dialog.setMessage("Đang tải");
-                                                dialog.show();
                                                 Toast.makeText(getActivity(), "Lịch đã hoàn thành", Toast.LENGTH_SHORT).show();
                                                 //setCurrentFragment(new CompletedScheduleFragment());
                                             } else {

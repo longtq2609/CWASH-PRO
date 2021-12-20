@@ -58,7 +58,7 @@ public class StaffMainActivity extends AppCompatActivity {
                 case R.id.cancelled:
                         setCurrentFragment(new CancelledScheduleFragment());
                     return true;
-                case R.id.account2:
+                case R.id.account:
                         setCurrentFragment(new AccountFragment());
             }
             return false;

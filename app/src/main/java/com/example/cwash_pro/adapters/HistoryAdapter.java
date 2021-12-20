@@ -58,17 +58,19 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             holder.btnConfirmVehicle.setVisibility(View.VISIBLE);
             holder.img.setImageResource(R.drawable.ic_done);
             holder.tvStatus.setTextColor(Color.GREEN);
+            holder.tvStatus.setText("Đã xác nhận");
         }
         if (schedules.get(position).getStatus().equals("Pending")) {
             holder.btnCancelSchedule.setVisibility(View.VISIBLE);
             holder.img.setImageResource(R.drawable.ic_pending);
             holder.tvStatus.setTextColor(Color.RED);
+            holder.tvStatus.setText("Đang chờ xác nhận");
         }
         if (schedules.get(position).getStatus().equals("Cancelled")) {
             holder.tvStatus.setTextColor(Color.BLUE);
             holder.img.setImageResource(R.drawable.ic_cancel);
+            holder.tvStatus.setText("Đã huỷ");
         }
-        holder.tvStatus.setText(schedules.get(position).getStatus());
         holder.tvService.setText(service);
     }
 

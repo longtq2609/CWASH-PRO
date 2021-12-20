@@ -74,9 +74,6 @@ public class PendingScheduleFragment extends Fragment {
                                     @Override
                                     public void onResponse(@NonNull Call<ServerResponse> call1, @NonNull Response<ServerResponse> response1) {
                                         if (response1.body() != null && response1.body().success) {
-                                            ProgressDialog dialog = new ProgressDialog(getContext());
-                                            dialog.setMessage("Đang xác nhận");
-                                            dialog.show();
                                             new Handler().postDelayed(() -> {
                                                 scheduleList.remove(pos);
                                                 scheduleAdapter.notifyDataSetChanged();
