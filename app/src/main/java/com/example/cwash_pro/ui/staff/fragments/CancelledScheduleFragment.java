@@ -69,7 +69,7 @@ public class CancelledScheduleFragment extends Fragment {
                             TextView tvNote = dialog.findViewById(R.id.tvNote);
                             TextView tvClose = dialog.findViewById(R.id.tvClose);
                             tvName.setText(scheduleList.get(pos).getUser().getFullName());
-                            tvVehicle.setText(scheduleList.get(pos).getVehicle().getName());
+                            tvVehicle.setText(scheduleList.get(pos).getVehicle().getBrand());
                             tvLicense.setText(scheduleList.get(pos).getVehicle().getLicense());
                             tvTime.setText(scheduleList.get(pos).getTimeBook());
                             tvStatus.setText(scheduleList.get(pos).getStatus());

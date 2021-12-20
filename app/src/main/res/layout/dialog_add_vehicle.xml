@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_60dp"
         android:layout_marginBottom="@dimen/margin_size_15dp"
-        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="Thêm phương tiện"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="@dimen/text_size_22sp"
         android:fontFamily="@font/sf_pro_text_bold"
         android:textStyle="bold" />

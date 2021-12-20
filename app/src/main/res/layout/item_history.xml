@@ -99,7 +99,7 @@
                     android:id="@+id/tvTitileStatus"
                     android:layout_width="@dimen/size_70dp"
                     android:layout_height="wrap_content"
-                    android:text="Tình trạng: "
+                    android:text="Trạng thái: "
                     android:textSize="@dimen/text_size_11sp"/>
                 <TextView
                     android:id="@+id/tvStatus"
@@ -114,7 +114,7 @@
 
         <LinearLayout
             android:id="@+id/layout_bottom"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/size_150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"

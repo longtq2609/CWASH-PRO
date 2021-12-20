@@ -31,7 +31,7 @@ public class ChooseVehicleAdapter implements SpinnerAdapter {
         TextView tvLicense;
         tvName = convertView.findViewById(R.id.tvName);
         tvLicense = convertView.findViewById(R.id.tvLicense);
-        tvName.setText(vehicleList.get(position).getName());
+        tvName.setText(vehicleList.get(position).getBrand());
         tvLicense.setText(vehicleList.get(position).getLicense());
         return convertView;
     }
@@ -76,7 +76,7 @@ public class ChooseVehicleAdapter implements SpinnerAdapter {
         TextView tvLicense;
         tvName = convertView.findViewById(R.id.tvName);
         tvLicense = convertView.findViewById(R.id.tvLicense);
-        tvName.setText(vehicleList.get(position).getName());
+        tvName.setText(vehicleList.get(position).getBrand());
         tvLicense.setText(vehicleList.get(position).getLicense());
         return convertView;
     }

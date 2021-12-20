@@ -6,12 +6,11 @@
     android:padding="@dimen/padding_size_15dp"
     android:layout_height="match_parent">
     <TextView
-        android:background="@drawable/btn_login"
         android:gravity="center"
         android:text="@string/support"
         android:textSize="@dimen/text_size_22sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:fontFamily="@font/sf_pro_text_bold"
         android:layout_marginBottom="@dimen/margin_size_15dp"
         android:layout_width="match_parent"
