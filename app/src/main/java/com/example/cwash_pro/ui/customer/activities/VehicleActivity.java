@@ -101,12 +101,17 @@ public class VehicleActivity extends AppCompatActivity {
                                 View dialog = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_update_vehicle, null);
                                 Button btnUpdate = dialog.findViewById(R.id.btnUpdateVehicle);
                                 EditText edtName = dialog.findViewById(R.id.edtNameOfVehicle);
-                                EditText edtBrand = dialog.findViewById(R.id.edtBrand);
+                                EditSpinner edtBrand = dialog.findViewById(R.id.edtBrand);
                                 EditText edtColor = dialog.findViewById(R.id.edtColorOfVehicle);
                                 EditText edtLicense = dialog.findViewById(R.id.edtLicense);
                                 Spinner spnType = dialog.findViewById(R.id.spnType);
                                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(VehicleActivity.this,
                                         R.array.type_of_vehicle, android.R.layout.simple_spinner_dropdown_item);
+                                ArrayAdapter<String> adapterBrandMoto = new ArrayAdapter<>(VehicleActivity.this, android.R.layout.simple_spinner_dropdown_item,
+                                        getResources().getStringArray(R.array.brand_of_vehicle_moto));
+                                ArrayAdapter<String> adapterBrandCar = new ArrayAdapter<>(VehicleActivity.this, android.R.layout.simple_spinner_dropdown_item,
+                                        getResources().getStringArray(R.array.brand_of_vehicle_car));
+                                edtBrand.setAdapter(adapterBrandMoto);
                                 adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
                                 spnType.setAdapter(adapter);
                                 spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -114,8 +119,12 @@ public class VehicleActivity extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         if (spnType.getSelectedItem().toString().equals("Xe máy")) {
                                             type = "Motorcycle";
+                                            edtBrand.setAdapter(adapterBrandMoto);
+
                                         } else if (spnType.getSelectedItem().toString().equals("Ô tô")) {
                                             type = "Car";
+                                            edtBrand.setAdapter(adapterBrandCar);
+
                                         }
                                     }
 

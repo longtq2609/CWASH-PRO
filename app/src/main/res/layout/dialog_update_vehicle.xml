@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/padding_size_15dp">
@@ -89,14 +91,27 @@
         android:textSize="@dimen/text_size_18sp"
         android:textStyle="bold" />
 
-    <EditText
+<!--    <EditText-->
+<!--        android:id="@+id/edtBrand"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/size_50dp"-->
+<!--        android:layout_marginTop="@dimen/margin_size_10dp"-->
+<!--        android:fontFamily="@font/ui_text_regular"-->
+<!--        android:background="@drawable/bg_edit_text"-->
+<!--        android:paddingStart="@dimen/padding_size_15dp" />-->
+
+    <com.reginald.editspinner.EditSpinner
+        android:paddingHorizontal="@dimen/padding_size_15dp"
         android:id="@+id/edtBrand"
+        app:dropDownDrawableSpacing="15dp"
+        app:dropDownDrawableWidth="25dp"
+        app:dropDownDrawableHeight="25dp"
+        app:dropDownDrawable="@drawable/ic_picker"
+        android:background="@drawable/bg_edit_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_50dp"
-        android:layout_marginTop="@dimen/margin_size_10dp"
         android:fontFamily="@font/ui_text_regular"
-        android:background="@drawable/bg_edit_text"
-        android:paddingStart="@dimen/padding_size_15dp" />
+        tools:ignore="RtlSymmetry" />
 
     <LinearLayout
         android:layout_width="match_parent"
