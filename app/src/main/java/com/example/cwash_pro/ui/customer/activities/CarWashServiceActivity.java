@@ -77,8 +77,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
         staffList = new ArrayList<>();
         getVehicle();
         getServices();
-        getTimeOfMoto();
-        getTimeOfCar();
         timeList = timeListOfMoto;
         getStatusSchedulePending();
         rvTime.setLayoutManager(new GridLayoutManager(this, 3, RecyclerView.HORIZONTAL, false));
@@ -276,50 +274,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
                 Log.e("getVehicles: ", t.getMessage());
             }
         });
-    }
-
-    public void getTimeOfMoto() {
-        for (int i = 8; i <= 19; i++) {
-            for (int j = 0; j < 60; j = j + 30) {
-                String s;
-                if (i < 10) {
-                    if (j < 10) {
-                        s = i + ":" + j + "0";
-                    } else {
-                        s = i + ":" + j;
-                    }
-                } else {
-                    if (j < 10) {
-                        s = i + ":" + j + "0";
-                    } else {
-                        s = i + ":" + j;
-                    }
-                }
-                timeListOfMoto.add(new Time(s, false, true));
-            }
-        }
-    }
-
-    public void getTimeOfCar() {
-        for (int i = 8; i <= 19; i++) {
-            for (int j = 0; j < 60; j = j + 60) {
-                String s;
-                if (i < 10) {
-                    if (j < 10) {
-                        s = i + ":" + j + "0";
-                    } else {
-                        s = i + ":" + j;
-                    }
-                } else {
-                    if (j < 10) {
-                        s = i + ":" + j + "0";
-                    } else {
-                        s = i + ":" + j;
-                    }
-                }
-                timeListOfCar.add(new Time(s, false, true));
-            }
-        }
     }
 
     private ChooseTimeAdapter chooseTimeAdapter() {
