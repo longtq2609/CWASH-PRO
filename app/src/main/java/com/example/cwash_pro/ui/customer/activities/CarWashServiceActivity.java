@@ -77,6 +77,8 @@ public class CarWashServiceActivity extends AppCompatActivity {
         staffList = new ArrayList<>();
         getVehicle();
         getServices();
+        setTimeServiceMoto();
+        setTimeServiceCar();
         timeList = timeListOfMoto;
         getStatusSchedulePending();
         rvTime.setLayoutManager(new GridLayoutManager(this, 3, RecyclerView.HORIZONTAL, false));
@@ -275,6 +277,35 @@ public class CarWashServiceActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void setTimeServiceMoto() {
+        for (int i = 8; i <= 19; i++) {
+            for (int j = 0; j < 60; j = j + 15) {
+                String timeMoto;
+                if (j < 10) {
+                    timeMoto = i + ":" + j + "0";
+                } else {
+                    timeMoto = i + ":" + j;
+                }
+                timeListOfMoto.add(new Time(timeMoto, false, true));
+            }
+        }
+    }
+
+    public void setTimeServiceCar() {
+        for (int i = 8; i <= 19; i++) {
+            for (int j = 0; j < 60; j = j + 30) {
+                String timeCar;
+                if (j < 10) {
+                    timeCar = i + ":" + j + "0";
+                }else {
+                    timeCar = i + ":" + j;
+                }
+                timeListOfCar.add(new Time(timeCar, false, true));
+            }
+        }
+    }
+
 
     private ChooseTimeAdapter chooseTimeAdapter() {
         return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, (v, pos) -> timeBook = timeList.get(pos).getTime());
