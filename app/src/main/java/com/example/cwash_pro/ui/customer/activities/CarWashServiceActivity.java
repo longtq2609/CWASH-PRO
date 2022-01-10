@@ -297,9 +297,9 @@ public class CarWashServiceActivity extends AppCompatActivity {
             for (int j = 0; j < 60; j = j + 30) {
                 String timeCar;
                 if (j < 10) {
-                    timeCar = i + ":" + j + "0";
+                    timeCar = i + " : " + j + "0";
                 }else {
-                    timeCar = i + ":" + j;
+                    timeCar = i + " : " + j;
                 }
                 timeListOfCar.add(new Time(timeCar, false, true));
             }
