@@ -254,27 +254,6 @@ public class CarWashServiceActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void getVehicle() {
-        RetrofitClient.getInstance().create(ApiService.class).getVehicle().enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if (response.body().success) {
-                    vehicleList = response.body().vehicles;
-                    ChooseVehicleAdapter chooseVehicleAdapter = new ChooseVehicleAdapter(CarWashServiceActivity.this, vehicleList);
-                    spnVehicleCar.setAdapter(chooseVehicleAdapter);
-                } else {
-                    Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-                Log.e("getVehicles: ", t.getMessage());
-            }
-        });
-    }
-
     public void getTimeOfMoto() {
         for (int i = 8; i <= 19; i++) {
             for (int j = 0; j < 60; j = j + 30) {
@@ -296,7 +275,36 @@ public class CarWashServiceActivity extends AppCompatActivity {
             }
         }
     }
+    private void getVehicle() {
+        RetrofitClient.getInstance().create(ApiService.class).getVehicle().enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                if (response.body().success) {
+                    vehicleList = response.body().vehicles;
+                    ChooseVehicleAdapter chooseVehicleAdapter = new ChooseVehicleAdapter(CarWashServiceActivity.this, vehicleList);
+                    spnVehicleCar.setAdapter(chooseVehicleAdapter);
+                } else {
+                    Toast.makeText(CarWashServiceActivity.this, response.body().message, Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+                Log.e("getVehicles: ", t.getMessage());
+            }
+        });
+    }
+
+
+
+    private ChooseTimeAdapter chooseTimeAdapter() {
+        return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, new ItemClick() {
+            @Override
+            public void setOnItemClick(View v, int pos) {
+                timeBook = timeList.get(pos).getTime();
+            }
+        });
+    }
     public void getTimeOfCar() {
         for (int i = 8; i <= 19; i++) {
             for (int j = 0; j < 60; j = j + 60) {
@@ -318,14 +326,4 @@ public class CarWashServiceActivity extends AppCompatActivity {
             }
         }
     }
-
-    private ChooseTimeAdapter chooseTimeAdapter() {
-        return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, new ItemClick() {
-            @Override
-            public void setOnItemClick(View v, int pos) {
-                timeBook = timeList.get(pos).getTime();
-            }
-        });
-    }
-
 }
