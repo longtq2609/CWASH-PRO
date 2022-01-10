@@ -279,7 +279,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     }
 
     public void setTimeServiceMoto() {
-        for (int i = 8; i <= 19; i++) {
+        for (int i = 8; i <= 19; i++)  {
             for (int j = 0; j < 60; j = j + 15) {
                 String timeMoto;
                 if (j < 10) {
