@@ -134,6 +134,26 @@
                     android:background="@drawable/bg_edit_text"
                     android:fontFamily="@font/ui_text_regular"
                     android:paddingStart="@dimen/padding_size_15dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_size_15dp"
+                    android:layout_marginBottom="@dimen/margin_size_10dp"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:text="Trạng thái nhân viên"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_50dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_edit_text"
+                    android:fontFamily="@font/ui_text_regular"
+                    android:paddingStart="@dimen/padding_size_15dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
