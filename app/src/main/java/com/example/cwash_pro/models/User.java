@@ -29,6 +29,8 @@ public class User {
     @SerializedName("address")
     @Expose
     private String address;
+    @SerializedName("status")
+    private String status;
 
     public String getStatus() {
         return status;
@@ -38,8 +40,6 @@ public class User {
         this.status = status;
     }
 
-    @SerializedName("status")
-    private String status;
 
     public String getRole() {
         return role;
