@@ -30,6 +30,17 @@ public class User {
     @Expose
     private String address;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @SerializedName("status")
+    private String status;
+
     public String getRole() {
         return role;
     }
