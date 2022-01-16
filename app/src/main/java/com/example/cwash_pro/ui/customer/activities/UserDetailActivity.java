@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -47,6 +48,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private EditText editFullName;
     private EditText editPhoneNumber;
     private EditText editAddress;
+    private TextView tvStatus;
     private RoundedImageView imgAvatar;
     private ImageView imgBack;
     Button btnUpdate;
@@ -70,6 +72,12 @@ public class UserDetailActivity extends AppCompatActivity {
         editPhoneNumber.setText(RetrofitClient.user.getPhoneNumber());
         editFullName.setText(RetrofitClient.user.getFullName());
         editAddress.setText(RetrofitClient.user.getAddress());
+        if(RetrofitClient.user.getRole().equals("Staff") && RetrofitClient.user.getStatus() != null){
+            tvStatus.setVisibility(View.VISIBLE);
+            tvStatus.setText(RetrofitClient.user.getStatus());
+        }else {
+            tvStatus.setVisibility(View.GONE);
+        }
         Glide.with(Objects.requireNonNull(getApplicationContext())).load(RetrofitClient.link + RetrofitClient.user.getAvatar()).into(imgAvatar);
         checkPermission();
         btnUpdate.setOnClickListener(v -> {
@@ -138,6 +146,7 @@ public class UserDetailActivity extends AppCompatActivity {
         editFullName = (EditText) findViewById(R.id.edit_full_name);
         editPhoneNumber = (EditText) findViewById(R.id.edit_phone_number);
         editAddress = (EditText) findViewById(R.id.edtAddress);
+        tvStatus = findViewById(R.id.tv_status);
         imgAvatar =  findViewById(R.id.imgAvatar);
         btnUpdate = findViewById(R.id.btnUpdate);
         imgBack = findViewById(R.id.imgBack);
