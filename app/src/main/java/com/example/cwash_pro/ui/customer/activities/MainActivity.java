@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
         exit = true;
-        Toast.makeText(this, "Bấm lần nữa để thoát", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Bấm hai lần nữa để thoát", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(() -> exit = false, 1500);
     }
 
