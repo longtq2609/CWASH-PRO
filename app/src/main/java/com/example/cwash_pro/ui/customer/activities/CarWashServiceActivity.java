@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,11 +38,15 @@ import com.example.cwash_pro.models.Service;
 import com.example.cwash_pro.models.Time;
 import com.example.cwash_pro.models.User;
 import com.example.cwash_pro.models.Vehicle;
+import com.example.cwash_pro.services.RemindService;
 import com.example.cwash_pro.ui.dialog.CustomDialogProgress;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -143,6 +151,32 @@ public class CarWashServiceActivity extends AppCompatActivity {
                 RetrofitClient.getInstance().create(ApiService.class).book(scheduleBody).enqueue(new Callback<ServerResponse>() {
                     @Override
                     public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                        RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
+                            @Override
+                            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response2) {
+                                if (response2.body() != null) {
+
+                                    for (int i = 0; i < response2.body().schedules.size(); i++) {
+                                        String time = response2.body().schedules.get(i).getTimeBook() + "/2022";
+//                                        time = "23:35 & 17/1/2021";
+//                                        String hour = time.substring(0, 5);
+                                        Log.e("AAAAAAAAAAAAaa", "onResponse: " + time);
+                                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm & dd/MM/yyyy");
+                                        try {
+                                            setNotificationTime(simpleDateFormat.parse(time).getTime());
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                }
+
+                            }
+
+                            @Override
+                            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+                            }
+                        });
                         AlertDialog builder = new AlertDialog.Builder(CarWashServiceActivity.this).create();
                         View dialog;
                         if (response.body() != null) {
@@ -180,8 +214,18 @@ public class CarWashServiceActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ServerResponse> call, Throwable t) {
+                    public void onFailure(Call<ServerResponse> call, Throwable t) {dialogLoadBook.dismiss();
                         Log.e("onFailure: ", t.getMessage());
+//                        String time = scheduleBody.getTimeBook() + "/2022";
+////                                        time = "23:35 & 17/1/2021";
+////                                        String hour = time.substring(0, 5);
+//                        Log.e("AAAAAAAAAAAAaa", "onResponse: " + time);
+//                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm & dd/MM/yyyy");
+//                        try {
+//                            setNotificationTime(simpleDateFormat.parse(time).getTime());
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
                     }
                 });
             }
@@ -279,7 +323,7 @@ public class CarWashServiceActivity extends AppCompatActivity {
     }
 
     public void setTimeServiceMoto() {
-        for (int i = 8; i <= 19; i++)  {
+        for (int i = 8; i <= 19; i++) {
             for (int j = 0; j < 60; j = j + 15) {
                 String timeMoto;
                 if (j < 10) {
@@ -297,9 +341,9 @@ public class CarWashServiceActivity extends AppCompatActivity {
             for (int j = 0; j < 60; j = j + 30) {
                 String timeCar;
                 if (j < 10) {
-                    timeCar = i + " : " + j + "0";
+                    timeCar = i + ":" + j + "0";
                 }else {
-                    timeCar = i + " : " + j;
+                    timeCar = i + ":" + j;
                 }
                 timeListOfCar.add(new Time(timeCar, false, true));
             }
@@ -311,4 +355,11 @@ public class CarWashServiceActivity extends AppCompatActivity {
         return new ChooseTimeAdapter(this, timeList, dateBook, staffList, schedulesPending, (v, pos) -> timeBook = timeList.get(pos).getTime());
     }
 
+    public void setNotificationTime(Long mScheduleBody) {
+        Long timeDelay = mScheduleBody - TimeUnit.MILLISECONDS.convert(20, TimeUnit.MINUTES);
+        Intent myIntent = new Intent(CarWashServiceActivity.this, RemindService.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(CarWashServiceActivity.this, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeDelay, pendingIntent);
+    }
 }
