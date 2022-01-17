@@ -3,6 +3,8 @@ package com.example.cwash_pro.apis;
 import com.example.cwash_pro.models.User;
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -18,7 +20,7 @@ public class RetrofitClient {
     public static String tokenDevice = "";
 
     static OkHttpClient okHttpClient() {
-        return new OkHttpClient.Builder().addInterceptor(chain -> {
+        return new OkHttpClient.Builder().readTimeout(20, TimeUnit.SECONDS).connectTimeout(20, TimeUnit.SECONDS).addInterceptor(chain -> {
             Request request = chain.request().newBuilder().addHeader("Authorization", JWT).build();
             return chain.proceed(request);
         }).build();

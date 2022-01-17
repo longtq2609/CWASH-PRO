@@ -71,29 +71,29 @@ public class MainActivity extends AppCompatActivity {
 
             return false;
         });
-        RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
-                if (response.body() != null) {
-                    for (int i = 0; i < response.body().schedules.size(); i++) {
-                        String time = response.body().schedules.get(i).getTimeBook();
-                        String hour = time.substring(0, 5);
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
-                        try {
-                            setNotificationTime(simpleDateFormat.parse(hour).getTime());
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
-            }
-        });
+//        RetrofitClient.getInstance().create(ApiService.class).getSchedulesUser().enqueue(new Callback<ServerResponse>() {
+//            @Override
+//            public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
+//                if (response.body() != null) {
+//                    for (int i = 0; i < response.body().schedules.size(); i++) {
+//                        String time = response.body().schedules.get(i).getTimeBook();
+//                        String hour = time.substring(0, 5);
+//                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+//                        try {
+//                            setNotificationTime(simpleDateFormat.parse(hour).getTime());
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull Call<ServerResponse> call, @NonNull Throwable t) {
+//            }
+//        });
 
     }
 
