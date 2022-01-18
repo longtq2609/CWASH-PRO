@@ -158,19 +158,18 @@ public class CarWashServiceActivity extends AppCompatActivity {
                             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response2) {
                                 if (response2.body() != null) {
 
-                                    for (int i = 0; i < response2.body().schedules.size(); i++) {
-                                        String time = response2.body().schedules.get(i).getTimeBook() + "/2022";
-//                                        time = "23:35 & 17/1/2021";
-//                                        String hour = time.substring(0, 5);
-                                        Log.e("AAAAAAAAAAAAaa", "onResponse: " + time);
-                                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm & dd/MM/yyyy");
-                                        try {
-                                            setNotificationTime(simpleDateFormat.parse(time).getTime());
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
 
+                                    String time = response2.body().schedules.get(0).getTimeBook() + "/2022";
+//                                        time = "9:44 @ 18/1/2022";
+//
+                                    Log.e("AAAAAAAAAAAAaa", "onResponse: " + time);
+                                    Log.e("AAAAAAAAAAAAaa", "onResponse: " +  response2.body().schedules.get(0).getTimeBook() + "/2022");
+                                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm @ dd/MM/yyyy");
+                                    try {
+                                        setNotificationTime(simpleDateFormat.parse(time).getTime());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
 
                             }
